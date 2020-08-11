@@ -12,6 +12,7 @@ pub enum ConnectionError
 
 impl ConnectionError
 {
+  #[inline(always)]
   pub fn has_error(c: *mut core::xcb_connection_t) -> Option<Self>
   {
     match unsafe { core::xcb_connection_has_error(c) } {
