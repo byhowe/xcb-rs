@@ -10,6 +10,7 @@ pub mod dri2;
 pub mod dri3;
 pub mod ewmh;
 pub mod glx;
+pub mod icccm;
 pub mod present;
 pub mod randr;
 pub mod record;
