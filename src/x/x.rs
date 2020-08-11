@@ -19,7 +19,7 @@ impl X
       CString::new(display_name).unwrap().as_ptr()
     };
 
-    let default_screen: i32 = 0;
+    let mut default_screen: i32 = 0;
     let c: *mut core::xcb_connection_t =
       unsafe { core::xcb_connect(display_name, &mut default_screen) };
 
@@ -38,7 +38,7 @@ impl X
   #[inline(always)]
   pub fn flush(&self) -> bool
   {
-    (unsafe { core::xcb_flush(self.c) } > 0)
+    unsafe { core::xcb_flush(self.c) > 0 }
   }
 
   #[inline(always)]
