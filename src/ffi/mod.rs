@@ -14,6 +14,7 @@ pub mod event;
 pub mod ewmh;
 pub mod glx;
 pub mod icccm;
+pub mod image;
 pub mod keysyms;
 pub mod present;
 pub mod randr;
