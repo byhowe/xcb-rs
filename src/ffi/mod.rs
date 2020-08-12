@@ -10,6 +10,7 @@ pub mod damage;
 pub mod dpms;
 pub mod dri2;
 pub mod dri3;
+pub mod event;
 pub mod ewmh;
 pub mod glx;
 pub mod icccm;
