@@ -4,6 +4,7 @@
 pub mod big_requests;
 pub mod composite;
 pub mod core;
+pub mod cursor;
 pub mod damage;
 pub mod dpms;
 pub mod dri2;
