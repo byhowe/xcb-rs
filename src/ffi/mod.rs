@@ -3,6 +3,7 @@
 
 pub mod atom;
 pub mod big_requests;
+pub mod bitops;
 pub mod composite;
 pub mod core;
 pub mod cursor;
