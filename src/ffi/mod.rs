@@ -12,6 +12,7 @@ pub mod dri3;
 pub mod ewmh;
 pub mod glx;
 pub mod icccm;
+pub mod keysyms;
 pub mod present;
 pub mod randr;
 pub mod record;
