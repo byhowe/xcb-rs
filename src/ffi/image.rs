@@ -37,6 +37,7 @@ pub struct xcb_shm_segment_info_t
   pub shmaddr: *mut u8,
 }
 
+#[link(name = "xcb")]
 extern "C" {
   pub fn xcb_image_annotate(image: *mut xcb_image_t);
 
