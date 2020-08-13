@@ -92,7 +92,7 @@ pub unsafe extern "C" fn xcb_host_byte_order() -> xcb_image_order_t
 {
   let endian_test: *const u32 = &0x01020304;
 
-  match *(endian_test as *const libc::c_char) {
+  match *(endian_test as *const ::std::os::raw::c_char) {
     0x01 => xcb_image_order_t::XCB_IMAGE_ORDER_MSB_FIRST,
     0x04 => xcb_image_order_t::XCB_IMAGE_ORDER_LSB_FIRST,
     _ => panic!("unexpected: bitops::xcb_host_byte_order"),

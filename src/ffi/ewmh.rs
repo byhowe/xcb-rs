@@ -312,8 +312,8 @@ pub struct xcb_ewmh_get_wm_fullscreen_monitors_reply_t
 #[inline(always)]
 pub unsafe extern "C" fn xcb_ewmh_connection_wipe(ewmh: *mut xcb_ewmh_connection_t)
 {
-  libc::free((*ewmh).screens as *mut libc::c_void);
-  libc::free((*ewmh)._NET_WM_CM_Sn as *mut libc::c_void);
+  libc::free((*ewmh).screens as *mut ::std::os::raw::c_void);
+  libc::free((*ewmh)._NET_WM_CM_Sn as *mut ::std::os::raw::c_void);
 }
 
 #[inline(always)]
@@ -689,7 +689,7 @@ pub unsafe extern "C" fn xcb_ewmh_set_wm_icon_checked(
     xcb_atom_enum_t::XCB_ATOM_CARDINAL as u32,
     32,
     data_len,
-    data as *const libc::c_void,
+    data as *const ::std::os::raw::c_void,
   )
 }
 
@@ -710,7 +710,7 @@ pub unsafe extern "C" fn xcb_ewmh_set_wm_icon(
     xcb_atom_enum_t::XCB_ATOM_CARDINAL as u32,
     32,
     data_len,
-    data as *const libc::c_void,
+    data as *const ::std::os::raw::c_void,
   )
 }
 
