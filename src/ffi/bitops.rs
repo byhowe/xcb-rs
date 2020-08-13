@@ -90,10 +90,9 @@ pub unsafe extern "C" fn xcb_bit_reverse(
 #[inline(always)]
 pub unsafe extern "C" fn xcb_host_byte_order() -> xcb_image_order_t
 {
-  let endian_test: u32 = 0x01020304;
-  let test_ptr: *const u32 = &endian_test;
+  let endian_test: *const u32 = &0x01020304;
 
-  match *(test_ptr as *const libc::c_char) {
+  match *(endian_test as *const libc::c_char) {
     0x01 => xcb_image_order_t::XCB_IMAGE_ORDER_MSB_FIRST,
     0x04 => xcb_image_order_t::XCB_IMAGE_ORDER_LSB_FIRST,
     _ => panic!("unexpected: bitops::xcb_host_byte_order"),
