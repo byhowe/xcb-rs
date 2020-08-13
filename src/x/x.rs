@@ -47,3 +47,11 @@ impl X
     unsafe { core::xcb_generate_id(self.c) }
   }
 }
+
+impl Drop for X
+{
+  fn drop(&mut self)
+  {
+    unsafe { core::xcb_disconnect(self.c) }
+  }
+}
