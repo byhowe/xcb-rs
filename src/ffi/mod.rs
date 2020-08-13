@@ -37,6 +37,7 @@ pub mod xinerama;
 pub mod xinput;
 pub mod xkb;
 pub mod xprint;
+pub mod xrm;
 pub mod xse_linux;
 pub mod xtest;
 pub mod xv;
