@@ -1,10 +1,10 @@
 use super::ConnectionError;
-use crate::ffi::core;
+use crate::ffi::core::{xcb_connect, xcb_connection_t, xcb_disconnect, xcb_flush, xcb_generate_id};
 use std::ffi::CString;
 
 pub struct X
 {
-  c: *mut core::xcb_connection_t,
+  c: *mut xcb_connection_t,
   default_screen: i32,
 }
 
@@ -20,8 +20,7 @@ impl X
     };
 
     let mut default_screen: i32 = 0;
-    let c: *mut core::xcb_connection_t =
-      unsafe { core::xcb_connect(display_name, &mut default_screen) };
+    let c: *mut xcb_connection_t = unsafe { xcb_connect(display_name, &mut default_screen) };
 
     match ConnectionError::has_error(c) {
       Some(err) => Err(err),
@@ -38,13 +37,13 @@ impl X
   #[inline(always)]
   pub fn flush(&self) -> bool
   {
-    unsafe { core::xcb_flush(self.c) > 0 }
+    unsafe { xcb_flush(self.c) > 0 }
   }
 
   #[inline(always)]
   pub fn generate_id(&self) -> u32
   {
-    unsafe { core::xcb_generate_id(self.c) }
+    unsafe { xcb_generate_id(self.c) }
   }
 }
 
@@ -52,6 +51,6 @@ impl Drop for X
 {
   fn drop(&mut self)
   {
-    unsafe { core::xcb_disconnect(self.c) }
+    unsafe { xcb_disconnect(self.c) }
   }
 }
