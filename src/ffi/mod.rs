@@ -21,6 +21,7 @@ pub mod present;
 pub mod randr;
 pub mod record;
 pub mod render;
+pub mod render_util;
 pub mod res;
 pub mod screen_saver;
 pub mod shape;
