@@ -93,8 +93,8 @@ pub struct xcb_xfixes_query_version_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_save_set_mode_t
 {
-  XCB_XFIXES_SAVE_SET_MODE_INSERT = 0,
-  XCB_XFIXES_SAVE_SET_MODE_DELETE = 1,
+  INSERT = 0,
+  DELETE = 1,
 }
 
 #[repr(u32)]
@@ -102,8 +102,8 @@ pub enum xcb_xfixes_save_set_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_save_set_target_t
 {
-  XCB_XFIXES_SAVE_SET_TARGET_NEAREST = 0,
-  XCB_XFIXES_SAVE_SET_TARGET_ROOT = 1,
+  NEAREST = 0,
+  ROOT = 1,
 }
 
 #[repr(u32)]
@@ -111,8 +111,8 @@ pub enum xcb_xfixes_save_set_target_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_save_set_mapping_t
 {
-  XCB_XFIXES_SAVE_SET_MAPPING_MAP = 0,
-  XCB_XFIXES_SAVE_SET_MAPPING_UNMAP = 1,
+  MAP = 0,
+  UNMAP = 1,
 }
 
 #[repr(C)]
@@ -134,9 +134,9 @@ pub struct xcb_xfixes_change_save_set_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_selection_event_t
 {
-  XCB_XFIXES_SELECTION_EVENT_SET_SELECTION_OWNER = 0,
-  XCB_XFIXES_SELECTION_EVENT_SELECTION_WINDOW_DESTROY = 1,
-  XCB_XFIXES_SELECTION_EVENT_SELECTION_CLIENT_CLOSE = 2,
+  SET_SELECTION_OWNER = 0,
+  SELECTION_WINDOW_DESTROY = 1,
+  SELECTION_CLIENT_CLOSE = 2,
 }
 
 #[repr(u32)]
@@ -144,9 +144,9 @@ pub enum xcb_xfixes_selection_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_selection_event_mask_t
 {
-  XCB_XFIXES_SELECTION_EVENT_MASK_SET_SELECTION_OWNER = 1,
-  XCB_XFIXES_SELECTION_EVENT_MASK_SELECTION_WINDOW_DESTROY = 2,
-  XCB_XFIXES_SELECTION_EVENT_MASK_SELECTION_CLIENT_CLOSE = 4,
+  SET_SELECTION_OWNER = 1,
+  SELECTION_WINDOW_DESTROY = 2,
+  SELECTION_CLIENT_CLOSE = 4,
 }
 
 #[repr(C)]
@@ -181,7 +181,7 @@ pub struct xcb_xfixes_select_selection_input_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_cursor_notify_t
 {
-  XCB_XFIXES_CURSOR_NOTIFY_DISPLAY_CURSOR = 0,
+  DISPLAY_CURSOR = 0,
 }
 
 #[repr(u32)]
@@ -189,7 +189,7 @@ pub enum xcb_xfixes_cursor_notify_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_cursor_notify_mask_t
 {
-  XCB_XFIXES_CURSOR_NOTIFY_MASK_DISPLAY_CURSOR = 1,
+  DISPLAY_CURSOR = 1,
 }
 
 #[repr(C)]
@@ -276,7 +276,7 @@ pub struct xcb_xfixes_bad_region_error_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_region_enum_t
 {
-  XCB_XFIXES_REGION_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -659,10 +659,10 @@ pub struct xcb_xfixes_barrier_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xfixes_barrier_directions_t
 {
-  XCB_XFIXES_BARRIER_DIRECTIONS_POSITIVE_X = 1,
-  XCB_XFIXES_BARRIER_DIRECTIONS_POSITIVE_Y = 2,
-  XCB_XFIXES_BARRIER_DIRECTIONS_NEGATIVE_X = 4,
-  XCB_XFIXES_BARRIER_DIRECTIONS_NEGATIVE_Y = 8,
+  POSITIVE_X = 1,
+  POSITIVE_Y = 2,
+  NEGATIVE_X = 4,
+  NEGATIVE_Y = 8,
 }
 
 #[repr(C)]

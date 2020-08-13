@@ -100,8 +100,8 @@ pub struct xcb_xevie_end_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xevie_datatype_t
 {
-  XCB_XEVIE_DATATYPE_UNMODIFIED = 0,
-  XCB_XEVIE_DATATYPE_MODIFIED = 1,
+  UNMODIFIED = 0,
+  MODIFIED = 1,
 }
 
 #[repr(C)]

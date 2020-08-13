@@ -43,8 +43,8 @@ pub struct xcb_test_get_version_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_test_cursor_t
 {
-  XCB_TEST_CURSOR_NONE = 0,
-  XCB_TEST_CURSOR_CURRENT = 1,
+  NONE = 0,
+  CURRENT = 1,
 }
 
 #[repr(C)]

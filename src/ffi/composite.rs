@@ -19,8 +19,8 @@ pub const XCB_COMPOSITE_RELEASE_OVERLAY_WINDOW: u32 = 8;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_composite_redirect_t
 {
-  XCB_COMPOSITE_REDIRECT_AUTOMATIC = 0,
-  XCB_COMPOSITE_REDIRECT_MANUAL = 1,
+  AUTOMATIC = 0,
+  MANUAL = 1,
 }
 
 #[repr(C)]

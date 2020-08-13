@@ -177,9 +177,9 @@ pub struct xcb_ewmh_get_workarea_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_client_source_type_t
 {
-  XCB_EWMH_CLIENT_SOURCE_TYPE_NONE = 0,
-  XCB_EWMH_CLIENT_SOURCE_TYPE_NORMAL = 1,
-  XCB_EWMH_CLIENT_SOURCE_TYPE_OTHER = 2,
+  NONE = 0,
+  NORMAL = 1,
+  OTHER = 2,
 }
 
 #[repr(u32)]
@@ -187,8 +187,8 @@ pub enum xcb_ewmh_client_source_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_desktop_layout_orientation_t
 {
-  XCB_EWMH_WM_ORIENTATION_HORZ = 0,
-  XCB_EWMH_WM_ORIENTATION_VERT = 1,
+  HORZ = 0,
+  VERT = 1,
 }
 
 #[repr(u32)]
@@ -196,10 +196,10 @@ pub enum xcb_ewmh_desktop_layout_orientation_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_desktop_layout_starting_corner_t
 {
-  XCB_EWMH_WM_TOPLEFT = 0,
-  XCB_EWMH_WM_TOPRIGHT = 1,
-  XCB_EWMH_WM_BOTTOMRIGHT = 2,
-  XCB_EWMH_WM_BOTTOMLEFT = 3,
+  TOPLEFT = 0,
+  TOPRIGHT = 1,
+  BOTTOMRIGHT = 2,
+  BOTTOMLEFT = 3,
 }
 
 #[repr(C)]
@@ -217,10 +217,10 @@ pub struct xcb_ewmh_get_desktop_layout_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_moveresize_window_opt_flags_t
 {
-  XCB_EWMH_MOVERESIZE_WINDOW_X = 256,
-  XCB_EWMH_MOVERESIZE_WINDOW_Y = 512,
-  XCB_EWMH_MOVERESIZE_WINDOW_WIDTH = 1024,
-  XCB_EWMH_MOVERESIZE_WINDOW_HEIGHT = 2048,
+  X = 256,
+  Y = 512,
+  WIDTH = 1024,
+  HEIGHT = 2048,
 }
 
 #[repr(u32)]
@@ -228,18 +228,18 @@ pub enum xcb_ewmh_moveresize_window_opt_flags_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_moveresize_direction_t
 {
-  XCB_EWMH_WM_MOVERESIZE_SIZE_TOPLEFT = 0,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_TOP = 1,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_TOPRIGHT = 2,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_RIGHT = 3,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_BOTTOMRIGHT = 4,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_BOTTOM = 5,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_BOTTOMLEFT = 6,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_LEFT = 7,
-  XCB_EWMH_WM_MOVERESIZE_MOVE = 8,
-  XCB_EWMH_WM_MOVERESIZE_SIZE_KEYBOARD = 9,
-  XCB_EWMH_WM_MOVERESIZE_MOVE_KEYBOARD = 10,
-  XCB_EWMH_WM_MOVERESIZE_CANCEL = 11,
+  SIZE_TOPLEFT = 0,
+  SIZE_TOP = 1,
+  SIZE_TOPRIGHT = 2,
+  SIZE_RIGHT = 3,
+  SIZE_BOTTOMRIGHT = 4,
+  SIZE_BOTTOM = 5,
+  SIZE_BOTTOMLEFT = 6,
+  SIZE_LEFT = 7,
+  MOVE = 8,
+  SIZE_KEYBOARD = 9,
+  MOVE_KEYBOARD = 10,
+  CANCEL = 11,
 }
 
 #[repr(u32)]
@@ -247,9 +247,9 @@ pub enum xcb_ewmh_moveresize_direction_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_ewmh_wm_state_action_t
 {
-  XCB_EWMH_WM_STATE_REMOVE = 0,
-  XCB_EWMH_WM_STATE_ADD = 1,
-  XCB_EWMH_WM_STATE_TOGGLE = 2,
+  REMOVE = 0,
+  ADD = 1,
+  TOGGLE = 2,
 }
 
 #[repr(C)]
@@ -686,7 +686,7 @@ pub unsafe extern "C" fn xcb_ewmh_set_wm_icon_checked(
     mode,
     window,
     (*ewmh)._NET_WM_ICON,
-    xcb_atom_enum_t::XCB_ATOM_CARDINAL as u32,
+    xcb_atom_enum_t::CARDINAL as u32,
     32,
     data_len,
     data as *const ::std::os::raw::c_void,
@@ -707,7 +707,7 @@ pub unsafe extern "C" fn xcb_ewmh_set_wm_icon(
     mode,
     window,
     (*ewmh)._NET_WM_ICON,
-    xcb_atom_enum_t::XCB_ATOM_CARDINAL as u32,
+    xcb_atom_enum_t::CARDINAL as u32,
     32,
     data_len,
     data as *const ::std::os::raw::c_void,

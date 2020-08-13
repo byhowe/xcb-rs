@@ -50,9 +50,9 @@ pub struct xcb_sync_alarm_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_sync_alarmstate_t
 {
-  XCB_SYNC_ALARMSTATE_ACTIVE = 0,
-  XCB_SYNC_ALARMSTATE_INACTIVE = 1,
-  XCB_SYNC_ALARMSTATE_DESTROYED = 2,
+  ACTIVE = 0,
+  INACTIVE = 1,
+  DESTROYED = 2,
 }
 
 pub type xcb_sync_counter_t = u32;
@@ -82,10 +82,10 @@ pub struct xcb_sync_fence_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_sync_testtype_t
 {
-  XCB_SYNC_TESTTYPE_POSITIVE_TRANSITION = 0,
-  XCB_SYNC_TESTTYPE_NEGATIVE_TRANSITION = 1,
-  XCB_SYNC_TESTTYPE_POSITIVE_COMPARISON = 2,
-  XCB_SYNC_TESTTYPE_NEGATIVE_COMPARISON = 3,
+  POSITIVE_TRANSITION = 0,
+  NEGATIVE_TRANSITION = 1,
+  POSITIVE_COMPARISON = 2,
+  NEGATIVE_COMPARISON = 3,
 }
 
 #[repr(u32)]
@@ -93,8 +93,8 @@ pub enum xcb_sync_testtype_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_sync_valuetype_t
 {
-  XCB_SYNC_VALUETYPE_ABSOLUTE = 0,
-  XCB_SYNC_VALUETYPE_RELATIVE = 1,
+  ABSOLUTE = 0,
+  RELATIVE = 1,
 }
 
 #[repr(u32)]
@@ -102,12 +102,12 @@ pub enum xcb_sync_valuetype_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_sync_ca_t
 {
-  XCB_SYNC_CA_COUNTER = 1,
-  XCB_SYNC_CA_VALUE_TYPE = 2,
-  XCB_SYNC_CA_VALUE = 4,
-  XCB_SYNC_CA_TEST_TYPE = 8,
-  XCB_SYNC_CA_DELTA = 16,
-  XCB_SYNC_CA_EVENTS = 32,
+  COUNTER = 1,
+  VALUE_TYPE = 2,
+  VALUE = 4,
+  TEST_TYPE = 8,
+  DELTA = 16,
+  EVENTS = 32,
 }
 
 #[repr(C)]

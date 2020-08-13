@@ -49,8 +49,8 @@ pub struct xcb_res_type_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_res_client_id_mask_t
 {
-  XCB_RES_CLIENT_ID_MASK_CLIENT_XID = 1,
-  XCB_RES_CLIENT_ID_MASK_LOCAL_CLIENT_PID = 2,
+  CLIENT_XID = 1,
+  LOCAL_CLIENT_PID = 2,
 }
 
 #[repr(C)]

@@ -15,18 +15,18 @@ use super::xcb::xcb_visualid_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_pict_format_t
 {
-  XCB_PICT_FORMAT_ID = 1,
-  XCB_PICT_FORMAT_TYPE = 2,
-  XCB_PICT_FORMAT_DEPTH = 4,
-  XCB_PICT_FORMAT_RED = 8,
-  XCB_PICT_FORMAT_RED_MASK = 16,
-  XCB_PICT_FORMAT_GREEN = 32,
-  XCB_PICT_FORMAT_GREEN_MASK = 64,
-  XCB_PICT_FORMAT_BLUE = 128,
-  XCB_PICT_FORMAT_BLUE_MASK = 256,
-  XCB_PICT_FORMAT_ALPHA = 512,
-  XCB_PICT_FORMAT_ALPHA_MASK = 1024,
-  XCB_PICT_FORMAT_COLORMAP = 2048,
+  ID = 1,
+  TYPE = 2,
+  DEPTH = 4,
+  RED = 8,
+  RED_MASK = 16,
+  GREEN = 32,
+  GREEN_MASK = 64,
+  BLUE = 128,
+  BLUE_MASK = 256,
+  ALPHA = 512,
+  ALPHA_MASK = 1024,
+  COLORMAP = 2048,
 }
 
 #[repr(u32)]
@@ -34,11 +34,11 @@ pub enum xcb_pict_format_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_pict_standard_t
 {
-  XCB_PICT_STANDARD_ARGB_32 = 0,
-  XCB_PICT_STANDARD_RGB_24 = 1,
-  XCB_PICT_STANDARD_A_8 = 2,
-  XCB_PICT_STANDARD_A_4 = 3,
-  XCB_PICT_STANDARD_A_1 = 4,
+  ARGB_32 = 0,
+  RGB_24 = 1,
+  A_8 = 2,
+  A_4 = 3,
+  A_1 = 4,
 }
 
 #[repr(C)]

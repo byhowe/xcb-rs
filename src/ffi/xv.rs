@@ -70,11 +70,11 @@ pub struct xcb_xv_encoding_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_type_t
 {
-  XCB_XV_TYPE_INPUT_MASK = 1,
-  XCB_XV_TYPE_OUTPUT_MASK = 2,
-  XCB_XV_TYPE_VIDEO_MASK = 4,
-  XCB_XV_TYPE_STILL_MASK = 8,
-  XCB_XV_TYPE_IMAGE_MASK = 16,
+  INPUT_MASK = 1,
+  OUTPUT_MASK = 2,
+  VIDEO_MASK = 4,
+  STILL_MASK = 8,
+  IMAGE_MASK = 16,
 }
 
 #[repr(u32)]
@@ -82,8 +82,8 @@ pub enum xcb_xv_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_image_format_info_type_t
 {
-  XCB_XV_IMAGE_FORMAT_INFO_TYPE_RGB = 0,
-  XCB_XV_IMAGE_FORMAT_INFO_TYPE_YUV = 1,
+  RGB = 0,
+  YUV = 1,
 }
 
 #[repr(u32)]
@@ -91,8 +91,8 @@ pub enum xcb_xv_image_format_info_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_image_format_info_format_t
 {
-  XCB_XV_IMAGE_FORMAT_INFO_FORMAT_PACKED = 0,
-  XCB_XV_IMAGE_FORMAT_INFO_FORMAT_PLANAR = 1,
+  PACKED = 0,
+  PLANAR = 1,
 }
 
 #[repr(u32)]
@@ -100,8 +100,8 @@ pub enum xcb_xv_image_format_info_format_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_attribute_flag_t
 {
-  XCB_XV_ATTRIBUTE_FLAG_GETTABLE = 1,
-  XCB_XV_ATTRIBUTE_FLAG_SETTABLE = 2,
+  GETTABLE = 1,
+  SETTABLE = 2,
 }
 
 #[repr(u32)]
@@ -109,11 +109,11 @@ pub enum xcb_xv_attribute_flag_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_video_notify_reason_t
 {
-  XCB_XV_VIDEO_NOTIFY_REASON_STARTED = 0,
-  XCB_XV_VIDEO_NOTIFY_REASON_STOPPED = 1,
-  XCB_XV_VIDEO_NOTIFY_REASON_BUSY = 2,
-  XCB_XV_VIDEO_NOTIFY_REASON_PREEMPTED = 3,
-  XCB_XV_VIDEO_NOTIFY_REASON_HARD_ERROR = 4,
+  STARTED = 0,
+  STOPPED = 1,
+  BUSY = 2,
+  PREEMPTED = 3,
+  HARD_ERROR = 4,
 }
 
 #[repr(u32)]
@@ -121,8 +121,8 @@ pub enum xcb_xv_video_notify_reason_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_scanline_order_t
 {
-  XCB_XV_SCANLINE_ORDER_TOP_TO_BOTTOM = 0,
-  XCB_XV_SCANLINE_ORDER_BOTTOM_TO_TOP = 1,
+  TOP_TO_BOTTOM = 0,
+  BOTTOM_TO_TOP = 1,
 }
 
 #[repr(u32)]
@@ -130,12 +130,12 @@ pub enum xcb_xv_scanline_order_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xv_grab_port_status_t
 {
-  XCB_XV_GRAB_PORT_STATUS_SUCCESS = 0,
-  XCB_XV_GRAB_PORT_STATUS_BAD_EXTENSION = 1,
-  XCB_XV_GRAB_PORT_STATUS_ALREADY_GRABBED = 2,
-  XCB_XV_GRAB_PORT_STATUS_INVALID_TIME = 3,
-  XCB_XV_GRAB_PORT_STATUS_BAD_REPLY = 4,
-  XCB_XV_GRAB_PORT_STATUS_BAD_ALLOC = 5,
+  SUCCESS = 0,
+  BAD_EXTENSION = 1,
+  ALREADY_GRABBED = 2,
+  INVALID_TIME = 3,
+  BAD_REPLY = 4,
+  BAD_ALLOC = 5,
 }
 
 #[repr(C)]

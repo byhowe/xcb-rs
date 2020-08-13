@@ -60,9 +60,9 @@ pub const XCB_XKB_EXTENSION_DEVICE_NOTIFY: u32 = 11;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_const_t
 {
-  XCB_XKB_CONST_MAX_LEGAL_KEY_CODE = 255,
-  XCB_XKB_CONST_PER_KEY_BIT_ARRAY_SIZE = 32,
-  XCB_XKB_CONST_KEY_NAME_LENGTH = 4,
+  MAX_LEGAL_KEY_CODE = 255,
+  PER_KEY_BIT_ARRAY_SIZE = 32,
+  KEY_NAME_LENGTH = 4,
 }
 
 #[repr(u32)]
@@ -70,18 +70,18 @@ pub enum xcb_xkb_const_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_event_type_t
 {
-  XCB_XKB_EVENT_TYPE_NEW_KEYBOARD_NOTIFY = 1,
-  XCB_XKB_EVENT_TYPE_MAP_NOTIFY = 2,
-  XCB_XKB_EVENT_TYPE_STATE_NOTIFY = 4,
-  XCB_XKB_EVENT_TYPE_CONTROLS_NOTIFY = 8,
-  XCB_XKB_EVENT_TYPE_INDICATOR_STATE_NOTIFY = 16,
-  XCB_XKB_EVENT_TYPE_INDICATOR_MAP_NOTIFY = 32,
-  XCB_XKB_EVENT_TYPE_NAMES_NOTIFY = 64,
-  XCB_XKB_EVENT_TYPE_COMPAT_MAP_NOTIFY = 128,
-  XCB_XKB_EVENT_TYPE_BELL_NOTIFY = 256,
-  XCB_XKB_EVENT_TYPE_ACTION_MESSAGE = 512,
-  XCB_XKB_EVENT_TYPE_ACCESS_X_NOTIFY = 1024,
-  XCB_XKB_EVENT_TYPE_EXTENSION_DEVICE_NOTIFY = 2048,
+  NEW_KEYBOARD_NOTIFY = 1,
+  MAP_NOTIFY = 2,
+  STATE_NOTIFY = 4,
+  CONTROLS_NOTIFY = 8,
+  INDICATOR_STATE_NOTIFY = 16,
+  INDICATOR_MAP_NOTIFY = 32,
+  NAMES_NOTIFY = 64,
+  COMPAT_MAP_NOTIFY = 128,
+  BELL_NOTIFY = 256,
+  ACTION_MESSAGE = 512,
+  ACCESS_X_NOTIFY = 1024,
+  EXTENSION_DEVICE_NOTIFY = 2048,
 }
 
 #[repr(u32)]
@@ -89,9 +89,9 @@ pub enum xcb_xkb_event_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_nkn_detail_t
 {
-  XCB_XKB_NKN_DETAIL_KEYCODES = 1,
-  XCB_XKB_NKN_DETAIL_GEOMETRY = 2,
-  XCB_XKB_NKN_DETAIL_DEVICE_ID = 4,
+  KEYCODES = 1,
+  GEOMETRY = 2,
+  DEVICE_ID = 4,
 }
 
 #[repr(u32)]
@@ -99,13 +99,13 @@ pub enum xcb_xkb_nkn_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_axn_detail_t
 {
-  XCB_XKB_AXN_DETAIL_SK_PRESS = 1,
-  XCB_XKB_AXN_DETAIL_SK_ACCEPT = 2,
-  XCB_XKB_AXN_DETAIL_SK_REJECT = 4,
-  XCB_XKB_AXN_DETAIL_SK_RELEASE = 8,
-  XCB_XKB_AXN_DETAIL_BK_ACCEPT = 16,
-  XCB_XKB_AXN_DETAIL_BK_REJECT = 32,
-  XCB_XKB_AXN_DETAIL_AXK_WARNING = 64,
+  SK_PRESS = 1,
+  SK_ACCEPT = 2,
+  SK_REJECT = 4,
+  SK_RELEASE = 8,
+  BK_ACCEPT = 16,
+  BK_REJECT = 32,
+  AXK_WARNING = 64,
 }
 
 #[repr(u32)]
@@ -113,14 +113,14 @@ pub enum xcb_xkb_axn_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_map_part_t
 {
-  XCB_XKB_MAP_PART_KEY_TYPES = 1,
-  XCB_XKB_MAP_PART_KEY_SYMS = 2,
-  XCB_XKB_MAP_PART_MODIFIER_MAP = 4,
-  XCB_XKB_MAP_PART_EXPLICIT_COMPONENTS = 8,
-  XCB_XKB_MAP_PART_KEY_ACTIONS = 16,
-  XCB_XKB_MAP_PART_KEY_BEHAVIORS = 32,
-  XCB_XKB_MAP_PART_VIRTUAL_MODS = 64,
-  XCB_XKB_MAP_PART_VIRTUAL_MOD_MAP = 128,
+  KEY_TYPES = 1,
+  KEY_SYMS = 2,
+  MODIFIER_MAP = 4,
+  EXPLICIT_COMPONENTS = 8,
+  KEY_ACTIONS = 16,
+  KEY_BEHAVIORS = 32,
+  VIRTUAL_MODS = 64,
+  VIRTUAL_MOD_MAP = 128,
 }
 
 #[repr(u32)]
@@ -128,8 +128,8 @@ pub enum xcb_xkb_map_part_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_set_map_flags_t
 {
-  XCB_XKB_SET_MAP_FLAGS_RESIZE_TYPES = 1,
-  XCB_XKB_SET_MAP_FLAGS_RECOMPUTE_ACTIONS = 2,
+  RESIZE_TYPES = 1,
+  RECOMPUTE_ACTIONS = 2,
 }
 
 #[repr(u32)]
@@ -137,20 +137,20 @@ pub enum xcb_xkb_set_map_flags_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_state_part_t
 {
-  XCB_XKB_STATE_PART_MODIFIER_STATE = 1,
-  XCB_XKB_STATE_PART_MODIFIER_BASE = 2,
-  XCB_XKB_STATE_PART_MODIFIER_LATCH = 4,
-  XCB_XKB_STATE_PART_MODIFIER_LOCK = 8,
-  XCB_XKB_STATE_PART_GROUP_STATE = 16,
-  XCB_XKB_STATE_PART_GROUP_BASE = 32,
-  XCB_XKB_STATE_PART_GROUP_LATCH = 64,
-  XCB_XKB_STATE_PART_GROUP_LOCK = 128,
-  XCB_XKB_STATE_PART_COMPAT_STATE = 256,
-  XCB_XKB_STATE_PART_GRAB_MODS = 512,
-  XCB_XKB_STATE_PART_COMPAT_GRAB_MODS = 1024,
-  XCB_XKB_STATE_PART_LOOKUP_MODS = 2048,
-  XCB_XKB_STATE_PART_COMPAT_LOOKUP_MODS = 4096,
-  XCB_XKB_STATE_PART_POINTER_BUTTONS = 8192,
+  MODIFIER_STATE = 1,
+  MODIFIER_BASE = 2,
+  MODIFIER_LATCH = 4,
+  MODIFIER_LOCK = 8,
+  GROUP_STATE = 16,
+  GROUP_BASE = 32,
+  GROUP_LATCH = 64,
+  GROUP_LOCK = 128,
+  COMPAT_STATE = 256,
+  GRAB_MODS = 512,
+  COMPAT_GRAB_MODS = 1024,
+  LOOKUP_MODS = 2048,
+  COMPAT_LOOKUP_MODS = 4096,
+  POINTER_BUTTONS = 8192,
 }
 
 #[repr(u32)]
@@ -158,19 +158,19 @@ pub enum xcb_xkb_state_part_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_bool_ctrl_t
 {
-  XCB_XKB_BOOL_CTRL_REPEAT_KEYS = 1,
-  XCB_XKB_BOOL_CTRL_SLOW_KEYS = 2,
-  XCB_XKB_BOOL_CTRL_BOUNCE_KEYS = 4,
-  XCB_XKB_BOOL_CTRL_STICKY_KEYS = 8,
-  XCB_XKB_BOOL_CTRL_MOUSE_KEYS = 16,
-  XCB_XKB_BOOL_CTRL_MOUSE_KEYS_ACCEL = 32,
-  XCB_XKB_BOOL_CTRL_ACCESS_X_KEYS = 64,
-  XCB_XKB_BOOL_CTRL_ACCESS_X_TIMEOUT_MASK = 128,
-  XCB_XKB_BOOL_CTRL_ACCESS_X_FEEDBACK_MASK = 256,
-  XCB_XKB_BOOL_CTRL_AUDIBLE_BELL_MASK = 512,
-  XCB_XKB_BOOL_CTRL_OVERLAY_1_MASK = 1024,
-  XCB_XKB_BOOL_CTRL_OVERLAY_2_MASK = 2048,
-  XCB_XKB_BOOL_CTRL_IGNORE_GROUP_LOCK_MASK = 4096,
+  REPEAT_KEYS = 1,
+  SLOW_KEYS = 2,
+  BOUNCE_KEYS = 4,
+  STICKY_KEYS = 8,
+  MOUSE_KEYS = 16,
+  MOUSE_KEYS_ACCEL = 32,
+  ACCESS_X_KEYS = 64,
+  ACCESS_X_TIMEOUT_MASK = 128,
+  ACCESS_X_FEEDBACK_MASK = 256,
+  AUDIBLE_BELL_MASK = 512,
+  OVERLAY_1_MASK = 1024,
+  OVERLAY_2_MASK = 2048,
+  IGNORE_GROUP_LOCK_MASK = 4096,
 }
 
 #[repr(u32)]
@@ -178,11 +178,11 @@ pub enum xcb_xkb_bool_ctrl_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_control_t
 {
-  XCB_XKB_CONTROL_GROUPS_WRAP = 134217728,
-  XCB_XKB_CONTROL_INTERNAL_MODS = 268435456,
-  XCB_XKB_CONTROL_IGNORE_LOCK_MODS = 536870912,
-  XCB_XKB_CONTROL_PER_KEY_REPEAT = 1073741824,
-  XCB_XKB_CONTROL_CONTROLS_ENABLED = 2147483648,
+  GROUPS_WRAP = 134217728,
+  INTERNAL_MODS = 268435456,
+  IGNORE_LOCK_MODS = 536870912,
+  PER_KEY_REPEAT = 1073741824,
+  CONTROLS_ENABLED = 2147483648,
 }
 
 #[repr(u32)]
@@ -190,18 +190,18 @@ pub enum xcb_xkb_control_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_ax_option_t
 {
-  XCB_XKB_AX_OPTION_SK_PRESS_FB = 1,
-  XCB_XKB_AX_OPTION_SK_ACCEPT_FB = 2,
-  XCB_XKB_AX_OPTION_FEATURE_FB = 4,
-  XCB_XKB_AX_OPTION_SLOW_WARN_FB = 8,
-  XCB_XKB_AX_OPTION_INDICATOR_FB = 16,
-  XCB_XKB_AX_OPTION_STICKY_KEYS_FB = 32,
-  XCB_XKB_AX_OPTION_TWO_KEYS = 64,
-  XCB_XKB_AX_OPTION_LATCH_TO_LOCK = 128,
-  XCB_XKB_AX_OPTION_SK_RELEASE_FB = 256,
-  XCB_XKB_AX_OPTION_SK_REJECT_FB = 512,
-  XCB_XKB_AX_OPTION_BK_REJECT_FB = 1024,
-  XCB_XKB_AX_OPTION_DUMB_BELL = 2048,
+  SK_PRESS_FB = 1,
+  SK_ACCEPT_FB = 2,
+  FEATURE_FB = 4,
+  SLOW_WARN_FB = 8,
+  INDICATOR_FB = 16,
+  STICKY_KEYS_FB = 32,
+  TWO_KEYS = 64,
+  LATCH_TO_LOCK = 128,
+  SK_RELEASE_FB = 256,
+  SK_REJECT_FB = 512,
+  BK_REJECT_FB = 1024,
+  DUMB_BELL = 2048,
 }
 
 pub type xcb_xkb_device_spec_t = u16;
@@ -220,8 +220,8 @@ pub struct xcb_xkb_device_spec_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_led_class_result_t
 {
-  XCB_XKB_LED_CLASS_RESULT_KBD_FEEDBACK_CLASS = 0,
-  XCB_XKB_LED_CLASS_RESULT_LED_FEEDBACK_CLASS = 4,
+  KBD_FEEDBACK_CLASS = 0,
+  LED_FEEDBACK_CLASS = 4,
 }
 
 #[repr(u32)]
@@ -229,10 +229,10 @@ pub enum xcb_xkb_led_class_result_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_led_class_t
 {
-  XCB_XKB_LED_CLASS_KBD_FEEDBACK_CLASS = 0,
-  XCB_XKB_LED_CLASS_LED_FEEDBACK_CLASS = 4,
-  XCB_XKB_LED_CLASS_DFLT_XI_CLASS = 768,
-  XCB_XKB_LED_CLASS_ALL_XI_CLASSES = 1280,
+  KBD_FEEDBACK_CLASS = 0,
+  LED_FEEDBACK_CLASS = 4,
+  DFLT_XI_CLASS = 768,
+  ALL_XI_CLASSES = 1280,
 }
 
 pub type xcb_xkb_led_class_spec_t = u16;
@@ -251,8 +251,8 @@ pub struct xcb_xkb_led_class_spec_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_bell_class_result_t
 {
-  XCB_XKB_BELL_CLASS_RESULT_KBD_FEEDBACK_CLASS = 0,
-  XCB_XKB_BELL_CLASS_RESULT_BELL_FEEDBACK_CLASS = 5,
+  KBD_FEEDBACK_CLASS = 0,
+  BELL_FEEDBACK_CLASS = 5,
 }
 
 #[repr(u32)]
@@ -260,9 +260,9 @@ pub enum xcb_xkb_bell_class_result_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_bell_class_t
 {
-  XCB_XKB_BELL_CLASS_KBD_FEEDBACK_CLASS = 0,
-  XCB_XKB_BELL_CLASS_BELL_FEEDBACK_CLASS = 5,
-  XCB_XKB_BELL_CLASS_DFLT_XI_CLASS = 768,
+  KBD_FEEDBACK_CLASS = 0,
+  BELL_FEEDBACK_CLASS = 5,
+  DFLT_XI_CLASS = 768,
 }
 
 pub type xcb_xkb_bell_class_spec_t = u16;
@@ -281,13 +281,13 @@ pub struct xcb_xkb_bell_class_spec_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_id_t
 {
-  XCB_XKB_ID_USE_CORE_KBD = 256,
-  XCB_XKB_ID_USE_CORE_PTR = 512,
-  XCB_XKB_ID_DFLT_XI_CLASS = 768,
-  XCB_XKB_ID_DFLT_XI_ID = 1024,
-  XCB_XKB_ID_ALL_XI_CLASS = 1280,
-  XCB_XKB_ID_ALL_XI_ID = 1536,
-  XCB_XKB_ID_XI_NONE = 65280,
+  USE_CORE_KBD = 256,
+  USE_CORE_PTR = 512,
+  DFLT_XI_CLASS = 768,
+  DFLT_XI_ID = 1024,
+  ALL_XI_CLASS = 1280,
+  ALL_XI_ID = 1536,
+  XI_NONE = 65280,
 }
 
 pub type xcb_xkb_id_spec_t = u16;
@@ -306,10 +306,10 @@ pub struct xcb_xkb_id_spec_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_group_t
 {
-  XCB_XKB_GROUP_1 = 0,
-  XCB_XKB_GROUP_2 = 1,
-  XCB_XKB_GROUP_3 = 2,
-  XCB_XKB_GROUP_4 = 3,
+  GROUP_1 = 0,
+  GROUP_2 = 1,
+  GROUP_3 = 2,
+  GROUP_4 = 3,
 }
 
 #[repr(u32)]
@@ -317,8 +317,8 @@ pub enum xcb_xkb_group_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_groups_t
 {
-  XCB_XKB_GROUPS_ANY = 254,
-  XCB_XKB_GROUPS_ALL = 255,
+  ANY = 254,
+  ALL = 255,
 }
 
 #[repr(u32)]
@@ -326,10 +326,10 @@ pub enum xcb_xkb_groups_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_set_of_group_t
 {
-  XCB_XKB_SET_OF_GROUP_GROUP_1 = 1,
-  XCB_XKB_SET_OF_GROUP_GROUP_2 = 2,
-  XCB_XKB_SET_OF_GROUP_GROUP_3 = 4,
-  XCB_XKB_SET_OF_GROUP_GROUP_4 = 8,
+  GROUP_1 = 1,
+  GROUP_2 = 2,
+  GROUP_3 = 4,
+  GROUP_4 = 8,
 }
 
 #[repr(u32)]
@@ -337,7 +337,7 @@ pub enum xcb_xkb_set_of_group_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_set_of_groups_t
 {
-  XCB_XKB_SET_OF_GROUPS_ANY = 128,
+  ANY = 128,
 }
 
 #[repr(u32)]
@@ -345,9 +345,9 @@ pub enum xcb_xkb_set_of_groups_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_groups_wrap_t
 {
-  XCB_XKB_GROUPS_WRAP_WRAP_INTO_RANGE = 0,
-  XCB_XKB_GROUPS_WRAP_CLAMP_INTO_RANGE = 64,
-  XCB_XKB_GROUPS_WRAP_REDIRECT_INTO_RANGE = 128,
+  WRAP_INTO_RANGE = 0,
+  CLAMP_INTO_RANGE = 64,
+  REDIRECT_INTO_RANGE = 128,
 }
 
 #[repr(u32)]
@@ -355,14 +355,14 @@ pub enum xcb_xkb_groups_wrap_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_v_mods_high_t
 {
-  XCB_XKB_V_MODS_HIGH_15 = 128,
-  XCB_XKB_V_MODS_HIGH_14 = 64,
-  XCB_XKB_V_MODS_HIGH_13 = 32,
-  XCB_XKB_V_MODS_HIGH_12 = 16,
-  XCB_XKB_V_MODS_HIGH_11 = 8,
-  XCB_XKB_V_MODS_HIGH_10 = 4,
-  XCB_XKB_V_MODS_HIGH_9 = 2,
-  XCB_XKB_V_MODS_HIGH_8 = 1,
+  HIGH_15 = 128,
+  HIGH_14 = 64,
+  HIGH_13 = 32,
+  HIGH_12 = 16,
+  HIGH_11 = 8,
+  HIGH_10 = 4,
+  HIGH_9 = 2,
+  HIGH_8 = 1,
 }
 
 #[repr(u32)]
@@ -370,14 +370,14 @@ pub enum xcb_xkb_v_mods_high_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_v_mods_low_t
 {
-  XCB_XKB_V_MODS_LOW_7 = 128,
-  XCB_XKB_V_MODS_LOW_6 = 64,
-  XCB_XKB_V_MODS_LOW_5 = 32,
-  XCB_XKB_V_MODS_LOW_4 = 16,
-  XCB_XKB_V_MODS_LOW_3 = 8,
-  XCB_XKB_V_MODS_LOW_2 = 4,
-  XCB_XKB_V_MODS_LOW_1 = 2,
-  XCB_XKB_V_MODS_LOW_0 = 1,
+  LOW_7 = 128,
+  LOW_6 = 64,
+  LOW_5 = 32,
+  LOW_4 = 16,
+  LOW_3 = 8,
+  LOW_2 = 4,
+  LOW_1 = 2,
+  LOW_0 = 1,
 }
 
 #[repr(u32)]
@@ -385,22 +385,22 @@ pub enum xcb_xkb_v_mods_low_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_v_mod_t
 {
-  XCB_XKB_V_MOD_15 = 32768,
-  XCB_XKB_V_MOD_14 = 16384,
-  XCB_XKB_V_MOD_13 = 8192,
-  XCB_XKB_V_MOD_12 = 4096,
-  XCB_XKB_V_MOD_11 = 2048,
-  XCB_XKB_V_MOD_10 = 1024,
-  XCB_XKB_V_MOD_9 = 512,
-  XCB_XKB_V_MOD_8 = 256,
-  XCB_XKB_V_MOD_7 = 128,
-  XCB_XKB_V_MOD_6 = 64,
-  XCB_XKB_V_MOD_5 = 32,
-  XCB_XKB_V_MOD_4 = 16,
-  XCB_XKB_V_MOD_3 = 8,
-  XCB_XKB_V_MOD_2 = 4,
-  XCB_XKB_V_MOD_1 = 2,
-  XCB_XKB_V_MOD_0 = 1,
+  MOD_15 = 32768,
+  MOD_14 = 16384,
+  MOD_13 = 8192,
+  MOD_12 = 4096,
+  MOD_11 = 2048,
+  MOD_10 = 1024,
+  MOD_9 = 512,
+  MOD_8 = 256,
+  MOD_7 = 128,
+  MOD_6 = 64,
+  MOD_5 = 32,
+  MOD_4 = 16,
+  MOD_3 = 8,
+  MOD_2 = 4,
+  MOD_1 = 2,
+  MOD_0 = 1,
 }
 
 #[repr(u32)]
@@ -408,14 +408,14 @@ pub enum xcb_xkb_v_mod_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_explicit_t
 {
-  XCB_XKB_EXPLICIT_V_MOD_MAP = 128,
-  XCB_XKB_EXPLICIT_BEHAVIOR = 64,
-  XCB_XKB_EXPLICIT_AUTO_REPEAT = 32,
-  XCB_XKB_EXPLICIT_INTERPRET = 16,
-  XCB_XKB_EXPLICIT_KEY_TYPE_4 = 8,
-  XCB_XKB_EXPLICIT_KEY_TYPE_3 = 4,
-  XCB_XKB_EXPLICIT_KEY_TYPE_2 = 2,
-  XCB_XKB_EXPLICIT_KEY_TYPE_1 = 1,
+  V_MOD_MAP = 128,
+  BEHAVIOR = 64,
+  AUTO_REPEAT = 32,
+  INTERPRET = 16,
+  KEY_TYPE_4 = 8,
+  KEY_TYPE_3 = 4,
+  KEY_TYPE_2 = 2,
+  KEY_TYPE_1 = 1,
 }
 
 #[repr(u32)]
@@ -423,11 +423,11 @@ pub enum xcb_xkb_explicit_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sym_interpret_match_t
 {
-  XCB_XKB_SYM_INTERPRET_MATCH_NONE_OF = 0,
-  XCB_XKB_SYM_INTERPRET_MATCH_ANY_OF_OR_NONE = 1,
-  XCB_XKB_SYM_INTERPRET_MATCH_ANY_OF = 2,
-  XCB_XKB_SYM_INTERPRET_MATCH_ALL_OF = 3,
-  XCB_XKB_SYM_INTERPRET_MATCH_EXACTLY = 4,
+  NONE_OF = 0,
+  ANY_OF_OR_NONE = 1,
+  ANY_OF = 2,
+  ALL_OF = 3,
+  EXACTLY = 4,
 }
 
 #[repr(u32)]
@@ -435,8 +435,8 @@ pub enum xcb_xkb_sym_interpret_match_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sym_interp_match_t
 {
-  XCB_XKB_SYM_INTERP_MATCH_LEVEL_ONE_ONLY = 128,
-  XCB_XKB_SYM_INTERP_MATCH_OP_MASK = 127,
+  LEVEL_ONE_ONLY = 128,
+  OP_MASK = 127,
 }
 
 #[repr(u32)]
@@ -444,9 +444,9 @@ pub enum xcb_xkb_sym_interp_match_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_im_flag_t
 {
-  XCB_XKB_IM_FLAG_NO_EXPLICIT = 128,
-  XCB_XKB_IM_FLAG_NO_AUTOMATIC = 64,
-  XCB_XKB_IM_FLAG_LED_DRIVES_KB = 32,
+  NO_EXPLICIT = 128,
+  NO_AUTOMATIC = 64,
+  LED_DRIVES_KB = 32,
 }
 
 #[repr(u32)]
@@ -454,11 +454,11 @@ pub enum xcb_xkb_im_flag_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_im_mods_which_t
 {
-  XCB_XKB_IM_MODS_WHICH_USE_COMPAT = 16,
-  XCB_XKB_IM_MODS_WHICH_USE_EFFECTIVE = 8,
-  XCB_XKB_IM_MODS_WHICH_USE_LOCKED = 4,
-  XCB_XKB_IM_MODS_WHICH_USE_LATCHED = 2,
-  XCB_XKB_IM_MODS_WHICH_USE_BASE = 1,
+  USE_COMPAT = 16,
+  USE_EFFECTIVE = 8,
+  USE_LOCKED = 4,
+  USE_LATCHED = 2,
+  USE_BASE = 1,
 }
 
 #[repr(u32)]
@@ -466,11 +466,11 @@ pub enum xcb_xkb_im_mods_which_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_im_groups_which_t
 {
-  XCB_XKB_IM_GROUPS_WHICH_USE_COMPAT = 16,
-  XCB_XKB_IM_GROUPS_WHICH_USE_EFFECTIVE = 8,
-  XCB_XKB_IM_GROUPS_WHICH_USE_LOCKED = 4,
-  XCB_XKB_IM_GROUPS_WHICH_USE_LATCHED = 2,
-  XCB_XKB_IM_GROUPS_WHICH_USE_BASE = 1,
+  USE_COMPAT = 16,
+  USE_EFFECTIVE = 8,
+  USE_LOCKED = 4,
+  USE_LATCHED = 2,
+  USE_BASE = 1,
 }
 
 #[repr(C)]
@@ -501,8 +501,8 @@ pub struct xcb_xkb_indicator_map_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_cm_detail_t
 {
-  XCB_XKB_CM_DETAIL_SYM_INTERP = 1,
-  XCB_XKB_CM_DETAIL_GROUP_COMPAT = 2,
+  SYM_INTERP = 1,
+  GROUP_COMPAT = 2,
 }
 
 #[repr(u32)]
@@ -510,20 +510,20 @@ pub enum xcb_xkb_cm_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_name_detail_t
 {
-  XCB_XKB_NAME_DETAIL_KEYCODES = 1,
-  XCB_XKB_NAME_DETAIL_GEOMETRY = 2,
-  XCB_XKB_NAME_DETAIL_SYMBOLS = 4,
-  XCB_XKB_NAME_DETAIL_PHYS_SYMBOLS = 8,
-  XCB_XKB_NAME_DETAIL_TYPES = 16,
-  XCB_XKB_NAME_DETAIL_COMPAT = 32,
-  XCB_XKB_NAME_DETAIL_KEY_TYPE_NAMES = 64,
-  XCB_XKB_NAME_DETAIL_KT_LEVEL_NAMES = 128,
-  XCB_XKB_NAME_DETAIL_INDICATOR_NAMES = 256,
-  XCB_XKB_NAME_DETAIL_KEY_NAMES = 512,
-  XCB_XKB_NAME_DETAIL_KEY_ALIASES = 1024,
-  XCB_XKB_NAME_DETAIL_VIRTUAL_MOD_NAMES = 2048,
-  XCB_XKB_NAME_DETAIL_GROUP_NAMES = 4096,
-  XCB_XKB_NAME_DETAIL_RG_NAMES = 8192,
+  KEYCODES = 1,
+  GEOMETRY = 2,
+  SYMBOLS = 4,
+  PHYS_SYMBOLS = 8,
+  TYPES = 16,
+  COMPAT = 32,
+  KEY_TYPE_NAMES = 64,
+  KT_LEVEL_NAMES = 128,
+  INDICATOR_NAMES = 256,
+  KEY_NAMES = 512,
+  KEY_ALIASES = 1024,
+  VIRTUAL_MOD_NAMES = 2048,
+  GROUP_NAMES = 4096,
+  RG_NAMES = 8192,
 }
 
 #[repr(u32)]
@@ -531,14 +531,14 @@ pub enum xcb_xkb_name_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_gbn_detail_t
 {
-  XCB_XKB_GBN_DETAIL_TYPES = 1,
-  XCB_XKB_GBN_DETAIL_COMPAT_MAP = 2,
-  XCB_XKB_GBN_DETAIL_CLIENT_SYMBOLS = 4,
-  XCB_XKB_GBN_DETAIL_SERVER_SYMBOLS = 8,
-  XCB_XKB_GBN_DETAIL_INDICATOR_MAPS = 16,
-  XCB_XKB_GBN_DETAIL_KEY_NAMES = 32,
-  XCB_XKB_GBN_DETAIL_GEOMETRY = 64,
-  XCB_XKB_GBN_DETAIL_OTHER_NAMES = 128,
+  TYPES = 1,
+  COMPAT_MAP = 2,
+  CLIENT_SYMBOLS = 4,
+  SERVER_SYMBOLS = 8,
+  INDICATOR_MAPS = 16,
+  KEY_NAMES = 32,
+  GEOMETRY = 64,
+  OTHER_NAMES = 128,
 }
 
 #[repr(u32)]
@@ -546,11 +546,11 @@ pub enum xcb_xkb_gbn_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_xi_feature_t
 {
-  XCB_XKB_XI_FEATURE_KEYBOARDS = 1,
-  XCB_XKB_XI_FEATURE_BUTTON_ACTIONS = 2,
-  XCB_XKB_XI_FEATURE_INDICATOR_NAMES = 4,
-  XCB_XKB_XI_FEATURE_INDICATOR_MAPS = 8,
-  XCB_XKB_XI_FEATURE_INDICATOR_STATE = 16,
+  KEYBOARDS = 1,
+  BUTTON_ACTIONS = 2,
+  INDICATOR_NAMES = 4,
+  INDICATOR_MAPS = 8,
+  INDICATOR_STATE = 16,
 }
 
 #[repr(u32)]
@@ -558,11 +558,11 @@ pub enum xcb_xkb_xi_feature_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_per_client_flag_t
 {
-  XCB_XKB_PER_CLIENT_FLAG_DETECTABLE_AUTO_REPEAT = 1,
-  XCB_XKB_PER_CLIENT_FLAG_GRABS_USE_XKB_STATE = 2,
-  XCB_XKB_PER_CLIENT_FLAG_AUTO_RESET_CONTROLS = 4,
-  XCB_XKB_PER_CLIENT_FLAG_LOOKUP_STATE_WHEN_GRABBED = 8,
-  XCB_XKB_PER_CLIENT_FLAG_SEND_EVENT_USES_XKB_STATE = 16,
+  DETECTABLE_AUTO_REPEAT = 1,
+  GRABS_USE_XKB_STATE = 2,
+  AUTO_RESET_CONTROLS = 4,
+  LOOKUP_STATE_WHEN_GRABBED = 8,
+  SEND_EVENT_USES_XKB_STATE = 16,
 }
 
 #[repr(C)]
@@ -862,15 +862,15 @@ pub struct xcb_xkb_behavior_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_behavior_type_t
 {
-  XCB_XKB_BEHAVIOR_TYPE_DEFAULT = 0,
-  XCB_XKB_BEHAVIOR_TYPE_LOCK = 1,
-  XCB_XKB_BEHAVIOR_TYPE_RADIO_GROUP = 2,
-  XCB_XKB_BEHAVIOR_TYPE_OVERLAY_1 = 3,
-  XCB_XKB_BEHAVIOR_TYPE_OVERLAY_2 = 4,
-  XCB_XKB_BEHAVIOR_TYPE_PERMAMENT_LOCK = 129,
-  XCB_XKB_BEHAVIOR_TYPE_PERMAMENT_RADIO_GROUP = 130,
-  XCB_XKB_BEHAVIOR_TYPE_PERMAMENT_OVERLAY_1 = 131,
-  XCB_XKB_BEHAVIOR_TYPE_PERMAMENT_OVERLAY_2 = 132,
+  DEFAULT = 0,
+  LOCK = 1,
+  RADIO_GROUP = 2,
+  OVERLAY_1 = 3,
+  OVERLAY_2 = 4,
+  PERMAMENT_LOCK = 129,
+  PERMAMENT_RADIO_GROUP = 130,
+  PERMAMENT_OVERLAY_1 = 131,
+  PERMAMENT_OVERLAY_2 = 132,
 }
 
 #[repr(C)]
@@ -1129,11 +1129,11 @@ pub struct xcb_xkb_row_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_doodad_type_t
 {
-  XCB_XKB_DOODAD_TYPE_OUTLINE = 1,
-  XCB_XKB_DOODAD_TYPE_SOLID = 2,
-  XCB_XKB_DOODAD_TYPE_TEXT = 3,
-  XCB_XKB_DOODAD_TYPE_INDICATOR = 4,
-  XCB_XKB_DOODAD_TYPE_LOGO = 5,
+  OUTLINE = 1,
+  SOLID = 2,
+  TEXT = 3,
+  INDICATOR = 4,
+  LOGO = 5,
 }
 
 #[repr(C)]
@@ -1179,9 +1179,9 @@ pub struct xcb_xkb_device_led_info_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_error_t
 {
-  XCB_XKB_ERROR_BAD_DEVICE = 255,
-  XCB_XKB_ERROR_BAD_CLASS = 254,
-  XCB_XKB_ERROR_BAD_ID = 253,
+  BAD_DEVICE = 255,
+  BAD_CLASS = 254,
+  BAD_ID = 253,
 }
 
 #[repr(C)]
@@ -1199,7 +1199,7 @@ pub struct xcb_xkb_keyboard_error_t
 
 impl xcb_xkb_sa_t
 {
-  pub const XCB_XKB_SA_GROUP_ABSOLUTE: xcb_xkb_sa_t = xcb_xkb_sa_t::XCB_XKB_SA_USE_MOD_MAP_MODS;
+  pub const GROUP_ABSOLUTE: xcb_xkb_sa_t = xcb_xkb_sa_t::USE_MOD_MAP_MODS;
 }
 
 #[repr(u32)]
@@ -1207,9 +1207,9 @@ impl xcb_xkb_sa_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_t
 {
-  XCB_XKB_SA_CLEAR_LOCKS = 1,
-  XCB_XKB_SA_LATCH_TO_LOCK = 2,
-  XCB_XKB_SA_USE_MOD_MAP_MODS = 4,
+  CLEAR_LOCKS = 1,
+  LATCH_TO_LOCK = 2,
+  USE_MOD_MAP_MODS = 4,
 }
 
 #[repr(u32)]
@@ -1217,27 +1217,27 @@ pub enum xcb_xkb_sa_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_type_t
 {
-  XCB_XKB_SA_TYPE_NO_ACTION = 0,
-  XCB_XKB_SA_TYPE_SET_MODS = 1,
-  XCB_XKB_SA_TYPE_LATCH_MODS = 2,
-  XCB_XKB_SA_TYPE_LOCK_MODS = 3,
-  XCB_XKB_SA_TYPE_SET_GROUP = 4,
-  XCB_XKB_SA_TYPE_LATCH_GROUP = 5,
-  XCB_XKB_SA_TYPE_LOCK_GROUP = 6,
-  XCB_XKB_SA_TYPE_MOVE_PTR = 7,
-  XCB_XKB_SA_TYPE_PTR_BTN = 8,
-  XCB_XKB_SA_TYPE_LOCK_PTR_BTN = 9,
-  XCB_XKB_SA_TYPE_SET_PTR_DFLT = 10,
-  XCB_XKB_SA_TYPE_ISO_LOCK = 11,
-  XCB_XKB_SA_TYPE_TERMINATE = 12,
-  XCB_XKB_SA_TYPE_SWITCH_SCREEN = 13,
-  XCB_XKB_SA_TYPE_SET_CONTROLS = 14,
-  XCB_XKB_SA_TYPE_LOCK_CONTROLS = 15,
-  XCB_XKB_SA_TYPE_ACTION_MESSAGE = 16,
-  XCB_XKB_SA_TYPE_REDIRECT_KEY = 17,
-  XCB_XKB_SA_TYPE_DEVICE_BTN = 18,
-  XCB_XKB_SA_TYPE_LOCK_DEVICE_BTN = 19,
-  XCB_XKB_SA_TYPE_DEVICE_VALUATOR = 20,
+  NO_ACTION = 0,
+  SET_MODS = 1,
+  LATCH_MODS = 2,
+  LOCK_MODS = 3,
+  SET_GROUP = 4,
+  LATCH_GROUP = 5,
+  LOCK_GROUP = 6,
+  MOVE_PTR = 7,
+  PTR_BTN = 8,
+  LOCK_PTR_BTN = 9,
+  SET_PTR_DFLT = 10,
+  ISO_LOCK = 11,
+  TERMINATE = 12,
+  SWITCH_SCREEN = 13,
+  SET_CONTROLS = 14,
+  LOCK_CONTROLS = 15,
+  ACTION_MESSAGE = 16,
+  REDIRECT_KEY = 17,
+  DEVICE_BTN = 18,
+  LOCK_DEVICE_BTN = 19,
+  DEVICE_VALUATOR = 20,
 }
 
 #[repr(C)]
@@ -1385,9 +1385,9 @@ pub struct xcb_xkb_sa_lock_group_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_move_ptr_flag_t
 {
-  XCB_XKB_SA_MOVE_PTR_FLAG_NO_ACCELERATION = 1,
-  XCB_XKB_SA_MOVE_PTR_FLAG_MOVE_ABSOLUTE_X = 2,
-  XCB_XKB_SA_MOVE_PTR_FLAG_MOVE_ABSOLUTE_Y = 4,
+  NO_ACCELERATION = 1,
+  MOVE_ABSOLUTE_X = 2,
+  MOVE_ABSOLUTE_Y = 4,
 }
 
 #[repr(C)]
@@ -1457,8 +1457,8 @@ pub struct xcb_xkb_sa_lock_ptr_btn_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_set_ptr_dflt_flag_t
 {
-  XCB_XKB_SA_SET_PTR_DFLT_FLAG_DFLT_BTN_ABSOLUTE = 4,
-  XCB_XKB_SA_SET_PTR_DFLT_FLAG_AFFECT_DFLT_BUTTON = 1,
+  DFLT_BTN_ABSOLUTE = 4,
+  AFFECT_DFLT_BUTTON = 1,
 }
 
 #[repr(C)]
@@ -1483,8 +1483,8 @@ pub struct xcb_xkb_sa_set_ptr_dflt_iterator_t
 
 impl xcb_xkb_sa_iso_lock_flag_t
 {
-  pub const XCB_XKB_SA_ISO_LOCK_FLAG_GROUP_ABSOLUTE: xcb_xkb_sa_iso_lock_flag_t =
-    xcb_xkb_sa_iso_lock_flag_t::XCB_XKB_SA_ISO_LOCK_FLAG_USE_MOD_MAP_MODS;
+  pub const GROUP_ABSOLUTE: xcb_xkb_sa_iso_lock_flag_t =
+    xcb_xkb_sa_iso_lock_flag_t::USE_MOD_MAP_MODS;
 }
 
 #[repr(u32)]
@@ -1492,10 +1492,10 @@ impl xcb_xkb_sa_iso_lock_flag_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_iso_lock_flag_t
 {
-  XCB_XKB_SA_ISO_LOCK_FLAG_NO_LOCK = 1,
-  XCB_XKB_SA_ISO_LOCK_FLAG_NO_UNLOCK = 2,
-  XCB_XKB_SA_ISO_LOCK_FLAG_USE_MOD_MAP_MODS = 4,
-  XCB_XKB_SA_ISO_LOCK_FLAG_ISO_DFLT_IS_GROUP = 8,
+  NO_LOCK = 1,
+  NO_UNLOCK = 2,
+  USE_MOD_MAP_MODS = 4,
+  ISO_DFLT_IS_GROUP = 8,
 }
 
 #[repr(u32)]
@@ -1503,10 +1503,10 @@ pub enum xcb_xkb_sa_iso_lock_flag_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_iso_lock_no_affect_t
 {
-  XCB_XKB_SA_ISO_LOCK_NO_AFFECT_CTRLS = 8,
-  XCB_XKB_SA_ISO_LOCK_NO_AFFECT_PTR = 16,
-  XCB_XKB_SA_ISO_LOCK_NO_AFFECT_GROUP = 32,
-  XCB_XKB_SA_ISO_LOCK_NO_AFFECT_MODS = 64,
+  CTRLS = 8,
+  PTR = 16,
+  GROUP = 32,
+  MODS = 64,
 }
 
 #[repr(C)]
@@ -1554,8 +1554,8 @@ pub struct xcb_xkb_sa_terminate_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_switch_screen_flag_t
 {
-  XCB_XKB_SWITCH_SCREEN_FLAG_APPLICATION = 1,
-  XCB_XKB_SWITCH_SCREEN_FLAG_ABSOLUTE = 4,
+  APPLICATION = 1,
+  ABSOLUTE = 4,
 }
 
 #[repr(C)]
@@ -1582,11 +1582,11 @@ pub struct xcb_xkb_sa_switch_screen_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_bool_ctrls_high_t
 {
-  XCB_XKB_BOOL_CTRLS_HIGH_ACCESS_X_FEEDBACK = 1,
-  XCB_XKB_BOOL_CTRLS_HIGH_AUDIBLE_BELL = 2,
-  XCB_XKB_BOOL_CTRLS_HIGH_OVERLAY_1 = 4,
-  XCB_XKB_BOOL_CTRLS_HIGH_OVERLAY_2 = 8,
-  XCB_XKB_BOOL_CTRLS_HIGH_IGNORE_GROUP_LOCK = 16,
+  ACCESS_X_FEEDBACK = 1,
+  AUDIBLE_BELL = 2,
+  OVERLAY_1 = 4,
+  OVERLAY_2 = 8,
+  IGNORE_GROUP_LOCK = 16,
 }
 
 #[repr(u32)]
@@ -1594,14 +1594,14 @@ pub enum xcb_xkb_bool_ctrls_high_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_bool_ctrls_low_t
 {
-  XCB_XKB_BOOL_CTRLS_LOW_REPEAT_KEYS = 1,
-  XCB_XKB_BOOL_CTRLS_LOW_SLOW_KEYS = 2,
-  XCB_XKB_BOOL_CTRLS_LOW_BOUNCE_KEYS = 4,
-  XCB_XKB_BOOL_CTRLS_LOW_STICKY_KEYS = 8,
-  XCB_XKB_BOOL_CTRLS_LOW_MOUSE_KEYS = 16,
-  XCB_XKB_BOOL_CTRLS_LOW_MOUSE_KEYS_ACCEL = 32,
-  XCB_XKB_BOOL_CTRLS_LOW_ACCESS_X_KEYS = 64,
-  XCB_XKB_BOOL_CTRLS_LOW_ACCESS_X_TIMEOUT = 128,
+  REPEAT_KEYS = 1,
+  SLOW_KEYS = 2,
+  BOUNCE_KEYS = 4,
+  STICKY_KEYS = 8,
+  MOUSE_KEYS = 16,
+  MOUSE_KEYS_ACCEL = 32,
+  ACCESS_X_KEYS = 64,
+  ACCESS_X_TIMEOUT = 128,
 }
 
 #[repr(C)]
@@ -1649,9 +1649,9 @@ pub struct xcb_xkb_sa_lock_controls_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_action_message_flag_t
 {
-  XCB_XKB_ACTION_MESSAGE_FLAG_ON_PRESS = 1,
-  XCB_XKB_ACTION_MESSAGE_FLAG_ON_RELEASE = 2,
-  XCB_XKB_ACTION_MESSAGE_FLAG_GEN_KEY_EVENT = 4,
+  ON_PRESS = 1,
+  ON_RELEASE = 2,
+  GEN_KEY_EVENT = 4,
 }
 
 #[repr(C)]
@@ -1721,8 +1721,8 @@ pub struct xcb_xkb_sa_device_btn_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_lock_device_flags_t
 {
-  XCB_XKB_LOCK_DEVICE_FLAGS_NO_LOCK = 1,
-  XCB_XKB_LOCK_DEVICE_FLAGS_NO_UNLOCK = 2,
+  NO_LOCK = 1,
+  NO_UNLOCK = 2,
 }
 
 #[repr(C)]
@@ -1751,12 +1751,12 @@ pub struct xcb_xkb_sa_lock_device_btn_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_xkb_sa_val_what_t
 {
-  XCB_XKB_SA_VAL_WHAT_IGNORE_VAL = 0,
-  XCB_XKB_SA_VAL_WHAT_SET_VAL_MIN = 1,
-  XCB_XKB_SA_VAL_WHAT_SET_VAL_CENTER = 2,
-  XCB_XKB_SA_VAL_WHAT_SET_VAL_MAX = 3,
-  XCB_XKB_SA_VAL_WHAT_SET_VAL_RELATIVE = 4,
-  XCB_XKB_SA_VAL_WHAT_SET_VAL_ABSOLUTE = 5,
+  IGNORE_VAL = 0,
+  SET_VAL_MIN = 1,
+  SET_VAL_CENTER = 2,
+  SET_VAL_MAX = 3,
+  SET_VAL_RELATIVE = 4,
+  SET_VAL_ABSOLUTE = 5,
 }
 
 #[repr(C)]

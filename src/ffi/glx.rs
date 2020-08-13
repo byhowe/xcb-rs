@@ -321,8 +321,8 @@ pub struct xcb_glx_buffer_swap_complete_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_glx_pbcet_t
 {
-  XCB_GLX_PBCET_DAMAGED = 32791,
-  XCB_GLX_PBCET_SAVED = 32792,
+  DAMAGED = 32791,
+  SAVED = 32792,
 }
 
 #[repr(u32)]
@@ -330,8 +330,8 @@ pub enum xcb_glx_pbcet_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_glx_pbcdt_t
 {
-  XCB_GLX_PBCDT_WINDOW = 32793,
-  XCB_GLX_PBCDT_PBUFFER = 32794,
+  WINDOW = 32793,
+  PBUFFER = 32794,
 }
 
 #[repr(C)]
@@ -511,27 +511,27 @@ pub struct xcb_glx_copy_context_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_glx_gc_t
 {
-  XCB_GLX_GC_GL_CURRENT_BIT = 1,
-  XCB_GLX_GC_GL_POINT_BIT = 2,
-  XCB_GLX_GC_GL_LINE_BIT = 4,
-  XCB_GLX_GC_GL_POLYGON_BIT = 8,
-  XCB_GLX_GC_GL_POLYGON_STIPPLE_BIT = 16,
-  XCB_GLX_GC_GL_PIXEL_MODE_BIT = 32,
-  XCB_GLX_GC_GL_LIGHTING_BIT = 64,
-  XCB_GLX_GC_GL_FOG_BIT = 128,
-  XCB_GLX_GC_GL_DEPTH_BUFFER_BIT = 256,
-  XCB_GLX_GC_GL_ACCUM_BUFFER_BIT = 512,
-  XCB_GLX_GC_GL_STENCIL_BUFFER_BIT = 1024,
-  XCB_GLX_GC_GL_VIEWPORT_BIT = 2048,
-  XCB_GLX_GC_GL_TRANSFORM_BIT = 4096,
-  XCB_GLX_GC_GL_ENABLE_BIT = 8192,
-  XCB_GLX_GC_GL_COLOR_BUFFER_BIT = 16384,
-  XCB_GLX_GC_GL_HINT_BIT = 32768,
-  XCB_GLX_GC_GL_EVAL_BIT = 65536,
-  XCB_GLX_GC_GL_LIST_BIT = 131072,
-  XCB_GLX_GC_GL_TEXTURE_BIT = 262144,
-  XCB_GLX_GC_GL_SCISSOR_BIT = 524288,
-  XCB_GLX_GC_GL_ALL_ATTRIB_BITS = 16777215,
+  GL_CURRENT_BIT = 1,
+  GL_POINT_BIT = 2,
+  GL_LINE_BIT = 4,
+  GL_POLYGON_BIT = 8,
+  GL_POLYGON_STIPPLE_BIT = 16,
+  GL_PIXEL_MODE_BIT = 32,
+  GL_LIGHTING_BIT = 64,
+  GL_FOG_BIT = 128,
+  GL_DEPTH_BUFFER_BIT = 256,
+  GL_ACCUM_BUFFER_BIT = 512,
+  GL_STENCIL_BUFFER_BIT = 1024,
+  GL_VIEWPORT_BIT = 2048,
+  GL_TRANSFORM_BIT = 4096,
+  GL_ENABLE_BIT = 8192,
+  GL_COLOR_BUFFER_BIT = 16384,
+  GL_HINT_BIT = 32768,
+  GL_EVAL_BIT = 65536,
+  GL_LIST_BIT = 131072,
+  GL_TEXTURE_BIT = 262144,
+  GL_SCISSOR_BIT = 524288,
+  GL_ALL_ATTRIB_BITS = 16777215,
 }
 
 #[repr(C)]
@@ -1111,9 +1111,9 @@ pub struct xcb_glx_render_mode_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_glx_rm_t
 {
-  XCB_GLX_RM_GL_RENDER = 7168,
-  XCB_GLX_RM_GL_FEEDBACK = 7169,
-  XCB_GLX_RM_GL_SELECT = 7170,
+  GL_RENDER = 7168,
+  GL_FEEDBACK = 7169,
+  GL_SELECT = 7170,
 }
 
 #[repr(C)]

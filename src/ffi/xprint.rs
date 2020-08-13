@@ -83,8 +83,8 @@ pub struct xcb_x_print_pcontext_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_x_print_get_doc_t
 {
-  XCB_X_PRINT_GET_DOC_FINISHED = 0,
-  XCB_X_PRINT_GET_DOC_SECOND_CONSUMER = 1,
+  FINISHED = 0,
+  SECOND_CONSUMER = 1,
 }
 
 #[repr(u32)]
@@ -92,9 +92,9 @@ pub enum xcb_x_print_get_doc_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_x_print_ev_mask_t
 {
-  XCB_X_PRINT_EV_MASK_NO_EVENT_MASK = 0,
-  XCB_X_PRINT_EV_MASK_PRINT_MASK = 1,
-  XCB_X_PRINT_EV_MASK_ATTRIBUTE_MASK = 2,
+  NO_EVENT_MASK = 0,
+  PRINT_MASK = 1,
+  ATTRIBUTE_MASK = 2,
 }
 
 #[repr(u32)]
@@ -102,12 +102,12 @@ pub enum xcb_x_print_ev_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_x_print_detail_t
 {
-  XCB_X_PRINT_DETAIL_START_JOB_NOTIFY = 1,
-  XCB_X_PRINT_DETAIL_END_JOB_NOTIFY = 2,
-  XCB_X_PRINT_DETAIL_START_DOC_NOTIFY = 3,
-  XCB_X_PRINT_DETAIL_END_DOC_NOTIFY = 4,
-  XCB_X_PRINT_DETAIL_START_PAGE_NOTIFY = 5,
-  XCB_X_PRINT_DETAIL_END_PAGE_NOTIFY = 6,
+  START_JOB_NOTIFY = 1,
+  END_JOB_NOTIFY = 2,
+  START_DOC_NOTIFY = 3,
+  END_DOC_NOTIFY = 4,
+  START_PAGE_NOTIFY = 5,
+  END_PAGE_NOTIFY = 6,
 }
 
 #[repr(u32)]
@@ -115,13 +115,13 @@ pub enum xcb_x_print_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_x_print_attr_t
 {
-  XCB_X_PRINT_ATTR_JOB_ATTR = 1,
-  XCB_X_PRINT_ATTR_DOC_ATTR = 2,
-  XCB_X_PRINT_ATTR_PAGE_ATTR = 3,
-  XCB_X_PRINT_ATTR_PRINTER_ATTR = 4,
-  XCB_X_PRINT_ATTR_SERVER_ATTR = 5,
-  XCB_X_PRINT_ATTR_MEDIUM_ATTR = 6,
-  XCB_X_PRINT_ATTR_SPOOLER_ATTR = 7,
+  JOB_ATTR = 1,
+  DOC_ATTR = 2,
+  PAGE_ATTR = 3,
+  PRINTER_ATTR = 4,
+  SERVER_ATTR = 5,
+  MEDIUM_ATTR = 6,
+  SPOOLER_ATTR = 7,
 }
 
 #[repr(C)]

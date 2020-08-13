@@ -25,9 +25,9 @@ pub const XCB_SCREENSAVER_NOTIFY: u32 = 0;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_screensaver_kind_t
 {
-  XCB_SCREENSAVER_KIND_BLANKED = 0,
-  XCB_SCREENSAVER_KIND_INTERNAL = 1,
-  XCB_SCREENSAVER_KIND_EXTERNAL = 2,
+  BLANKED = 0,
+  INTERNAL = 1,
+  EXTERNAL = 2,
 }
 
 #[repr(u32)]
@@ -35,8 +35,8 @@ pub enum xcb_screensaver_kind_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_screensaver_event_t
 {
-  XCB_SCREENSAVER_EVENT_NOTIFY_MASK = 1,
-  XCB_SCREENSAVER_EVENT_CYCLE_MASK = 2,
+  NOTIFY_MASK = 1,
+  CYCLE_MASK = 2,
 }
 
 #[repr(u32)]
@@ -44,10 +44,10 @@ pub enum xcb_screensaver_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_screensaver_state_t
 {
-  XCB_SCREENSAVER_STATE_OFF = 0,
-  XCB_SCREENSAVER_STATE_ON = 1,
-  XCB_SCREENSAVER_STATE_CYCLE = 2,
-  XCB_SCREENSAVER_STATE_DISABLED = 3,
+  OFF = 0,
+  ON = 1,
+  CYCLE = 2,
+  DISABLED = 3,
 }
 
 #[repr(C)]

@@ -34,10 +34,10 @@ pub struct xcb_damage_damage_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_damage_report_level_t
 {
-  XCB_DAMAGE_REPORT_LEVEL_RAW_RECTANGLES = 0,
-  XCB_DAMAGE_REPORT_LEVEL_DELTA_RECTANGLES = 1,
-  XCB_DAMAGE_REPORT_LEVEL_BOUNDING_BOX = 2,
-  XCB_DAMAGE_REPORT_LEVEL_NON_EMPTY = 3,
+  RAW_RECTANGLES = 0,
+  DELTA_RECTANGLES = 1,
+  BOUNDING_BOX = 2,
+  NON_EMPTY = 3,
 }
 
 #[repr(C)]

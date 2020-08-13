@@ -226,11 +226,11 @@ pub struct xcb_input_get_extension_version_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_use_t
 {
-  XCB_INPUT_DEVICE_USE_IS_X_POINTER = 0,
-  XCB_INPUT_DEVICE_USE_IS_X_KEYBOARD = 1,
-  XCB_INPUT_DEVICE_USE_IS_X_EXTENSION_DEVICE = 2,
-  XCB_INPUT_DEVICE_USE_IS_X_EXTENSION_KEYBOARD = 3,
-  XCB_INPUT_DEVICE_USE_IS_X_EXTENSION_POINTER = 4,
+  X_POINTER = 0,
+  X_KEYBOARD = 1,
+  X_EXTENSION_DEVICE = 2,
+  X_EXTENSION_KEYBOARD = 3,
+  X_EXTENSION_POINTER = 4,
 }
 
 #[repr(u32)]
@@ -238,13 +238,13 @@ pub enum xcb_input_device_use_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_input_class_t
 {
-  XCB_INPUT_INPUT_CLASS_KEY = 0,
-  XCB_INPUT_INPUT_CLASS_BUTTON = 1,
-  XCB_INPUT_INPUT_CLASS_VALUATOR = 2,
-  XCB_INPUT_INPUT_CLASS_FEEDBACK = 3,
-  XCB_INPUT_INPUT_CLASS_PROXIMITY = 4,
-  XCB_INPUT_INPUT_CLASS_FOCUS = 5,
-  XCB_INPUT_INPUT_CLASS_OTHER = 6,
+  KEY = 0,
+  BUTTON = 1,
+  VALUATOR = 2,
+  FEEDBACK = 3,
+  PROXIMITY = 4,
+  FOCUS = 5,
+  OTHER = 6,
 }
 
 #[repr(u32)]
@@ -252,8 +252,8 @@ pub enum xcb_input_input_class_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_valuator_mode_t
 {
-  XCB_INPUT_VALUATOR_MODE_RELATIVE = 0,
-  XCB_INPUT_VALUATOR_MODE_ABSOLUTE = 1,
+  RELATIVE = 0,
+  ABSOLUTE = 1,
 }
 
 #[repr(C)]
@@ -597,8 +597,8 @@ pub struct xcb_input_get_selected_extension_events_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_propagate_mode_t
 {
-  XCB_INPUT_PROPAGATE_MODE_ADD_TO_LIST = 0,
-  XCB_INPUT_PROPAGATE_MODE_DELETE_FROM_LIST = 1,
+  ADD_TO_LIST = 0,
+  DELETE_FROM_LIST = 1,
 }
 
 #[repr(C)]
@@ -809,7 +809,7 @@ pub struct xcb_input_ungrab_device_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_modifier_device_t
 {
-  XCB_INPUT_MODIFIER_DEVICE_USE_X_KEYBOARD = 255,
+  USE_X_KEYBOARD = 255,
 }
 
 #[repr(C)]
@@ -884,12 +884,12 @@ pub struct xcb_input_ungrab_device_button_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_input_mode_t
 {
-  XCB_INPUT_DEVICE_INPUT_MODE_ASYNC_THIS_DEVICE = 0,
-  XCB_INPUT_DEVICE_INPUT_MODE_SYNC_THIS_DEVICE = 1,
-  XCB_INPUT_DEVICE_INPUT_MODE_REPLAY_THIS_DEVICE = 2,
-  XCB_INPUT_DEVICE_INPUT_MODE_ASYNC_OTHER_DEVICES = 3,
-  XCB_INPUT_DEVICE_INPUT_MODE_ASYNC_ALL = 4,
-  XCB_INPUT_DEVICE_INPUT_MODE_SYNC_ALL = 5,
+  ASYNC_THIS_DEVICE = 0,
+  SYNC_THIS_DEVICE = 1,
+  REPLAY_THIS_DEVICE = 2,
+  ASYNC_OTHER_DEVICES = 3,
+  ASYNC_ALL = 4,
+  SYNC_ALL = 5,
 }
 
 #[repr(C)]
@@ -956,12 +956,12 @@ pub struct xcb_input_set_device_focus_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_feedback_class_t
 {
-  XCB_INPUT_FEEDBACK_CLASS_KEYBOARD = 0,
-  XCB_INPUT_FEEDBACK_CLASS_POINTER = 1,
-  XCB_INPUT_FEEDBACK_CLASS_STRING = 2,
-  XCB_INPUT_FEEDBACK_CLASS_INTEGER = 3,
-  XCB_INPUT_FEEDBACK_CLASS_LED = 4,
-  XCB_INPUT_FEEDBACK_CLASS_BELL = 5,
+  KEYBOARD = 0,
+  POINTER = 1,
+  STRING = 2,
+  INTEGER = 3,
+  LED = 4,
+  BELL = 5,
 }
 
 #[repr(C)]
@@ -1436,31 +1436,16 @@ pub struct xcb_input_feedback_ctl_iterator_t
 
 impl xcb_input_change_feedback_control_mask_t
 {
-  pub const XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_STRING : xcb_input_change_feedback_control_mask_t = xcb_input_change_feedback_control_mask_t :: XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_KEY_CLICK_PERCENT ;
-}
-
-impl xcb_input_change_feedback_control_mask_t
-{
-  pub const XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_INTEGER : xcb_input_change_feedback_control_mask_t = xcb_input_change_feedback_control_mask_t :: XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_KEY_CLICK_PERCENT ;
-}
-
-impl xcb_input_change_feedback_control_mask_t
-{
-  pub const XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_ACCEL_NUM : xcb_input_change_feedback_control_mask_t = xcb_input_change_feedback_control_mask_t :: XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_KEY_CLICK_PERCENT ;
-}
-
-impl xcb_input_change_feedback_control_mask_t
-{
-  pub const XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_ACCEL_DENOM:
-    xcb_input_change_feedback_control_mask_t =
-    xcb_input_change_feedback_control_mask_t::XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_PERCENT;
-}
-
-impl xcb_input_change_feedback_control_mask_t
-{
-  pub const XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_THRESHOLD:
-    xcb_input_change_feedback_control_mask_t =
-    xcb_input_change_feedback_control_mask_t::XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_PITCH;
+  pub const STRING: xcb_input_change_feedback_control_mask_t =
+    xcb_input_change_feedback_control_mask_t::KEY_CLICK_PERCENT;
+  pub const INTEGER: xcb_input_change_feedback_control_mask_t =
+    xcb_input_change_feedback_control_mask_t::KEY_CLICK_PERCENT;
+  pub const ACCEL_NUM: xcb_input_change_feedback_control_mask_t =
+    xcb_input_change_feedback_control_mask_t::KEY_CLICK_PERCENT;
+  pub const ACCEL_DENOM: xcb_input_change_feedback_control_mask_t =
+    xcb_input_change_feedback_control_mask_t::PERCENT;
+  pub const THRESHOLD: xcb_input_change_feedback_control_mask_t =
+    xcb_input_change_feedback_control_mask_t::PITCH;
 }
 
 #[repr(u32)]
@@ -1468,14 +1453,14 @@ impl xcb_input_change_feedback_control_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_change_feedback_control_mask_t
 {
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_KEY_CLICK_PERCENT = 1,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_PERCENT = 2,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_PITCH = 4,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_DURATION = 8,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_LED = 16,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_LED_MODE = 32,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_KEY = 64,
-  XCB_INPUT_CHANGE_FEEDBACK_CONTROL_MASK_AUTO_REPEAT_MODE = 128,
+  KEY_CLICK_PERCENT = 1,
+  PERCENT = 2,
+  PITCH = 4,
+  DURATION = 8,
+  LED = 16,
+  LED_MODE = 32,
+  KEY = 64,
+  AUTO_REPEAT_MODE = 128,
 }
 
 #[repr(C)]
@@ -1703,8 +1688,8 @@ pub struct xcb_input_button_state_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_valuator_state_mode_mask_t
 {
-  XCB_INPUT_VALUATOR_STATE_MODE_MASK_DEVICE_MODE_ABSOLUTE = 1,
-  XCB_INPUT_VALUATOR_STATE_MODE_MASK_OUT_OF_PROXIMITY = 2,
+  DEVICE_MODE_ABSOLUTE = 1,
+  OUT_OF_PROXIMITY = 2,
 }
 
 #[repr(C)]
@@ -1859,11 +1844,11 @@ pub struct xcb_input_set_device_valuators_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_control_t
 {
-  XCB_INPUT_DEVICE_CONTROL_RESOLUTION = 1,
-  XCB_INPUT_DEVICE_CONTROL_ABS_CALIB = 2,
-  XCB_INPUT_DEVICE_CONTROL_CORE = 3,
-  XCB_INPUT_DEVICE_CONTROL_ENABLE = 4,
-  XCB_INPUT_DEVICE_CONTROL_ABS_AREA = 5,
+  RESOLUTION = 1,
+  ABS_CALIB = 2,
+  CORE = 3,
+  ENABLE = 4,
+  ABS_AREA = 5,
 }
 
 #[repr(C)]
@@ -2335,9 +2320,9 @@ pub struct xcb_input_list_device_properties_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_property_format_t
 {
-  XCB_INPUT_PROPERTY_FORMAT_8_BITS = 8,
-  XCB_INPUT_PROPERTY_FORMAT_16_BITS = 16,
-  XCB_INPUT_PROPERTY_FORMAT_32_BITS = 32,
+  BITS_8 = 8,
+  BITS_16 = 16,
+  BITS_32 = 32,
 }
 
 #[repr(C)]
@@ -2430,8 +2415,8 @@ pub struct xcb_input_get_device_property_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_t
 {
-  XCB_INPUT_DEVICE_ALL = 0,
-  XCB_INPUT_DEVICE_ALL_MASTER = 1,
+  ALL = 0,
+  ALL_MASTER = 1,
 }
 
 #[repr(C)]
@@ -2549,10 +2534,10 @@ pub struct xcb_input_xi_change_cursor_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_hierarchy_change_type_t
 {
-  XCB_INPUT_HIERARCHY_CHANGE_TYPE_ADD_MASTER = 1,
-  XCB_INPUT_HIERARCHY_CHANGE_TYPE_REMOVE_MASTER = 2,
-  XCB_INPUT_HIERARCHY_CHANGE_TYPE_ATTACH_SLAVE = 3,
-  XCB_INPUT_HIERARCHY_CHANGE_TYPE_DETACH_SLAVE = 4,
+  ADD_MASTER = 1,
+  REMOVE_MASTER = 2,
+  ATTACH_SLAVE = 3,
+  DETACH_SLAVE = 4,
 }
 
 #[repr(u32)]
@@ -2560,8 +2545,8 @@ pub enum xcb_input_hierarchy_change_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_change_mode_t
 {
-  XCB_INPUT_CHANGE_MODE_ATTACH = 1,
-  XCB_INPUT_CHANGE_MODE_FLOAT = 2,
+  ATTACH = 1,
+  FLOAT = 2,
 }
 
 #[repr(C)]
@@ -2767,32 +2752,32 @@ pub struct xcb_input_xi_get_client_pointer_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_xi_event_mask_t
 {
-  XCB_INPUT_XI_EVENT_MASK_DEVICE_CHANGED = 2,
-  XCB_INPUT_XI_EVENT_MASK_KEY_PRESS = 4,
-  XCB_INPUT_XI_EVENT_MASK_KEY_RELEASE = 8,
-  XCB_INPUT_XI_EVENT_MASK_BUTTON_PRESS = 16,
-  XCB_INPUT_XI_EVENT_MASK_BUTTON_RELEASE = 32,
-  XCB_INPUT_XI_EVENT_MASK_MOTION = 64,
-  XCB_INPUT_XI_EVENT_MASK_ENTER = 128,
-  XCB_INPUT_XI_EVENT_MASK_LEAVE = 256,
-  XCB_INPUT_XI_EVENT_MASK_FOCUS_IN = 512,
-  XCB_INPUT_XI_EVENT_MASK_FOCUS_OUT = 1024,
-  XCB_INPUT_XI_EVENT_MASK_HIERARCHY = 2048,
-  XCB_INPUT_XI_EVENT_MASK_PROPERTY = 4096,
-  XCB_INPUT_XI_EVENT_MASK_RAW_KEY_PRESS = 8192,
-  XCB_INPUT_XI_EVENT_MASK_RAW_KEY_RELEASE = 16384,
-  XCB_INPUT_XI_EVENT_MASK_RAW_BUTTON_PRESS = 32768,
-  XCB_INPUT_XI_EVENT_MASK_RAW_BUTTON_RELEASE = 65536,
-  XCB_INPUT_XI_EVENT_MASK_RAW_MOTION = 131072,
-  XCB_INPUT_XI_EVENT_MASK_TOUCH_BEGIN = 262144,
-  XCB_INPUT_XI_EVENT_MASK_TOUCH_UPDATE = 524288,
-  XCB_INPUT_XI_EVENT_MASK_TOUCH_END = 1048576,
-  XCB_INPUT_XI_EVENT_MASK_TOUCH_OWNERSHIP = 2097152,
-  XCB_INPUT_XI_EVENT_MASK_RAW_TOUCH_BEGIN = 4194304,
-  XCB_INPUT_XI_EVENT_MASK_RAW_TOUCH_UPDATE = 8388608,
-  XCB_INPUT_XI_EVENT_MASK_RAW_TOUCH_END = 16777216,
-  XCB_INPUT_XI_EVENT_MASK_BARRIER_HIT = 33554432,
-  XCB_INPUT_XI_EVENT_MASK_BARRIER_LEAVE = 67108864,
+  DEVICE_CHANGED = 2,
+  KEY_PRESS = 4,
+  KEY_RELEASE = 8,
+  BUTTON_PRESS = 16,
+  BUTTON_RELEASE = 32,
+  MOTION = 64,
+  ENTER = 128,
+  LEAVE = 256,
+  FOCUS_IN = 512,
+  FOCUS_OUT = 1024,
+  HIERARCHY = 2048,
+  PROPERTY = 4096,
+  RAW_KEY_PRESS = 8192,
+  RAW_KEY_RELEASE = 16384,
+  RAW_BUTTON_PRESS = 32768,
+  RAW_BUTTON_RELEASE = 65536,
+  RAW_MOTION = 131072,
+  TOUCH_BEGIN = 262144,
+  TOUCH_UPDATE = 524288,
+  TOUCH_END = 1048576,
+  TOUCH_OWNERSHIP = 2097152,
+  RAW_TOUCH_BEGIN = 4194304,
+  RAW_TOUCH_UPDATE = 8388608,
+  RAW_TOUCH_END = 16777216,
+  BARRIER_HIT = 33554432,
+  BARRIER_LEAVE = 67108864,
 }
 
 #[repr(C)]
@@ -2860,11 +2845,11 @@ pub struct xcb_input_xi_query_version_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_class_type_t
 {
-  XCB_INPUT_DEVICE_CLASS_TYPE_KEY = 0,
-  XCB_INPUT_DEVICE_CLASS_TYPE_BUTTON = 1,
-  XCB_INPUT_DEVICE_CLASS_TYPE_VALUATOR = 2,
-  XCB_INPUT_DEVICE_CLASS_TYPE_SCROLL = 3,
-  XCB_INPUT_DEVICE_CLASS_TYPE_TOUCH = 8,
+  KEY = 0,
+  BUTTON = 1,
+  VALUATOR = 2,
+  SCROLL = 3,
+  TOUCH = 8,
 }
 
 #[repr(u32)]
@@ -2872,11 +2857,11 @@ pub enum xcb_input_device_class_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_type_t
 {
-  XCB_INPUT_DEVICE_TYPE_MASTER_POINTER = 1,
-  XCB_INPUT_DEVICE_TYPE_MASTER_KEYBOARD = 2,
-  XCB_INPUT_DEVICE_TYPE_SLAVE_POINTER = 3,
-  XCB_INPUT_DEVICE_TYPE_SLAVE_KEYBOARD = 4,
-  XCB_INPUT_DEVICE_TYPE_FLOATING_SLAVE = 5,
+  MASTER_POINTER = 1,
+  MASTER_KEYBOARD = 2,
+  SLAVE_POINTER = 3,
+  SLAVE_KEYBOARD = 4,
+  FLOATING_SLAVE = 5,
 }
 
 #[repr(u32)]
@@ -2884,8 +2869,8 @@ pub enum xcb_input_device_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_scroll_flags_t
 {
-  XCB_INPUT_SCROLL_FLAGS_NO_EMULATION = 1,
-  XCB_INPUT_SCROLL_FLAGS_PREFERRED = 2,
+  NO_EMULATION = 1,
+  PREFERRED = 2,
 }
 
 #[repr(u32)]
@@ -2893,8 +2878,8 @@ pub enum xcb_input_scroll_flags_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_scroll_type_t
 {
-  XCB_INPUT_SCROLL_TYPE_VERTICAL = 1,
-  XCB_INPUT_SCROLL_TYPE_HORIZONTAL = 2,
+  VERTICAL = 1,
+  HORIZONTAL = 2,
 }
 
 #[repr(u32)]
@@ -2902,8 +2887,8 @@ pub enum xcb_input_scroll_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_touch_mode_t
 {
-  XCB_INPUT_TOUCH_MODE_DIRECT = 1,
-  XCB_INPUT_TOUCH_MODE_DEPENDENT = 2,
+  DIRECT = 1,
+  DEPENDENT = 2,
 }
 
 #[repr(C)]
@@ -3192,8 +3177,8 @@ pub struct xcb_input_xi_get_focus_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_grab_owner_t
 {
-  XCB_INPUT_GRAB_OWNER_NO_OWNER = 0,
-  XCB_INPUT_GRAB_OWNER_OWNER = 1,
+  NO_OWNER = 0,
+  OWNER = 1,
 }
 
 #[repr(C)]
@@ -3250,14 +3235,14 @@ pub struct xcb_input_xi_ungrab_device_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_event_mode_t
 {
-  XCB_INPUT_EVENT_MODE_ASYNC_DEVICE = 0,
-  XCB_INPUT_EVENT_MODE_SYNC_DEVICE = 1,
-  XCB_INPUT_EVENT_MODE_REPLAY_DEVICE = 2,
-  XCB_INPUT_EVENT_MODE_ASYNC_PAIRED_DEVICE = 3,
-  XCB_INPUT_EVENT_MODE_ASYNC_PAIR = 4,
-  XCB_INPUT_EVENT_MODE_SYNC_PAIR = 5,
-  XCB_INPUT_EVENT_MODE_ACCEPT_TOUCH = 6,
-  XCB_INPUT_EVENT_MODE_REJECT_TOUCH = 7,
+  ASYNC_DEVICE = 0,
+  SYNC_DEVICE = 1,
+  REPLAY_DEVICE = 2,
+  ASYNC_PAIRED_DEVICE = 3,
+  ASYNC_PAIR = 4,
+  SYNC_PAIR = 5,
+  ACCEPT_TOUCH = 6,
+  REJECT_TOUCH = 7,
 }
 
 #[repr(C)]
@@ -3280,9 +3265,9 @@ pub struct xcb_input_xi_allow_events_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_grab_mode_22_t
 {
-  XCB_INPUT_GRAB_MODE_22_SYNC = 0,
-  XCB_INPUT_GRAB_MODE_22_ASYNC = 1,
-  XCB_INPUT_GRAB_MODE_22_TOUCH = 2,
+  SYNC = 0,
+  ASYNC = 1,
+  TOUCH = 2,
 }
 
 #[repr(u32)]
@@ -3290,11 +3275,11 @@ pub enum xcb_input_grab_mode_22_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_grab_type_t
 {
-  XCB_INPUT_GRAB_TYPE_BUTTON = 0,
-  XCB_INPUT_GRAB_TYPE_KEYCODE = 1,
-  XCB_INPUT_GRAB_TYPE_ENTER = 2,
-  XCB_INPUT_GRAB_TYPE_FOCUS_IN = 3,
-  XCB_INPUT_GRAB_TYPE_TOUCH_BEGIN = 4,
+  BUTTON = 0,
+  KEYCODE = 1,
+  ENTER = 2,
+  FOCUS_IN = 3,
+  TOUCH_BEGIN = 4,
 }
 
 #[repr(u32)]
@@ -3302,7 +3287,7 @@ pub enum xcb_input_grab_type_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_modifier_mask_t
 {
-  XCB_INPUT_MODIFIER_MASK_ANY = 2147483648,
+  ANY = 2147483648,
 }
 
 #[repr(C)]
@@ -3567,7 +3552,7 @@ pub struct xcb_input_device_valuator_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_more_events_mask_t
 {
-  XCB_INPUT_MORE_EVENTS_MASK_MORE_EVENTS = 128,
+  MORE_EVENTS = 128,
 }
 
 #[repr(C)]
@@ -3623,11 +3608,11 @@ pub type xcb_input_proximity_out_event_t = xcb_input_device_key_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_classes_reported_mask_t
 {
-  XCB_INPUT_CLASSES_REPORTED_MASK_OUT_OF_PROXIMITY = 128,
-  XCB_INPUT_CLASSES_REPORTED_MASK_DEVICE_MODE_ABSOLUTE = 64,
-  XCB_INPUT_CLASSES_REPORTED_MASK_REPORTING_VALUATORS = 4,
-  XCB_INPUT_CLASSES_REPORTED_MASK_REPORTING_BUTTONS = 2,
-  XCB_INPUT_CLASSES_REPORTED_MASK_REPORTING_KEYS = 1,
+  OUT_OF_PROXIMITY = 128,
+  DEVICE_MODE_ABSOLUTE = 64,
+  REPORTING_VALUATORS = 4,
+  REPORTING_BUTTONS = 2,
+  REPORTING_KEYS = 1,
 }
 
 #[repr(C)]
@@ -3667,8 +3652,8 @@ pub struct xcb_input_device_mapping_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_change_device_t
 {
-  XCB_INPUT_CHANGE_DEVICE_NEW_POINTER = 0,
-  XCB_INPUT_CHANGE_DEVICE_NEW_KEYBOARD = 1,
+  NEW_POINTER = 0,
+  NEW_KEYBOARD = 1,
 }
 
 #[repr(C)]
@@ -3708,12 +3693,12 @@ pub struct xcb_input_device_button_state_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_device_change_t
 {
-  XCB_INPUT_DEVICE_CHANGE_ADDED = 0,
-  XCB_INPUT_DEVICE_CHANGE_REMOVED = 1,
-  XCB_INPUT_DEVICE_CHANGE_ENABLED = 2,
-  XCB_INPUT_DEVICE_CHANGE_DISABLED = 3,
-  XCB_INPUT_DEVICE_CHANGE_UNRECOVERABLE = 4,
-  XCB_INPUT_DEVICE_CHANGE_CONTROL_CHANGED = 5,
+  ADDED = 0,
+  REMOVED = 1,
+  ENABLED = 2,
+  DISABLED = 3,
+  UNRECOVERABLE = 4,
+  CONTROL_CHANGED = 5,
 }
 
 #[repr(C)]
@@ -3748,8 +3733,8 @@ pub struct xcb_input_device_property_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_change_reason_t
 {
-  XCB_INPUT_CHANGE_REASON_SLAVE_SWITCH = 1,
-  XCB_INPUT_CHANGE_REASON_DEVICE_CHANGE = 2,
+  SLAVE_SWITCH = 1,
+  DEVICE_CHANGE = 2,
 }
 
 #[repr(C)]
@@ -3775,7 +3760,7 @@ pub struct xcb_input_device_changed_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_key_event_flags_t
 {
-  XCB_INPUT_KEY_EVENT_FLAGS_KEY_REPEAT = 65536,
+  KEY_REPEAT = 65536,
 }
 
 #[repr(C)]
@@ -3814,7 +3799,7 @@ pub type xcb_input_key_release_event_t = xcb_input_key_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_pointer_event_flags_t
 {
-  XCB_INPUT_POINTER_EVENT_FLAGS_POINTER_EMULATED = 65536,
+  POINTER_EMULATED = 65536,
 }
 
 #[repr(C)]
@@ -3855,12 +3840,12 @@ pub type xcb_input_motion_event_t = xcb_input_button_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_notify_mode_t
 {
-  XCB_INPUT_NOTIFY_MODE_NORMAL = 0,
-  XCB_INPUT_NOTIFY_MODE_GRAB = 1,
-  XCB_INPUT_NOTIFY_MODE_UNGRAB = 2,
-  XCB_INPUT_NOTIFY_MODE_WHILE_GRABBED = 3,
-  XCB_INPUT_NOTIFY_MODE_PASSIVE_GRAB = 4,
-  XCB_INPUT_NOTIFY_MODE_PASSIVE_UNGRAB = 5,
+  NORMAL = 0,
+  GRAB = 1,
+  UNGRAB = 2,
+  WHILE_GRABBED = 3,
+  PASSIVE_GRAB = 4,
+  PASSIVE_UNGRAB = 5,
 }
 
 #[repr(u32)]
@@ -3868,14 +3853,14 @@ pub enum xcb_input_notify_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_notify_detail_t
 {
-  XCB_INPUT_NOTIFY_DETAIL_ANCESTOR = 0,
-  XCB_INPUT_NOTIFY_DETAIL_VIRTUAL = 1,
-  XCB_INPUT_NOTIFY_DETAIL_INFERIOR = 2,
-  XCB_INPUT_NOTIFY_DETAIL_NONLINEAR = 3,
-  XCB_INPUT_NOTIFY_DETAIL_NONLINEAR_VIRTUAL = 4,
-  XCB_INPUT_NOTIFY_DETAIL_POINTER = 5,
-  XCB_INPUT_NOTIFY_DETAIL_POINTER_ROOT = 6,
-  XCB_INPUT_NOTIFY_DETAIL_NONE = 7,
+  ANCESTOR = 0,
+  VIRTUAL = 1,
+  INFERIOR = 2,
+  NONLINEAR = 3,
+  NONLINEAR_VIRTUAL = 4,
+  POINTER = 5,
+  POINTER_ROOT = 6,
+  NONE = 7,
 }
 
 #[repr(C)]
@@ -3918,14 +3903,14 @@ pub type xcb_input_focus_out_event_t = xcb_input_enter_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_hierarchy_mask_t
 {
-  XCB_INPUT_HIERARCHY_MASK_MASTER_ADDED = 1,
-  XCB_INPUT_HIERARCHY_MASK_MASTER_REMOVED = 2,
-  XCB_INPUT_HIERARCHY_MASK_SLAVE_ADDED = 4,
-  XCB_INPUT_HIERARCHY_MASK_SLAVE_REMOVED = 8,
-  XCB_INPUT_HIERARCHY_MASK_SLAVE_ATTACHED = 16,
-  XCB_INPUT_HIERARCHY_MASK_SLAVE_DETACHED = 32,
-  XCB_INPUT_HIERARCHY_MASK_DEVICE_ENABLED = 64,
-  XCB_INPUT_HIERARCHY_MASK_DEVICE_DISABLED = 128,
+  MASTER_ADDED = 1,
+  MASTER_REMOVED = 2,
+  SLAVE_ADDED = 4,
+  SLAVE_REMOVED = 8,
+  SLAVE_ATTACHED = 16,
+  SLAVE_DETACHED = 32,
+  DEVICE_ENABLED = 64,
+  DEVICE_DISABLED = 128,
 }
 
 #[repr(C)]
@@ -3971,9 +3956,9 @@ pub struct xcb_input_hierarchy_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_property_flag_t
 {
-  XCB_INPUT_PROPERTY_FLAG_DELETED = 0,
-  XCB_INPUT_PROPERTY_FLAG_CREATED = 1,
-  XCB_INPUT_PROPERTY_FLAG_MODIFIED = 2,
+  DELETED = 0,
+  CREATED = 1,
+  MODIFIED = 2,
 }
 
 #[repr(C)]
@@ -4042,8 +4027,8 @@ pub type xcb_input_raw_motion_event_t = xcb_input_raw_button_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_touch_event_flags_t
 {
-  XCB_INPUT_TOUCH_EVENT_FLAGS_TOUCH_PENDING_END = 65536,
-  XCB_INPUT_TOUCH_EVENT_FLAGS_TOUCH_EMULATING_POINTER = 131072,
+  TOUCH_PENDING_END = 65536,
+  TOUCH_EMULATING_POINTER = 131072,
 }
 
 #[repr(C)]
@@ -4084,7 +4069,7 @@ pub type xcb_input_touch_end_event_t = xcb_input_touch_begin_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_touch_ownership_flags_t
 {
-  XCB_INPUT_TOUCH_OWNERSHIP_FLAGS_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -4137,8 +4122,8 @@ pub type xcb_input_raw_touch_end_event_t = xcb_input_raw_touch_begin_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_barrier_flags_t
 {
-  XCB_INPUT_BARRIER_FLAGS_POINTER_RELEASED = 1,
-  XCB_INPUT_BARRIER_FLAGS_DEVICE_IS_GRABBED = 2,
+  POINTER_RELEASED = 1,
+  DEVICE_IS_GRABBED = 2,
 }
 
 #[repr(C)]

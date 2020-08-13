@@ -120,9 +120,9 @@ pub struct xcb_record_element_header_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_record_h_type_t
 {
-  XCB_RECORD_H_TYPE_FROM_SERVER_TIME = 1,
-  XCB_RECORD_H_TYPE_FROM_CLIENT_TIME = 2,
-  XCB_RECORD_H_TYPE_FROM_CLIENT_SEQUENCE = 4,
+  FROM_SERVER_TIME = 1,
+  FROM_CLIENT_TIME = 2,
+  FROM_CLIENT_SEQUENCE = 4,
 }
 
 pub type xcb_record_client_spec_t = u32;
@@ -141,9 +141,9 @@ pub struct xcb_record_client_spec_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_record_cs_t
 {
-  XCB_RECORD_CS_CURRENT_CLIENTS = 1,
-  XCB_RECORD_CS_FUTURE_CLIENTS = 2,
-  XCB_RECORD_CS_ALL_CLIENTS = 3,
+  CURRENT_CLIENTS = 1,
+  FUTURE_CLIENTS = 2,
+  ALL_CLIENTS = 3,
 }
 
 #[repr(C)]

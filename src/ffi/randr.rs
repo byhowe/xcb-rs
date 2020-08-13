@@ -158,12 +158,12 @@ pub struct xcb_randr_bad_provider_error_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_rotation_t
 {
-  XCB_RANDR_ROTATION_ROTATE_0 = 1,
-  XCB_RANDR_ROTATION_ROTATE_90 = 2,
-  XCB_RANDR_ROTATION_ROTATE_180 = 4,
-  XCB_RANDR_ROTATION_ROTATE_270 = 8,
-  XCB_RANDR_ROTATION_REFLECT_X = 16,
-  XCB_RANDR_ROTATION_REFLECT_Y = 32,
+  ROTATE_0 = 1,
+  ROTATE_90 = 2,
+  ROTATE_180 = 4,
+  ROTATE_270 = 8,
+  REFLECT_X = 16,
+  REFLECT_Y = 32,
 }
 
 #[repr(C)]
@@ -237,10 +237,10 @@ pub struct xcb_randr_query_version_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_set_config_t
 {
-  XCB_RANDR_SET_CONFIG_SUCCESS = 0,
-  XCB_RANDR_SET_CONFIG_INVALID_CONFIG_TIME = 1,
-  XCB_RANDR_SET_CONFIG_INVALID_TIME = 2,
-  XCB_RANDR_SET_CONFIG_FAILED = 3,
+  SUCCESS = 0,
+  INVALID_CONFIG_TIME = 1,
+  INVALID_TIME = 2,
+  FAILED = 3,
 }
 
 #[repr(C)]
@@ -286,14 +286,14 @@ pub struct xcb_randr_set_screen_config_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_notify_mask_t
 {
-  XCB_RANDR_NOTIFY_MASK_SCREEN_CHANGE = 1,
-  XCB_RANDR_NOTIFY_MASK_CRTC_CHANGE = 2,
-  XCB_RANDR_NOTIFY_MASK_OUTPUT_CHANGE = 4,
-  XCB_RANDR_NOTIFY_MASK_OUTPUT_PROPERTY = 8,
-  XCB_RANDR_NOTIFY_MASK_PROVIDER_CHANGE = 16,
-  XCB_RANDR_NOTIFY_MASK_PROVIDER_PROPERTY = 32,
-  XCB_RANDR_NOTIFY_MASK_RESOURCE_CHANGE = 64,
-  XCB_RANDR_NOTIFY_MASK_LEASE = 128,
+  SCREEN_CHANGE = 1,
+  CRTC_CHANGE = 2,
+  OUTPUT_CHANGE = 4,
+  OUTPUT_PROPERTY = 8,
+  PROVIDER_CHANGE = 16,
+  PROVIDER_PROPERTY = 32,
+  RESOURCE_CHANGE = 64,
+  LEASE = 128,
 }
 
 #[repr(C)]
@@ -395,20 +395,20 @@ pub struct xcb_randr_set_screen_size_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_mode_flag_t
 {
-  XCB_RANDR_MODE_FLAG_HSYNC_POSITIVE = 1,
-  XCB_RANDR_MODE_FLAG_HSYNC_NEGATIVE = 2,
-  XCB_RANDR_MODE_FLAG_VSYNC_POSITIVE = 4,
-  XCB_RANDR_MODE_FLAG_VSYNC_NEGATIVE = 8,
-  XCB_RANDR_MODE_FLAG_INTERLACE = 16,
-  XCB_RANDR_MODE_FLAG_DOUBLE_SCAN = 32,
-  XCB_RANDR_MODE_FLAG_CSYNC = 64,
-  XCB_RANDR_MODE_FLAG_CSYNC_POSITIVE = 128,
-  XCB_RANDR_MODE_FLAG_CSYNC_NEGATIVE = 256,
-  XCB_RANDR_MODE_FLAG_HSKEW_PRESENT = 512,
-  XCB_RANDR_MODE_FLAG_BCAST = 1024,
-  XCB_RANDR_MODE_FLAG_PIXEL_MULTIPLEX = 2048,
-  XCB_RANDR_MODE_FLAG_DOUBLE_CLOCK = 4096,
-  XCB_RANDR_MODE_FLAG_HALVE_CLOCK = 8192,
+  HSYNC_POSITIVE = 1,
+  HSYNC_NEGATIVE = 2,
+  VSYNC_POSITIVE = 4,
+  VSYNC_NEGATIVE = 8,
+  INTERLACE = 16,
+  DOUBLE_SCAN = 32,
+  CSYNC = 64,
+  CSYNC_POSITIVE = 128,
+  CSYNC_NEGATIVE = 256,
+  HSKEW_PRESENT = 512,
+  BCAST = 1024,
+  PIXEL_MULTIPLEX = 2048,
+  DOUBLE_CLOCK = 4096,
+  HALVE_CLOCK = 8192,
 }
 
 #[repr(C)]
@@ -478,9 +478,9 @@ pub struct xcb_randr_get_screen_resources_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_connection_t
 {
-  XCB_RANDR_CONNECTION_CONNECTED = 0,
-  XCB_RANDR_CONNECTION_DISCONNECTED = 1,
-  XCB_RANDR_CONNECTION_UNKNOWN = 2,
+  CONNECTED = 0,
+  DISCONNECTED = 1,
+  UNKNOWN = 2,
 }
 
 #[repr(C)]
@@ -907,10 +907,10 @@ pub struct xcb_randr_get_screen_resources_current_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_transform_t
 {
-  XCB_RANDR_TRANSFORM_UNIT = 1,
-  XCB_RANDR_TRANSFORM_SCALE_UP = 2,
-  XCB_RANDR_TRANSFORM_SCALE_DOWN = 4,
-  XCB_RANDR_TRANSFORM_PROJECTIVE = 8,
+  UNIT = 1,
+  SCALE_UP = 2,
+  SCALE_DOWN = 4,
+  PROJECTIVE = 8,
 }
 
 #[repr(C)]
@@ -1117,10 +1117,10 @@ pub struct xcb_randr_get_providers_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_provider_capability_t
 {
-  XCB_RANDR_PROVIDER_CAPABILITY_SOURCE_OUTPUT = 1,
-  XCB_RANDR_PROVIDER_CAPABILITY_SINK_OUTPUT = 2,
-  XCB_RANDR_PROVIDER_CAPABILITY_SOURCE_OFFLOAD = 4,
-  XCB_RANDR_PROVIDER_CAPABILITY_SINK_OFFLOAD = 8,
+  SOURCE_OUTPUT = 1,
+  SINK_OUTPUT = 2,
+  SOURCE_OFFLOAD = 4,
+  SINK_OFFLOAD = 8,
 }
 
 #[repr(C)]
@@ -1346,13 +1346,13 @@ pub struct xcb_randr_screen_change_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_randr_notify_t
 {
-  XCB_RANDR_NOTIFY_CRTC_CHANGE = 0,
-  XCB_RANDR_NOTIFY_OUTPUT_CHANGE = 1,
-  XCB_RANDR_NOTIFY_OUTPUT_PROPERTY = 2,
-  XCB_RANDR_NOTIFY_PROVIDER_CHANGE = 3,
-  XCB_RANDR_NOTIFY_PROVIDER_PROPERTY = 4,
-  XCB_RANDR_NOTIFY_RESOURCE_CHANGE = 5,
-  XCB_RANDR_NOTIFY_LEASE = 6,
+  CRTC_CHANGE = 0,
+  OUTPUT_CHANGE = 1,
+  OUTPUT_PROPERTY = 2,
+  PROVIDER_CHANGE = 3,
+  PROVIDER_PROPERTY = 4,
+  RESOURCE_CHANGE = 5,
+  LEASE = 6,
 }
 
 #[repr(C)]

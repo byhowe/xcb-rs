@@ -53,11 +53,11 @@ pub struct xcb_shape_kind_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_shape_so_t
 {
-  XCB_SHAPE_SO_SET = 0,
-  XCB_SHAPE_SO_UNION = 1,
-  XCB_SHAPE_SO_INTERSECT = 2,
-  XCB_SHAPE_SO_SUBTRACT = 3,
-  XCB_SHAPE_SO_INVERT = 4,
+  SET = 0,
+  UNION = 1,
+  INTERSECT = 2,
+  SUBTRACT = 3,
+  INVERT = 4,
 }
 
 #[repr(u32)]
@@ -65,9 +65,9 @@ pub enum xcb_shape_so_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_shape_sk_t
 {
-  XCB_SHAPE_SK_BOUNDING = 0,
-  XCB_SHAPE_SK_CLIP = 1,
-  XCB_SHAPE_SK_INPUT = 2,
+  BOUNDING = 0,
+  CLIP = 1,
+  INPUT = 2,
 }
 
 #[repr(C)]

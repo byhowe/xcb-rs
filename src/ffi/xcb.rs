@@ -451,12 +451,12 @@ pub struct xcb_format_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_visual_class_t
 {
-  XCB_VISUAL_CLASS_STATIC_GRAY = 0,
-  XCB_VISUAL_CLASS_GRAY_SCALE = 1,
-  XCB_VISUAL_CLASS_STATIC_COLOR = 2,
-  XCB_VISUAL_CLASS_PSEUDO_COLOR = 3,
-  XCB_VISUAL_CLASS_TRUE_COLOR = 4,
-  XCB_VISUAL_CLASS_DIRECT_COLOR = 5,
+  STATIC_GRAY = 0,
+  GRAY_SCALE = 1,
+  STATIC_COLOR = 2,
+  PSEUDO_COLOR = 3,
+  TRUE_COLOR = 4,
+  DIRECT_COLOR = 5,
 }
 
 #[repr(C)]
@@ -506,32 +506,32 @@ pub struct xcb_depth_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_event_mask_t
 {
-  XCB_EVENT_MASK_NO_EVENT = 0,
-  XCB_EVENT_MASK_KEY_PRESS = 1,
-  XCB_EVENT_MASK_KEY_RELEASE = 2,
-  XCB_EVENT_MASK_BUTTON_PRESS = 4,
-  XCB_EVENT_MASK_BUTTON_RELEASE = 8,
-  XCB_EVENT_MASK_ENTER_WINDOW = 16,
-  XCB_EVENT_MASK_LEAVE_WINDOW = 32,
-  XCB_EVENT_MASK_POINTER_MOTION = 64,
-  XCB_EVENT_MASK_POINTER_MOTION_HINT = 128,
-  XCB_EVENT_MASK_BUTTON_1_MOTION = 256,
-  XCB_EVENT_MASK_BUTTON_2_MOTION = 512,
-  XCB_EVENT_MASK_BUTTON_3_MOTION = 1024,
-  XCB_EVENT_MASK_BUTTON_4_MOTION = 2048,
-  XCB_EVENT_MASK_BUTTON_5_MOTION = 4096,
-  XCB_EVENT_MASK_BUTTON_MOTION = 8192,
-  XCB_EVENT_MASK_KEYMAP_STATE = 16384,
-  XCB_EVENT_MASK_EXPOSURE = 32768,
-  XCB_EVENT_MASK_VISIBILITY_CHANGE = 65536,
-  XCB_EVENT_MASK_STRUCTURE_NOTIFY = 131072,
-  XCB_EVENT_MASK_RESIZE_REDIRECT = 262144,
-  XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY = 524288,
-  XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT = 1048576,
-  XCB_EVENT_MASK_FOCUS_CHANGE = 2097152,
-  XCB_EVENT_MASK_PROPERTY_CHANGE = 4194304,
-  XCB_EVENT_MASK_COLOR_MAP_CHANGE = 8388608,
-  XCB_EVENT_MASK_OWNER_GRAB_BUTTON = 16777216,
+  NO_EVENT = 0,
+  KEY_PRESS = 1,
+  KEY_RELEASE = 2,
+  BUTTON_PRESS = 4,
+  BUTTON_RELEASE = 8,
+  ENTER_WINDOW = 16,
+  LEAVE_WINDOW = 32,
+  POINTER_MOTION = 64,
+  POINTER_MOTION_HINT = 128,
+  BUTTON_1_MOTION = 256,
+  BUTTON_2_MOTION = 512,
+  BUTTON_3_MOTION = 1024,
+  BUTTON_4_MOTION = 2048,
+  BUTTON_5_MOTION = 4096,
+  BUTTON_MOTION = 8192,
+  KEYMAP_STATE = 16384,
+  EXPOSURE = 32768,
+  VISIBILITY_CHANGE = 65536,
+  STRUCTURE_NOTIFY = 131072,
+  RESIZE_REDIRECT = 262144,
+  SUBSTRUCTURE_NOTIFY = 524288,
+  SUBSTRUCTURE_REDIRECT = 1048576,
+  FOCUS_CHANGE = 2097152,
+  PROPERTY_CHANGE = 4194304,
+  COLOR_MAP_CHANGE = 8388608,
+  OWNER_GRAB_BUTTON = 16777216,
 }
 
 #[repr(u32)]
@@ -539,9 +539,9 @@ pub enum xcb_event_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_backing_store_t
 {
-  XCB_BACKING_STORE_NOT_USEFUL = 0,
-  XCB_BACKING_STORE_WHEN_MAPPED = 1,
-  XCB_BACKING_STORE_ALWAYS = 2,
+  NOT_USEFUL = 0,
+  WHEN_MAPPED = 1,
+  ALWAYS = 2,
 }
 
 #[repr(C)]
@@ -640,8 +640,8 @@ pub struct xcb_setup_authenticate_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_image_order_t
 {
-  XCB_IMAGE_ORDER_LSB_FIRST = 0,
-  XCB_IMAGE_ORDER_MSB_FIRST = 1,
+  LSB_FIRST = 0,
+  MSB_FIRST = 1,
 }
 
 #[repr(C)]
@@ -684,15 +684,15 @@ pub struct xcb_setup_iterator_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_mod_mask_t
 {
-  XCB_MOD_MASK_SHIFT = 1,
-  XCB_MOD_MASK_LOCK = 2,
-  XCB_MOD_MASK_CONTROL = 4,
-  XCB_MOD_MASK_1 = 8,
-  XCB_MOD_MASK_2 = 16,
-  XCB_MOD_MASK_3 = 32,
-  XCB_MOD_MASK_4 = 64,
-  XCB_MOD_MASK_5 = 128,
-  XCB_MOD_MASK_ANY = 32768,
+  MASK_SHIFT = 1,
+  MASK_LOCK = 2,
+  MASK_CONTROL = 4,
+  MASK_1 = 8,
+  MASK_2 = 16,
+  MASK_3 = 32,
+  MASK_4 = 64,
+  MASK_5 = 128,
+  MASK_ANY = 32768,
 }
 
 #[repr(u32)]
@@ -700,19 +700,19 @@ pub enum xcb_mod_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_key_but_mask_t
 {
-  XCB_KEY_BUT_MASK_SHIFT = 1,
-  XCB_KEY_BUT_MASK_LOCK = 2,
-  XCB_KEY_BUT_MASK_CONTROL = 4,
-  XCB_KEY_BUT_MASK_MOD_1 = 8,
-  XCB_KEY_BUT_MASK_MOD_2 = 16,
-  XCB_KEY_BUT_MASK_MOD_3 = 32,
-  XCB_KEY_BUT_MASK_MOD_4 = 64,
-  XCB_KEY_BUT_MASK_MOD_5 = 128,
-  XCB_KEY_BUT_MASK_BUTTON_1 = 256,
-  XCB_KEY_BUT_MASK_BUTTON_2 = 512,
-  XCB_KEY_BUT_MASK_BUTTON_3 = 1024,
-  XCB_KEY_BUT_MASK_BUTTON_4 = 2048,
-  XCB_KEY_BUT_MASK_BUTTON_5 = 4096,
+  SHIFT = 1,
+  LOCK = 2,
+  CONTROL = 4,
+  MOD_1 = 8,
+  MOD_2 = 16,
+  MOD_3 = 32,
+  MOD_4 = 64,
+  MOD_5 = 128,
+  BUTTON_1 = 256,
+  BUTTON_2 = 512,
+  BUTTON_3 = 1024,
+  BUTTON_4 = 2048,
+  BUTTON_5 = 4096,
 }
 
 #[repr(u32)]
@@ -720,7 +720,7 @@ pub enum xcb_key_but_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_window_enum_t
 {
-  XCB_WINDOW_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -750,12 +750,12 @@ pub type xcb_key_release_event_t = xcb_key_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_button_mask_t
 {
-  XCB_BUTTON_MASK_1 = 256,
-  XCB_BUTTON_MASK_2 = 512,
-  XCB_BUTTON_MASK_3 = 1024,
-  XCB_BUTTON_MASK_4 = 2048,
-  XCB_BUTTON_MASK_5 = 4096,
-  XCB_BUTTON_MASK_ANY = 32768,
+  MASK_1 = 256,
+  MASK_2 = 512,
+  MASK_3 = 1024,
+  MASK_4 = 2048,
+  MASK_5 = 4096,
+  MASK_ANY = 32768,
 }
 
 #[repr(C)]
@@ -785,8 +785,8 @@ pub type xcb_button_release_event_t = xcb_button_press_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_motion_t
 {
-  XCB_MOTION_NORMAL = 0,
-  XCB_MOTION_HINT = 1,
+  NORMAL = 0,
+  HINT = 1,
 }
 
 #[repr(C)]
@@ -814,14 +814,14 @@ pub struct xcb_motion_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_notify_detail_t
 {
-  XCB_NOTIFY_DETAIL_ANCESTOR = 0,
-  XCB_NOTIFY_DETAIL_VIRTUAL = 1,
-  XCB_NOTIFY_DETAIL_INFERIOR = 2,
-  XCB_NOTIFY_DETAIL_NONLINEAR = 3,
-  XCB_NOTIFY_DETAIL_NONLINEAR_VIRTUAL = 4,
-  XCB_NOTIFY_DETAIL_POINTER = 5,
-  XCB_NOTIFY_DETAIL_POINTER_ROOT = 6,
-  XCB_NOTIFY_DETAIL_NONE = 7,
+  ANCESTOR = 0,
+  VIRTUAL = 1,
+  INFERIOR = 2,
+  NONLINEAR = 3,
+  NONLINEAR_VIRTUAL = 4,
+  POINTER = 5,
+  POINTER_ROOT = 6,
+  NONE = 7,
 }
 
 #[repr(u32)]
@@ -829,10 +829,10 @@ pub enum xcb_notify_detail_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_notify_mode_t
 {
-  XCB_NOTIFY_MODE_NORMAL = 0,
-  XCB_NOTIFY_MODE_GRAB = 1,
-  XCB_NOTIFY_MODE_UNGRAB = 2,
-  XCB_NOTIFY_MODE_WHILE_GRABBED = 3,
+  NORMAL = 0,
+  GRAB = 1,
+  UNGRAB = 2,
+  WHILE_GRABBED = 3,
 }
 
 #[repr(C)]
@@ -931,9 +931,9 @@ pub struct xcb_no_exposure_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_visibility_t
 {
-  XCB_VISIBILITY_UNOBSCURED = 0,
-  XCB_VISIBILITY_PARTIALLY_OBSCURED = 1,
-  XCB_VISIBILITY_FULLY_OBSCURED = 2,
+  UNOBSCURED = 0,
+  PARTIALLY_OBSCURED = 1,
+  FULLY_OBSCURED = 2,
 }
 
 #[repr(C)]
@@ -1097,8 +1097,8 @@ pub struct xcb_resize_request_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_place_t
 {
-  XCB_PLACE_ON_TOP = 0,
-  XCB_PLACE_ON_BOTTOM = 1,
+  ON_TOP = 0,
+  ON_BOTTOM = 1,
 }
 
 #[repr(C)]
@@ -1122,8 +1122,8 @@ pub type xcb_circulate_request_event_t = xcb_circulate_notify_event_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_property_t
 {
-  XCB_PROPERTY_NEW_VALUE = 0,
-  XCB_PROPERTY_DELETE = 1,
+  NEW_VALUE = 0,
+  DELETE = 1,
 }
 
 #[repr(C)]
@@ -1157,12 +1157,12 @@ pub struct xcb_selection_clear_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_time_t
 {
-  XCB_TIME_CURRENT_TIME = 0,
+  CURRENT_TIME = 0,
 }
 
 impl xcb_atom_enum_t
 {
-  pub const XCB_ATOM_ANY: xcb_atom_enum_t = xcb_atom_enum_t::XCB_ATOM_NONE;
+  pub const ANY: xcb_atom_enum_t = xcb_atom_enum_t::NONE;
 }
 
 #[repr(u32)]
@@ -1170,75 +1170,75 @@ impl xcb_atom_enum_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_atom_enum_t
 {
-  XCB_ATOM_NONE = 0,
-  XCB_ATOM_PRIMARY = 1,
-  XCB_ATOM_SECONDARY = 2,
-  XCB_ATOM_ARC = 3,
-  XCB_ATOM_ATOM = 4,
-  XCB_ATOM_BITMAP = 5,
-  XCB_ATOM_CARDINAL = 6,
-  XCB_ATOM_COLORMAP = 7,
-  XCB_ATOM_CURSOR = 8,
-  XCB_ATOM_CUT_BUFFER0 = 9,
-  XCB_ATOM_CUT_BUFFER1 = 10,
-  XCB_ATOM_CUT_BUFFER2 = 11,
-  XCB_ATOM_CUT_BUFFER3 = 12,
-  XCB_ATOM_CUT_BUFFER4 = 13,
-  XCB_ATOM_CUT_BUFFER5 = 14,
-  XCB_ATOM_CUT_BUFFER6 = 15,
-  XCB_ATOM_CUT_BUFFER7 = 16,
-  XCB_ATOM_DRAWABLE = 17,
-  XCB_ATOM_FONT = 18,
-  XCB_ATOM_INTEGER = 19,
-  XCB_ATOM_PIXMAP = 20,
-  XCB_ATOM_POINT = 21,
-  XCB_ATOM_RECTANGLE = 22,
-  XCB_ATOM_RESOURCE_MANAGER = 23,
-  XCB_ATOM_RGB_COLOR_MAP = 24,
-  XCB_ATOM_RGB_BEST_MAP = 25,
-  XCB_ATOM_RGB_BLUE_MAP = 26,
-  XCB_ATOM_RGB_DEFAULT_MAP = 27,
-  XCB_ATOM_RGB_GRAY_MAP = 28,
-  XCB_ATOM_RGB_GREEN_MAP = 29,
-  XCB_ATOM_RGB_RED_MAP = 30,
-  XCB_ATOM_STRING = 31,
-  XCB_ATOM_VISUALID = 32,
-  XCB_ATOM_WINDOW = 33,
-  XCB_ATOM_WM_COMMAND = 34,
-  XCB_ATOM_WM_HINTS = 35,
-  XCB_ATOM_WM_CLIENT_MACHINE = 36,
-  XCB_ATOM_WM_ICON_NAME = 37,
-  XCB_ATOM_WM_ICON_SIZE = 38,
-  XCB_ATOM_WM_NAME = 39,
-  XCB_ATOM_WM_NORMAL_HINTS = 40,
-  XCB_ATOM_WM_SIZE_HINTS = 41,
-  XCB_ATOM_WM_ZOOM_HINTS = 42,
-  XCB_ATOM_MIN_SPACE = 43,
-  XCB_ATOM_NORM_SPACE = 44,
-  XCB_ATOM_MAX_SPACE = 45,
-  XCB_ATOM_END_SPACE = 46,
-  XCB_ATOM_SUPERSCRIPT_X = 47,
-  XCB_ATOM_SUPERSCRIPT_Y = 48,
-  XCB_ATOM_SUBSCRIPT_X = 49,
-  XCB_ATOM_SUBSCRIPT_Y = 50,
-  XCB_ATOM_UNDERLINE_POSITION = 51,
-  XCB_ATOM_UNDERLINE_THICKNESS = 52,
-  XCB_ATOM_STRIKEOUT_ASCENT = 53,
-  XCB_ATOM_STRIKEOUT_DESCENT = 54,
-  XCB_ATOM_ITALIC_ANGLE = 55,
-  XCB_ATOM_X_HEIGHT = 56,
-  XCB_ATOM_QUAD_WIDTH = 57,
-  XCB_ATOM_WEIGHT = 58,
-  XCB_ATOM_POINT_SIZE = 59,
-  XCB_ATOM_RESOLUTION = 60,
-  XCB_ATOM_COPYRIGHT = 61,
-  XCB_ATOM_NOTICE = 62,
-  XCB_ATOM_FONT_NAME = 63,
-  XCB_ATOM_FAMILY_NAME = 64,
-  XCB_ATOM_FULL_NAME = 65,
-  XCB_ATOM_CAP_HEIGHT = 66,
-  XCB_ATOM_WM_CLASS = 67,
-  XCB_ATOM_WM_TRANSIENT_FOR = 68,
+  NONE = 0,
+  PRIMARY = 1,
+  SECONDARY = 2,
+  ARC = 3,
+  ATOM = 4,
+  BITMAP = 5,
+  CARDINAL = 6,
+  COLORMAP = 7,
+  CURSOR = 8,
+  CUT_BUFFER0 = 9,
+  CUT_BUFFER1 = 10,
+  CUT_BUFFER2 = 11,
+  CUT_BUFFER3 = 12,
+  CUT_BUFFER4 = 13,
+  CUT_BUFFER5 = 14,
+  CUT_BUFFER6 = 15,
+  CUT_BUFFER7 = 16,
+  DRAWABLE = 17,
+  FONT = 18,
+  INTEGER = 19,
+  PIXMAP = 20,
+  POINT = 21,
+  RECTANGLE = 22,
+  RESOURCE_MANAGER = 23,
+  RGB_COLOR_MAP = 24,
+  RGB_BEST_MAP = 25,
+  RGB_BLUE_MAP = 26,
+  RGB_DEFAULT_MAP = 27,
+  RGB_GRAY_MAP = 28,
+  RGB_GREEN_MAP = 29,
+  RGB_RED_MAP = 30,
+  STRING = 31,
+  VISUALID = 32,
+  WINDOW = 33,
+  WM_COMMAND = 34,
+  WM_HINTS = 35,
+  WM_CLIENT_MACHINE = 36,
+  WM_ICON_NAME = 37,
+  WM_ICON_SIZE = 38,
+  WM_NAME = 39,
+  WM_NORMAL_HINTS = 40,
+  WM_SIZE_HINTS = 41,
+  WM_ZOOM_HINTS = 42,
+  MIN_SPACE = 43,
+  NORM_SPACE = 44,
+  MAX_SPACE = 45,
+  END_SPACE = 46,
+  SUPERSCRIPT_X = 47,
+  SUPERSCRIPT_Y = 48,
+  SUBSCRIPT_X = 49,
+  SUBSCRIPT_Y = 50,
+  UNDERLINE_POSITION = 51,
+  UNDERLINE_THICKNESS = 52,
+  STRIKEOUT_ASCENT = 53,
+  STRIKEOUT_DESCENT = 54,
+  ITALIC_ANGLE = 55,
+  X_HEIGHT = 56,
+  QUAD_WIDTH = 57,
+  WEIGHT = 58,
+  POINT_SIZE = 59,
+  RESOLUTION = 60,
+  COPYRIGHT = 61,
+  NOTICE = 62,
+  FONT_NAME = 63,
+  FAMILY_NAME = 64,
+  FULL_NAME = 65,
+  CAP_HEIGHT = 66,
+  WM_CLASS = 67,
+  WM_TRANSIENT_FOR = 68,
 }
 
 #[repr(C)]
@@ -1275,8 +1275,8 @@ pub struct xcb_selection_notify_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_colormap_state_t
 {
-  XCB_COLORMAP_STATE_UNINSTALLED = 0,
-  XCB_COLORMAP_STATE_INSTALLED = 1,
+  UNINSTALLED = 0,
+  INSTALLED = 1,
 }
 
 #[repr(u32)]
@@ -1284,7 +1284,7 @@ pub enum xcb_colormap_state_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_colormap_enum_t
 {
-  XCB_COLORMAP_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -1337,9 +1337,9 @@ pub struct xcb_client_message_event_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_mapping_t
 {
-  XCB_MAPPING_MODIFIER = 0,
-  XCB_MAPPING_KEYBOARD = 1,
-  XCB_MAPPING_POINTER = 2,
+  MODIFIER = 0,
+  KEYBOARD = 1,
+  POINTER = 2,
 }
 
 #[repr(C)]
@@ -1429,9 +1429,9 @@ pub type xcb_implementation_error_t = xcb_request_error_t;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_window_class_t
 {
-  XCB_WINDOW_CLASS_COPY_FROM_PARENT = 0,
-  XCB_WINDOW_CLASS_INPUT_OUTPUT = 1,
-  XCB_WINDOW_CLASS_INPUT_ONLY = 2,
+  COPY_FROM_PARENT = 0,
+  INPUT_OUTPUT = 1,
+  INPUT_ONLY = 2,
 }
 
 #[repr(u32)]
@@ -1439,21 +1439,21 @@ pub enum xcb_window_class_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_cw_t
 {
-  XCB_CW_BACK_PIXMAP = 1,
-  XCB_CW_BACK_PIXEL = 2,
-  XCB_CW_BORDER_PIXMAP = 4,
-  XCB_CW_BORDER_PIXEL = 8,
-  XCB_CW_BIT_GRAVITY = 16,
-  XCB_CW_WIN_GRAVITY = 32,
-  XCB_CW_BACKING_STORE = 64,
-  XCB_CW_BACKING_PLANES = 128,
-  XCB_CW_BACKING_PIXEL = 256,
-  XCB_CW_OVERRIDE_REDIRECT = 512,
-  XCB_CW_SAVE_UNDER = 1024,
-  XCB_CW_EVENT_MASK = 2048,
-  XCB_CW_DONT_PROPAGATE = 4096,
-  XCB_CW_COLORMAP = 8192,
-  XCB_CW_CURSOR = 16384,
+  BACK_PIXMAP = 1,
+  BACK_PIXEL = 2,
+  BORDER_PIXMAP = 4,
+  BORDER_PIXEL = 8,
+  BIT_GRAVITY = 16,
+  WIN_GRAVITY = 32,
+  BACKING_STORE = 64,
+  BACKING_PLANES = 128,
+  BACKING_PIXEL = 256,
+  OVERRIDE_REDIRECT = 512,
+  SAVE_UNDER = 1024,
+  EVENT_MASK = 2048,
+  DONT_PROPAGATE = 4096,
+  COLORMAP = 8192,
+  CURSOR = 16384,
 }
 
 #[repr(u32)]
@@ -1461,13 +1461,13 @@ pub enum xcb_cw_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_back_pixmap_t
 {
-  XCB_BACK_PIXMAP_NONE = 0,
-  XCB_BACK_PIXMAP_PARENT_RELATIVE = 1,
+  NONE = 0,
+  PARENT_RELATIVE = 1,
 }
 
 impl xcb_gravity_t
 {
-  pub const XCB_GRAVITY_WIN_UNMAP: xcb_gravity_t = xcb_gravity_t::XCB_GRAVITY_BIT_FORGET;
+  pub const WIN_UNMAP: xcb_gravity_t = xcb_gravity_t::BIT_FORGET;
 }
 
 #[repr(u32)]
@@ -1475,17 +1475,17 @@ impl xcb_gravity_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_gravity_t
 {
-  XCB_GRAVITY_BIT_FORGET = 0,
-  XCB_GRAVITY_NORTH_WEST = 1,
-  XCB_GRAVITY_NORTH = 2,
-  XCB_GRAVITY_NORTH_EAST = 3,
-  XCB_GRAVITY_WEST = 4,
-  XCB_GRAVITY_CENTER = 5,
-  XCB_GRAVITY_EAST = 6,
-  XCB_GRAVITY_SOUTH_WEST = 7,
-  XCB_GRAVITY_SOUTH = 8,
-  XCB_GRAVITY_SOUTH_EAST = 9,
-  XCB_GRAVITY_STATIC = 10,
+  BIT_FORGET = 0,
+  NORTH_WEST = 1,
+  NORTH = 2,
+  NORTH_EAST = 3,
+  WEST = 4,
+  CENTER = 5,
+  EAST = 6,
+  SOUTH_WEST = 7,
+  SOUTH = 8,
+  SOUTH_EAST = 9,
+  STATIC = 10,
 }
 
 #[repr(C)]
@@ -1565,9 +1565,9 @@ pub struct xcb_change_window_attributes_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_map_state_t
 {
-  XCB_MAP_STATE_UNMAPPED = 0,
-  XCB_MAP_STATE_UNVIEWABLE = 1,
-  XCB_MAP_STATE_VIEWABLE = 2,
+  UNMAPPED = 0,
+  UNVIEWABLE = 1,
+  VIEWABLE = 2,
 }
 
 #[repr(C)]
@@ -1637,8 +1637,8 @@ pub struct xcb_destroy_subwindows_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_set_mode_t
 {
-  XCB_SET_MODE_INSERT = 0,
-  XCB_SET_MODE_DELETE = 1,
+  INSERT = 0,
+  DELETE = 1,
 }
 
 #[repr(C)]
@@ -1709,13 +1709,13 @@ pub struct xcb_unmap_subwindows_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_config_window_t
 {
-  XCB_CONFIG_WINDOW_X = 1,
-  XCB_CONFIG_WINDOW_Y = 2,
-  XCB_CONFIG_WINDOW_WIDTH = 4,
-  XCB_CONFIG_WINDOW_HEIGHT = 8,
-  XCB_CONFIG_WINDOW_BORDER_WIDTH = 16,
-  XCB_CONFIG_WINDOW_SIBLING = 32,
-  XCB_CONFIG_WINDOW_STACK_MODE = 64,
+  X = 1,
+  Y = 2,
+  WIDTH = 4,
+  HEIGHT = 8,
+  BORDER_WIDTH = 16,
+  SIBLING = 32,
+  STACK_MODE = 64,
 }
 
 #[repr(u32)]
@@ -1723,11 +1723,11 @@ pub enum xcb_config_window_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_stack_mode_t
 {
-  XCB_STACK_MODE_ABOVE = 0,
-  XCB_STACK_MODE_BELOW = 1,
-  XCB_STACK_MODE_TOP_IF = 2,
-  XCB_STACK_MODE_BOTTOM_IF = 3,
-  XCB_STACK_MODE_OPPOSITE = 4,
+  ABOVE = 0,
+  BELOW = 1,
+  TOP_IF = 2,
+  BOTTOM_IF = 3,
+  OPPOSITE = 4,
 }
 
 #[repr(C)]
@@ -1760,8 +1760,8 @@ pub struct xcb_configure_window_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_circulate_t
 {
-  XCB_CIRCULATE_RAISE_LOWEST = 0,
-  XCB_CIRCULATE_LOWER_HIGHEST = 1,
+  RAISE_LOWEST = 0,
+  LOWER_HIGHEST = 1,
 }
 
 #[repr(C)]
@@ -1902,9 +1902,9 @@ pub struct xcb_get_atom_name_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_prop_mode_t
 {
-  XCB_PROP_MODE_REPLACE = 0,
-  XCB_PROP_MODE_PREPEND = 1,
-  XCB_PROP_MODE_APPEND = 2,
+  REPLACE = 0,
+  PREPEND = 1,
+  APPEND = 2,
 }
 
 #[repr(C)]
@@ -1938,7 +1938,7 @@ pub struct xcb_delete_property_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_get_property_type_t
 {
-  XCB_GET_PROPERTY_TYPE_ANY = 0,
+  ANY = 0,
 }
 
 #[repr(C)]
@@ -2064,8 +2064,8 @@ pub struct xcb_convert_selection_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_send_event_dest_t
 {
-  XCB_SEND_EVENT_DEST_POINTER_WINDOW = 0,
-  XCB_SEND_EVENT_DEST_ITEM_FOCUS = 1,
+  POINTER_WINDOW = 0,
+  ITEM_FOCUS = 1,
 }
 
 #[repr(C)]
@@ -2085,8 +2085,8 @@ pub struct xcb_send_event_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_grab_mode_t
 {
-  XCB_GRAB_MODE_SYNC = 0,
-  XCB_GRAB_MODE_ASYNC = 1,
+  SYNC = 0,
+  ASYNC = 1,
 }
 
 #[repr(u32)]
@@ -2094,11 +2094,11 @@ pub enum xcb_grab_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_grab_status_t
 {
-  XCB_GRAB_STATUS_SUCCESS = 0,
-  XCB_GRAB_STATUS_ALREADY_GRABBED = 1,
-  XCB_GRAB_STATUS_INVALID_TIME = 2,
-  XCB_GRAB_STATUS_NOT_VIEWABLE = 3,
-  XCB_GRAB_STATUS_FROZEN = 4,
+  SUCCESS = 0,
+  ALREADY_GRABBED = 1,
+  INVALID_TIME = 2,
+  NOT_VIEWABLE = 3,
+  FROZEN = 4,
 }
 
 #[repr(u32)]
@@ -2106,7 +2106,7 @@ pub enum xcb_grab_status_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_cursor_enum_t
 {
-  XCB_CURSOR_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -2157,12 +2157,12 @@ pub struct xcb_ungrab_pointer_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_button_index_t
 {
-  XCB_BUTTON_INDEX_ANY = 0,
-  XCB_BUTTON_INDEX_1 = 1,
-  XCB_BUTTON_INDEX_2 = 2,
-  XCB_BUTTON_INDEX_3 = 3,
-  XCB_BUTTON_INDEX_4 = 4,
-  XCB_BUTTON_INDEX_5 = 5,
+  ANY = 0,
+  INDEX_1 = 1,
+  INDEX_2 = 2,
+  INDEX_3 = 3,
+  INDEX_4 = 4,
+  INDEX_5 = 5,
 }
 
 #[repr(C)]
@@ -2254,7 +2254,7 @@ pub struct xcb_ungrab_keyboard_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_grab_t
 {
-  XCB_GRAB_ANY = 0,
+  ANY = 0,
 }
 
 #[repr(C)]
@@ -2289,14 +2289,14 @@ pub struct xcb_ungrab_key_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_allow_t
 {
-  XCB_ALLOW_ASYNC_POINTER = 0,
-  XCB_ALLOW_SYNC_POINTER = 1,
-  XCB_ALLOW_REPLAY_POINTER = 2,
-  XCB_ALLOW_ASYNC_KEYBOARD = 3,
-  XCB_ALLOW_SYNC_KEYBOARD = 4,
-  XCB_ALLOW_REPLAY_KEYBOARD = 5,
-  XCB_ALLOW_ASYNC_BOTH = 6,
-  XCB_ALLOW_SYNC_BOTH = 7,
+  ASYNC_POINTER = 0,
+  SYNC_POINTER = 1,
+  REPLAY_POINTER = 2,
+  ASYNC_KEYBOARD = 3,
+  SYNC_KEYBOARD = 4,
+  REPLAY_KEYBOARD = 5,
+  ASYNC_BOTH = 6,
+  SYNC_BOTH = 7,
 }
 
 #[repr(C)]
@@ -2466,10 +2466,10 @@ pub struct xcb_warp_pointer_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_input_focus_t
 {
-  XCB_INPUT_FOCUS_NONE = 0,
-  XCB_INPUT_FOCUS_POINTER_ROOT = 1,
-  XCB_INPUT_FOCUS_PARENT = 2,
-  XCB_INPUT_FOCUS_FOLLOW_KEYBOARD = 3,
+  NONE = 0,
+  POINTER_ROOT = 1,
+  PARENT = 2,
+  FOLLOW_KEYBOARD = 3,
 }
 
 #[repr(C)]
@@ -2564,8 +2564,8 @@ pub struct xcb_close_font_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_font_draw_t
 {
-  XCB_FONT_DRAW_LEFT_TO_RIGHT = 0,
-  XCB_FONT_DRAW_RIGHT_TO_LEFT = 1,
+  LEFT_TO_RIGHT = 0,
+  RIGHT_TO_LEFT = 1,
 }
 
 #[repr(C)]
@@ -2838,29 +2838,29 @@ pub struct xcb_free_pixmap_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_gc_t
 {
-  XCB_GC_FUNCTION = 1,
-  XCB_GC_PLANE_MASK = 2,
-  XCB_GC_FOREGROUND = 4,
-  XCB_GC_BACKGROUND = 8,
-  XCB_GC_LINE_WIDTH = 16,
-  XCB_GC_LINE_STYLE = 32,
-  XCB_GC_CAP_STYLE = 64,
-  XCB_GC_JOIN_STYLE = 128,
-  XCB_GC_FILL_STYLE = 256,
-  XCB_GC_FILL_RULE = 512,
-  XCB_GC_TILE = 1024,
-  XCB_GC_STIPPLE = 2048,
-  XCB_GC_TILE_STIPPLE_ORIGIN_X = 4096,
-  XCB_GC_TILE_STIPPLE_ORIGIN_Y = 8192,
-  XCB_GC_FONT = 16384,
-  XCB_GC_SUBWINDOW_MODE = 32768,
-  XCB_GC_GRAPHICS_EXPOSURES = 65536,
-  XCB_GC_CLIP_ORIGIN_X = 131072,
-  XCB_GC_CLIP_ORIGIN_Y = 262144,
-  XCB_GC_CLIP_MASK = 524288,
-  XCB_GC_DASH_OFFSET = 1048576,
-  XCB_GC_DASH_LIST = 2097152,
-  XCB_GC_ARC_MODE = 4194304,
+  FUNCTION = 1,
+  PLANE_MASK = 2,
+  FOREGROUND = 4,
+  BACKGROUND = 8,
+  LINE_WIDTH = 16,
+  LINE_STYLE = 32,
+  CAP_STYLE = 64,
+  JOIN_STYLE = 128,
+  FILL_STYLE = 256,
+  FILL_RULE = 512,
+  TILE = 1024,
+  STIPPLE = 2048,
+  TILE_STIPPLE_ORIGIN_X = 4096,
+  TILE_STIPPLE_ORIGIN_Y = 8192,
+  FONT = 16384,
+  SUBWINDOW_MODE = 32768,
+  GRAPHICS_EXPOSURES = 65536,
+  CLIP_ORIGIN_X = 131072,
+  CLIP_ORIGIN_Y = 262144,
+  CLIP_MASK = 524288,
+  DASH_OFFSET = 1048576,
+  DASH_LIST = 2097152,
+  ARC_MODE = 4194304,
 }
 
 #[repr(u32)]
@@ -2868,22 +2868,22 @@ pub enum xcb_gc_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_gx_t
 {
-  XCB_GX_CLEAR = 0,
-  XCB_GX_AND = 1,
-  XCB_GX_AND_REVERSE = 2,
-  XCB_GX_COPY = 3,
-  XCB_GX_AND_INVERTED = 4,
-  XCB_GX_NOOP = 5,
-  XCB_GX_XOR = 6,
-  XCB_GX_OR = 7,
-  XCB_GX_NOR = 8,
-  XCB_GX_EQUIV = 9,
-  XCB_GX_INVERT = 10,
-  XCB_GX_OR_REVERSE = 11,
-  XCB_GX_COPY_INVERTED = 12,
-  XCB_GX_OR_INVERTED = 13,
-  XCB_GX_NAND = 14,
-  XCB_GX_SET = 15,
+  CLEAR = 0,
+  AND = 1,
+  AND_REVERSE = 2,
+  COPY = 3,
+  AND_INVERTED = 4,
+  NOOP = 5,
+  XOR = 6,
+  OR = 7,
+  NOR = 8,
+  EQUIV = 9,
+  INVERT = 10,
+  OR_REVERSE = 11,
+  COPY_INVERTED = 12,
+  OR_INVERTED = 13,
+  NAND = 14,
+  SET = 15,
 }
 
 #[repr(u32)]
@@ -2891,9 +2891,9 @@ pub enum xcb_gx_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_line_style_t
 {
-  XCB_LINE_STYLE_SOLID = 0,
-  XCB_LINE_STYLE_ON_OFF_DASH = 1,
-  XCB_LINE_STYLE_DOUBLE_DASH = 2,
+  SOLID = 0,
+  ON_OFF_DASH = 1,
+  DOUBLE_DASH = 2,
 }
 
 #[repr(u32)]
@@ -2901,10 +2901,10 @@ pub enum xcb_line_style_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_cap_style_t
 {
-  XCB_CAP_STYLE_NOT_LAST = 0,
-  XCB_CAP_STYLE_BUTT = 1,
-  XCB_CAP_STYLE_ROUND = 2,
-  XCB_CAP_STYLE_PROJECTING = 3,
+  NOT_LAST = 0,
+  BUTT = 1,
+  ROUND = 2,
+  PROJECTING = 3,
 }
 
 #[repr(u32)]
@@ -2912,9 +2912,9 @@ pub enum xcb_cap_style_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_join_style_t
 {
-  XCB_JOIN_STYLE_MITER = 0,
-  XCB_JOIN_STYLE_ROUND = 1,
-  XCB_JOIN_STYLE_BEVEL = 2,
+  MITER = 0,
+  ROUND = 1,
+  BEVEL = 2,
 }
 
 #[repr(u32)]
@@ -2922,10 +2922,10 @@ pub enum xcb_join_style_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_fill_style_t
 {
-  XCB_FILL_STYLE_SOLID = 0,
-  XCB_FILL_STYLE_TILED = 1,
-  XCB_FILL_STYLE_STIPPLED = 2,
-  XCB_FILL_STYLE_OPAQUE_STIPPLED = 3,
+  SOLID = 0,
+  TILED = 1,
+  STIPPLED = 2,
+  OPAQUE_STIPPLED = 3,
 }
 
 #[repr(u32)]
@@ -2933,8 +2933,8 @@ pub enum xcb_fill_style_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_fill_rule_t
 {
-  XCB_FILL_RULE_EVEN_ODD = 0,
-  XCB_FILL_RULE_WINDING = 1,
+  EVEN_ODD = 0,
+  WINDING = 1,
 }
 
 #[repr(u32)]
@@ -2942,8 +2942,8 @@ pub enum xcb_fill_rule_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_subwindow_mode_t
 {
-  XCB_SUBWINDOW_MODE_CLIP_BY_CHILDREN = 0,
-  XCB_SUBWINDOW_MODE_INCLUDE_INFERIORS = 1,
+  CLIP_BY_CHILDREN = 0,
+  INCLUDE_INFERIORS = 1,
 }
 
 #[repr(u32)]
@@ -2951,8 +2951,8 @@ pub enum xcb_subwindow_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_arc_mode_t
 {
-  XCB_ARC_MODE_CHORD = 0,
-  XCB_ARC_MODE_PIE_SLICE = 1,
+  CHORD = 0,
+  PIE_SLICE = 1,
 }
 
 #[repr(C)]
@@ -3065,10 +3065,10 @@ pub struct xcb_set_dashes_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_clip_ordering_t
 {
-  XCB_CLIP_ORDERING_UNSORTED = 0,
-  XCB_CLIP_ORDERING_Y_SORTED = 1,
-  XCB_CLIP_ORDERING_YX_SORTED = 2,
-  XCB_CLIP_ORDERING_YX_BANDED = 3,
+  UNSORTED = 0,
+  Y_SORTED = 1,
+  YX_SORTED = 2,
+  YX_BANDED = 3,
 }
 
 #[repr(C)]
@@ -3149,8 +3149,8 @@ pub struct xcb_copy_plane_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_coord_mode_t
 {
-  XCB_COORD_MODE_ORIGIN = 0,
-  XCB_COORD_MODE_PREVIOUS = 1,
+  ORIGIN = 0,
+  PREVIOUS = 1,
 }
 
 #[repr(C)]
@@ -3232,9 +3232,9 @@ pub struct xcb_poly_arc_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_poly_shape_t
 {
-  XCB_POLY_SHAPE_COMPLEX = 0,
-  XCB_POLY_SHAPE_NONCONVEX = 1,
-  XCB_POLY_SHAPE_CONVEX = 2,
+  COMPLEX = 0,
+  NONCONVEX = 1,
+  CONVEX = 2,
 }
 
 #[repr(C)]
@@ -3278,9 +3278,9 @@ pub struct xcb_poly_fill_arc_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_image_format_t
 {
-  XCB_IMAGE_FORMAT_XY_BITMAP = 0,
-  XCB_IMAGE_FORMAT_XY_PIXMAP = 1,
-  XCB_IMAGE_FORMAT_Z_PIXMAP = 2,
+  XY_BITMAP = 0,
+  XY_PIXMAP = 1,
+  Z_PIXMAP = 2,
 }
 
 #[repr(C)]
@@ -3392,8 +3392,8 @@ pub struct xcb_image_text_16_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_colormap_alloc_t
 {
-  XCB_COLORMAP_ALLOC_NONE = 0,
-  XCB_COLORMAP_ALLOC_ALL = 1,
+  NONE = 0,
+  ALL = 1,
 }
 
 #[repr(C)]
@@ -3635,9 +3635,9 @@ pub struct xcb_free_colors_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_color_flag_t
 {
-  XCB_COLOR_FLAG_RED = 1,
-  XCB_COLOR_FLAG_GREEN = 2,
-  XCB_COLOR_FLAG_BLUE = 4,
+  RED = 1,
+  GREEN = 2,
+  BLUE = 4,
 }
 
 #[repr(C)]
@@ -3772,7 +3772,7 @@ pub struct xcb_lookup_color_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_pixmap_enum_t
 {
-  XCB_PIXMAP_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -3800,7 +3800,7 @@ pub struct xcb_create_cursor_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_font_enum_t
 {
-  XCB_FONT_NONE = 0,
+  NONE = 0,
 }
 
 #[repr(C)]
@@ -3854,9 +3854,9 @@ pub struct xcb_recolor_cursor_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_query_shape_of_t
 {
-  XCB_QUERY_SHAPE_OF_LARGEST_CURSOR = 0,
-  XCB_QUERY_SHAPE_OF_FASTEST_TILE = 1,
-  XCB_QUERY_SHAPE_OF_FASTEST_STIPPLE = 2,
+  LARGEST_CURSOR = 0,
+  FASTEST_TILE = 1,
+  FASTEST_STIPPLE = 2,
 }
 
 #[repr(C)]
@@ -3995,14 +3995,14 @@ pub struct xcb_get_keyboard_mapping_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_kb_t
 {
-  XCB_KB_KEY_CLICK_PERCENT = 1,
-  XCB_KB_BELL_PERCENT = 2,
-  XCB_KB_BELL_PITCH = 4,
-  XCB_KB_BELL_DURATION = 8,
-  XCB_KB_LED = 16,
-  XCB_KB_LED_MODE = 32,
-  XCB_KB_KEY = 64,
-  XCB_KB_AUTO_REPEAT_MODE = 128,
+  KEY_CLICK_PERCENT = 1,
+  BELL_PERCENT = 2,
+  BELL_PITCH = 4,
+  BELL_DURATION = 8,
+  LED = 16,
+  LED_MODE = 32,
+  KEY = 64,
+  AUTO_REPEAT_MODE = 128,
 }
 
 #[repr(u32)]
@@ -4010,8 +4010,8 @@ pub enum xcb_kb_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_led_mode_t
 {
-  XCB_LED_MODE_OFF = 0,
-  XCB_LED_MODE_ON = 1,
+  OFF = 0,
+  ON = 1,
 }
 
 #[repr(u32)]
@@ -4019,9 +4019,9 @@ pub enum xcb_led_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_auto_repeat_mode_t
 {
-  XCB_AUTO_REPEAT_MODE_OFF = 0,
-  XCB_AUTO_REPEAT_MODE_ON = 1,
-  XCB_AUTO_REPEAT_MODE_DEFAULT = 2,
+  OFF = 0,
+  ON = 1,
+  DEFAULT = 2,
 }
 
 #[repr(C)]
@@ -4139,9 +4139,9 @@ pub struct xcb_get_pointer_control_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_blanking_t
 {
-  XCB_BLANKING_NOT_PREFERRED = 0,
-  XCB_BLANKING_PREFERRED = 1,
-  XCB_BLANKING_DEFAULT = 2,
+  NOT_PREFERRED = 0,
+  PREFERRED = 1,
+  DEFAULT = 2,
 }
 
 #[repr(u32)]
@@ -4149,9 +4149,9 @@ pub enum xcb_blanking_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_exposures_t
 {
-  XCB_EXPOSURES_NOT_ALLOWED = 0,
-  XCB_EXPOSURES_ALLOWED = 1,
-  XCB_EXPOSURES_DEFAULT = 2,
+  NOT_ALLOWED = 0,
+  ALLOWED = 1,
+  DEFAULT = 2,
 }
 
 #[repr(C)]
@@ -4203,8 +4203,8 @@ pub struct xcb_get_screen_saver_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_host_mode_t
 {
-  XCB_HOST_MODE_INSERT = 0,
-  XCB_HOST_MODE_DELETE = 1,
+  INSERT = 0,
+  DELETE = 1,
 }
 
 #[repr(u32)]
@@ -4212,11 +4212,11 @@ pub enum xcb_host_mode_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_family_t
 {
-  XCB_FAMILY_INTERNET = 0,
-  XCB_FAMILY_DECNET = 1,
-  XCB_FAMILY_CHAOS = 2,
-  XCB_FAMILY_SERVER_INTERPRETED = 5,
-  XCB_FAMILY_INTERNET_6 = 6,
+  INTERNET = 0,
+  DECNET = 1,
+  CHAOS = 2,
+  SERVER_INTERPRETED = 5,
+  INTERNET_6 = 6,
 }
 
 #[repr(C)]
@@ -4282,8 +4282,8 @@ pub struct xcb_list_hosts_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_access_control_t
 {
-  XCB_ACCESS_CONTROL_DISABLE = 0,
-  XCB_ACCESS_CONTROL_ENABLE = 1,
+  DISABLE = 0,
+  ENABLE = 1,
 }
 
 #[repr(C)]
@@ -4300,9 +4300,9 @@ pub struct xcb_set_access_control_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_close_down_t
 {
-  XCB_CLOSE_DOWN_DESTROY_ALL = 0,
-  XCB_CLOSE_DOWN_RETAIN_PERMANENT = 1,
-  XCB_CLOSE_DOWN_RETAIN_TEMPORARY = 2,
+  DESTROY_ALL = 0,
+  RETAIN_PERMANENT = 1,
+  RETAIN_TEMPORARY = 2,
 }
 
 #[repr(C)]
@@ -4319,7 +4319,7 @@ pub struct xcb_set_close_down_mode_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_kill_t
 {
-  XCB_KILL_ALL_TEMPORARY = 0,
+  ALL_TEMPORARY = 0,
 }
 
 #[repr(C)]
@@ -4349,8 +4349,8 @@ pub struct xcb_rotate_properties_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_screen_saver_t
 {
-  XCB_SCREEN_SAVER_RESET = 0,
-  XCB_SCREEN_SAVER_ACTIVE = 1,
+  RESET = 0,
+  ACTIVE = 1,
 }
 
 #[repr(C)]
@@ -4367,9 +4367,9 @@ pub struct xcb_force_screen_saver_request_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_mapping_status_t
 {
-  XCB_MAPPING_STATUS_SUCCESS = 0,
-  XCB_MAPPING_STATUS_BUSY = 1,
-  XCB_MAPPING_STATUS_FAILURE = 2,
+  SUCCESS = 0,
+  BUSY = 1,
+  FAILURE = 2,
 }
 
 #[repr(C)]
@@ -4430,14 +4430,14 @@ pub struct xcb_get_pointer_mapping_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_map_index_t
 {
-  XCB_MAP_INDEX_SHIFT = 0,
-  XCB_MAP_INDEX_LOCK = 1,
-  XCB_MAP_INDEX_CONTROL = 2,
-  XCB_MAP_INDEX_1 = 3,
-  XCB_MAP_INDEX_2 = 4,
-  XCB_MAP_INDEX_3 = 5,
-  XCB_MAP_INDEX_4 = 6,
-  XCB_MAP_INDEX_5 = 7,
+  SHIFT = 0,
+  LOCK = 1,
+  CONTROL = 2,
+  INDEX_1 = 3,
+  INDEX_2 = 4,
+  INDEX_3 = 5,
+  INDEX_4 = 6,
+  INDEX_5 = 7,
 }
 
 #[repr(C)]

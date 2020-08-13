@@ -28,10 +28,10 @@ pub const XCB_PRESENT_REDIRECT_NOTIFY: u32 = 3;
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_event_enum_t
 {
-  XCB_PRESENT_EVENT_CONFIGURE_NOTIFY = 0,
-  XCB_PRESENT_EVENT_COMPLETE_NOTIFY = 1,
-  XCB_PRESENT_EVENT_IDLE_NOTIFY = 2,
-  XCB_PRESENT_EVENT_REDIRECT_NOTIFY = 3,
+  CONFIGURE_NOTIFY = 0,
+  COMPLETE_NOTIFY = 1,
+  IDLE_NOTIFY = 2,
+  REDIRECT_NOTIFY = 3,
 }
 
 #[repr(u32)]
@@ -39,11 +39,11 @@ pub enum xcb_present_event_enum_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_event_mask_t
 {
-  XCB_PRESENT_EVENT_MASK_NO_EVENT = 0,
-  XCB_PRESENT_EVENT_MASK_CONFIGURE_NOTIFY = 1,
-  XCB_PRESENT_EVENT_MASK_COMPLETE_NOTIFY = 2,
-  XCB_PRESENT_EVENT_MASK_IDLE_NOTIFY = 4,
-  XCB_PRESENT_EVENT_MASK_REDIRECT_NOTIFY = 8,
+  NO_EVENT = 0,
+  CONFIGURE_NOTIFY = 1,
+  COMPLETE_NOTIFY = 2,
+  IDLE_NOTIFY = 4,
+  REDIRECT_NOTIFY = 8,
 }
 
 #[repr(u32)]
@@ -51,11 +51,11 @@ pub enum xcb_present_event_mask_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_option_t
 {
-  XCB_PRESENT_OPTION_NONE = 0,
-  XCB_PRESENT_OPTION_ASYNC = 1,
-  XCB_PRESENT_OPTION_COPY = 2,
-  XCB_PRESENT_OPTION_UST = 4,
-  XCB_PRESENT_OPTION_SUBOPTIMAL = 8,
+  NONE = 0,
+  ASYNC = 1,
+  COPY = 2,
+  UST = 4,
+  SUBOPTIMAL = 8,
 }
 
 #[repr(u32)]
@@ -63,10 +63,10 @@ pub enum xcb_present_option_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_capability_t
 {
-  XCB_PRESENT_CAPABILITY_NONE = 0,
-  XCB_PRESENT_CAPABILITY_ASYNC = 1,
-  XCB_PRESENT_CAPABILITY_FENCE = 2,
-  XCB_PRESENT_CAPABILITY_UST = 4,
+  NONE = 0,
+  ASYNC = 1,
+  FENCE = 2,
+  UST = 4,
 }
 
 #[repr(u32)]
@@ -74,8 +74,8 @@ pub enum xcb_present_capability_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_complete_kind_t
 {
-  XCB_PRESENT_COMPLETE_KIND_PIXMAP = 0,
-  XCB_PRESENT_COMPLETE_KIND_NOTIFY_MSC = 1,
+  PIXMAP = 0,
+  NOTIFY_MSC = 1,
 }
 
 #[repr(u32)]
@@ -83,10 +83,10 @@ pub enum xcb_present_complete_kind_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_present_complete_mode_t
 {
-  XCB_PRESENT_COMPLETE_MODE_COPY = 0,
-  XCB_PRESENT_COMPLETE_MODE_FLIP = 1,
-  XCB_PRESENT_COMPLETE_MODE_SKIP = 2,
-  XCB_PRESENT_COMPLETE_MODE_SUBOPTIMAL_COPY = 3,
+  COPY = 0,
+  FLIP = 1,
+  SKIP = 2,
+  SUBOPTIMAL_COPY = 3,
 }
 
 #[repr(C)]

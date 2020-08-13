@@ -45,16 +45,16 @@ pub struct xcb_icccm_get_wm_class_reply_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_icccm_size_hints_flags_t
 {
-  XCB_ICCCM_SIZE_HINT_US_POSITION = 1,
-  XCB_ICCCM_SIZE_HINT_US_SIZE = 2,
-  XCB_ICCCM_SIZE_HINT_P_POSITION = 4,
-  XCB_ICCCM_SIZE_HINT_P_SIZE = 8,
-  XCB_ICCCM_SIZE_HINT_P_MIN_SIZE = 16,
-  XCB_ICCCM_SIZE_HINT_P_MAX_SIZE = 32,
-  XCB_ICCCM_SIZE_HINT_P_RESIZE_INC = 64,
-  XCB_ICCCM_SIZE_HINT_P_ASPECT = 128,
-  XCB_ICCCM_SIZE_HINT_BASE_SIZE = 256,
-  XCB_ICCCM_SIZE_HINT_P_WIN_GRAVITY = 512,
+  US_POSITION = 1,
+  US_SIZE = 2,
+  P_POSITION = 4,
+  P_SIZE = 8,
+  P_MIN_SIZE = 16,
+  P_MAX_SIZE = 32,
+  P_RESIZE_INC = 64,
+  P_ASPECT = 128,
+  BASE_SIZE = 256,
+  P_WIN_GRAVITY = 512,
 }
 
 #[repr(C)]
@@ -101,9 +101,9 @@ pub struct xcb_icccm_wm_hints_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_icccm_wm_state_t
 {
-  XCB_ICCCM_WM_STATE_WITHDRAWN = 0,
-  XCB_ICCCM_WM_STATE_NORMAL = 1,
-  XCB_ICCCM_WM_STATE_ICONIC = 3,
+  WITHDRAWN = 0,
+  NORMAL = 1,
+  ICONIC = 3,
 }
 
 #[repr(u32)]
@@ -111,14 +111,14 @@ pub enum xcb_icccm_wm_state_t
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum xcb_icccm_wm_t
 {
-  XCB_ICCCM_WM_HINT_INPUT = 1,
-  XCB_ICCCM_WM_HINT_STATE = 2,
-  XCB_ICCCM_WM_HINT_ICON_PIXMAP = 4,
-  XCB_ICCCM_WM_HINT_ICON_WINDOW = 8,
-  XCB_ICCCM_WM_HINT_ICON_POSITION = 16,
-  XCB_ICCCM_WM_HINT_ICON_MASK = 32,
-  XCB_ICCCM_WM_HINT_WINDOW_GROUP = 64,
-  XCB_ICCCM_WM_HINT_X_URGENCY = 256,
+  HINT_INPUT = 1,
+  HINT_STATE = 2,
+  HINT_ICON_PIXMAP = 4,
+  HINT_ICON_WINDOW = 8,
+  HINT_ICON_POSITION = 16,
+  HINT_ICON_MASK = 32,
+  HINT_WINDOW_GROUP = 64,
+  HINT_X_URGENCY = 256,
 }
 
 #[repr(C)]
