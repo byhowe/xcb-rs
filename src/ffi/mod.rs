@@ -2,6 +2,7 @@
 #![allow(non_snake_case)]
 
 pub mod atom;
+pub mod aux;
 pub mod big_requests;
 pub mod bitops;
 pub mod composite;
