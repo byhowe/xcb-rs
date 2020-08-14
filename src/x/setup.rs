@@ -18,8 +18,6 @@ impl Setup
 {
   pub fn roots(&self) -> ScreenIterator
   {
-    ScreenIterator {
-      ptr: unsafe { xcb::setup_roots_iterator(self.ptr) },
-    }
+    ScreenIterator::from(unsafe { xcb::setup_roots_iterator(self.ptr) })
   }
 }

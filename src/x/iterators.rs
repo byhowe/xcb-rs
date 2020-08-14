@@ -2,7 +2,15 @@ use crate::xcb;
 
 pub struct ArcIterator
 {
-  ptr: *mut xcb::arc_iterator_t,
+  iter: xcb::arc_iterator_t,
+}
+
+impl From<xcb::arc_iterator_t> for ArcIterator
+{
+  fn from(iter: xcb::arc_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ArcIterator
@@ -11,11 +19,11 @@ impl Iterator for ArcIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::arc_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::arc_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -23,7 +31,15 @@ impl Iterator for ArcIterator
 
 pub struct AtomIterator
 {
-  ptr: *mut xcb::atom_iterator_t,
+  iter: xcb::atom_iterator_t,
+}
+
+impl From<xcb::atom_iterator_t> for AtomIterator
+{
+  fn from(iter: xcb::atom_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AtomIterator
@@ -32,11 +48,11 @@ impl Iterator for AtomIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::atom_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::atom_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -44,7 +60,15 @@ impl Iterator for AtomIterator
 
 pub struct Bool32Iterator
 {
-  ptr: *mut xcb::bool32_iterator_t,
+  iter: xcb::bool32_iterator_t,
+}
+
+impl From<xcb::bool32_iterator_t> for Bool32Iterator
+{
+  fn from(iter: xcb::bool32_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Bool32Iterator
@@ -53,11 +77,11 @@ impl Iterator for Bool32Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::bool32_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::bool32_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -65,7 +89,15 @@ impl Iterator for Bool32Iterator
 
 pub struct ButtonIterator
 {
-  ptr: *mut xcb::button_iterator_t,
+  iter: xcb::button_iterator_t,
+}
+
+impl From<xcb::button_iterator_t> for ButtonIterator
+{
+  fn from(iter: xcb::button_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ButtonIterator
@@ -74,11 +106,11 @@ impl Iterator for ButtonIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::button_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::button_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -86,7 +118,15 @@ impl Iterator for ButtonIterator
 
 pub struct Char2bIterator
 {
-  ptr: *mut xcb::char2b_iterator_t,
+  iter: xcb::char2b_iterator_t,
+}
+
+impl From<xcb::char2b_iterator_t> for Char2bIterator
+{
+  fn from(iter: xcb::char2b_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Char2bIterator
@@ -95,11 +135,11 @@ impl Iterator for Char2bIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::char2b_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::char2b_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -107,7 +147,15 @@ impl Iterator for Char2bIterator
 
 pub struct CharinfoIterator
 {
-  ptr: *mut xcb::charinfo_iterator_t,
+  iter: xcb::charinfo_iterator_t,
+}
+
+impl From<xcb::charinfo_iterator_t> for CharinfoIterator
+{
+  fn from(iter: xcb::charinfo_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CharinfoIterator
@@ -116,11 +164,11 @@ impl Iterator for CharinfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::charinfo_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::charinfo_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -128,7 +176,15 @@ impl Iterator for CharinfoIterator
 
 pub struct ClientMessageDataIterator
 {
-  ptr: *mut xcb::client_message_data_iterator_t,
+  iter: xcb::client_message_data_iterator_t,
+}
+
+impl From<xcb::client_message_data_iterator_t> for ClientMessageDataIterator
+{
+  fn from(iter: xcb::client_message_data_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientMessageDataIterator
@@ -137,11 +193,11 @@ impl Iterator for ClientMessageDataIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::client_message_data_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::client_message_data_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -149,7 +205,15 @@ impl Iterator for ClientMessageDataIterator
 
 pub struct ColoritemIterator
 {
-  ptr: *mut xcb::coloritem_iterator_t,
+  iter: xcb::coloritem_iterator_t,
+}
+
+impl From<xcb::coloritem_iterator_t> for ColoritemIterator
+{
+  fn from(iter: xcb::coloritem_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ColoritemIterator
@@ -158,11 +222,11 @@ impl Iterator for ColoritemIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::coloritem_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::coloritem_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -170,7 +234,15 @@ impl Iterator for ColoritemIterator
 
 pub struct ColormapIterator
 {
-  ptr: *mut xcb::colormap_iterator_t,
+  iter: xcb::colormap_iterator_t,
+}
+
+impl From<xcb::colormap_iterator_t> for ColormapIterator
+{
+  fn from(iter: xcb::colormap_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ColormapIterator
@@ -179,11 +251,11 @@ impl Iterator for ColormapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::colormap_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::colormap_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -191,7 +263,15 @@ impl Iterator for ColormapIterator
 
 pub struct CursorIterator
 {
-  ptr: *mut xcb::cursor_iterator_t,
+  iter: xcb::cursor_iterator_t,
+}
+
+impl From<xcb::cursor_iterator_t> for CursorIterator
+{
+  fn from(iter: xcb::cursor_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CursorIterator
@@ -200,11 +280,11 @@ impl Iterator for CursorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::cursor_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::cursor_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -212,7 +292,15 @@ impl Iterator for CursorIterator
 
 pub struct DamageIterator
 {
-  ptr: *mut xcb::damage::damage_iterator_t,
+  iter: xcb::damage::damage_iterator_t,
+}
+
+impl From<xcb::damage::damage_iterator_t> for DamageIterator
+{
+  fn from(iter: xcb::damage::damage_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DamageIterator
@@ -221,11 +309,11 @@ impl Iterator for DamageIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::damage::damage_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::damage::damage_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -233,7 +321,15 @@ impl Iterator for DamageIterator
 
 pub struct DepthIterator
 {
-  ptr: *mut xcb::depth_iterator_t,
+  iter: xcb::depth_iterator_t,
+}
+
+impl From<xcb::depth_iterator_t> for DepthIterator
+{
+  fn from(iter: xcb::depth_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DepthIterator
@@ -242,11 +338,11 @@ impl Iterator for DepthIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::depth_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::depth_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -254,7 +350,15 @@ impl Iterator for DepthIterator
 
 pub struct DrawableIterator
 {
-  ptr: *mut xcb::drawable_iterator_t,
+  iter: xcb::drawable_iterator_t,
+}
+
+impl From<xcb::drawable_iterator_t> for DrawableIterator
+{
+  fn from(iter: xcb::drawable_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DrawableIterator
@@ -263,11 +367,11 @@ impl Iterator for DrawableIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::drawable_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::drawable_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -275,7 +379,15 @@ impl Iterator for DrawableIterator
 
 pub struct AttachFormatIterator
 {
-  ptr: *mut xcb::dri2::attach_format_iterator_t,
+  iter: xcb::dri2::attach_format_iterator_t,
+}
+
+impl From<xcb::dri2::attach_format_iterator_t> for AttachFormatIterator
+{
+  fn from(iter: xcb::dri2::attach_format_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AttachFormatIterator
@@ -284,11 +396,11 @@ impl Iterator for AttachFormatIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::dri2::attach_format_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::dri2::attach_format_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -296,7 +408,15 @@ impl Iterator for AttachFormatIterator
 
 pub struct Dri2BufferIterator
 {
-  ptr: *mut xcb::dri2::dri2_buffer_iterator_t,
+  iter: xcb::dri2::dri2_buffer_iterator_t,
+}
+
+impl From<xcb::dri2::dri2_buffer_iterator_t> for Dri2BufferIterator
+{
+  fn from(iter: xcb::dri2::dri2_buffer_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Dri2BufferIterator
@@ -305,11 +425,11 @@ impl Iterator for Dri2BufferIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::dri2::dri2_buffer_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::dri2::dri2_buffer_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -317,7 +437,15 @@ impl Iterator for Dri2BufferIterator
 
 pub struct WmIconIterator
 {
-  ptr: *mut xcb::ewmh::wm_icon_iterator_t,
+  iter: xcb::ewmh::wm_icon_iterator_t,
+}
+
+impl From<xcb::ewmh::wm_icon_iterator_t> for WmIconIterator
+{
+  fn from(iter: xcb::ewmh::wm_icon_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for WmIconIterator
@@ -326,11 +454,11 @@ impl Iterator for WmIconIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::ewmh::get_wm_icon_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::ewmh::get_wm_icon_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -338,7 +466,15 @@ impl Iterator for WmIconIterator
 
 pub struct FontIterator
 {
-  ptr: *mut xcb::font_iterator_t,
+  iter: xcb::font_iterator_t,
+}
+
+impl From<xcb::font_iterator_t> for FontIterator
+{
+  fn from(iter: xcb::font_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FontIterator
@@ -347,11 +483,11 @@ impl Iterator for FontIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::font_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::font_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -359,7 +495,15 @@ impl Iterator for FontIterator
 
 pub struct FontableIterator
 {
-  ptr: *mut xcb::fontable_iterator_t,
+  iter: xcb::fontable_iterator_t,
+}
+
+impl From<xcb::fontable_iterator_t> for FontableIterator
+{
+  fn from(iter: xcb::fontable_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FontableIterator
@@ -368,11 +512,11 @@ impl Iterator for FontableIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::fontable_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::fontable_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -380,7 +524,15 @@ impl Iterator for FontableIterator
 
 pub struct FontpropIterator
 {
-  ptr: *mut xcb::fontprop_iterator_t,
+  iter: xcb::fontprop_iterator_t,
+}
+
+impl From<xcb::fontprop_iterator_t> for FontpropIterator
+{
+  fn from(iter: xcb::fontprop_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FontpropIterator
@@ -389,11 +541,11 @@ impl Iterator for FontpropIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::fontprop_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::fontprop_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -401,7 +553,15 @@ impl Iterator for FontpropIterator
 
 pub struct FormatIterator
 {
-  ptr: *mut xcb::format_iterator_t,
+  iter: xcb::format_iterator_t,
+}
+
+impl From<xcb::format_iterator_t> for FormatIterator
+{
+  fn from(iter: xcb::format_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FormatIterator
@@ -410,11 +570,11 @@ impl Iterator for FormatIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::format_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::format_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -422,7 +582,15 @@ impl Iterator for FormatIterator
 
 pub struct GcontextIterator
 {
-  ptr: *mut xcb::gcontext_iterator_t,
+  iter: xcb::gcontext_iterator_t,
+}
+
+impl From<xcb::gcontext_iterator_t> for GcontextIterator
+{
+  fn from(iter: xcb::gcontext_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GcontextIterator
@@ -431,11 +599,11 @@ impl Iterator for GcontextIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::gcontext_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::gcontext_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -443,7 +611,15 @@ impl Iterator for GcontextIterator
 
 pub struct GlxBool32Iterator
 {
-  ptr: *mut xcb::glx::bool32_iterator_t,
+  iter: xcb::glx::bool32_iterator_t,
+}
+
+impl From<xcb::glx::bool32_iterator_t> for GlxBool32Iterator
+{
+  fn from(iter: xcb::glx::bool32_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlxBool32Iterator
@@ -452,11 +628,11 @@ impl Iterator for GlxBool32Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::bool32_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::bool32_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -464,7 +640,15 @@ impl Iterator for GlxBool32Iterator
 
 pub struct GlxContextIterator
 {
-  ptr: *mut xcb::glx::context_iterator_t,
+  iter: xcb::glx::context_iterator_t,
+}
+
+impl From<xcb::glx::context_iterator_t> for GlxContextIterator
+{
+  fn from(iter: xcb::glx::context_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlxContextIterator
@@ -473,11 +657,11 @@ impl Iterator for GlxContextIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::context_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::context_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -485,7 +669,15 @@ impl Iterator for GlxContextIterator
 
 pub struct ContextTagIterator
 {
-  ptr: *mut xcb::glx::context_tag_iterator_t,
+  iter: xcb::glx::context_tag_iterator_t,
+}
+
+impl From<xcb::glx::context_tag_iterator_t> for ContextTagIterator
+{
+  fn from(iter: xcb::glx::context_tag_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ContextTagIterator
@@ -494,11 +686,11 @@ impl Iterator for ContextTagIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::context_tag_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::context_tag_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -506,7 +698,15 @@ impl Iterator for ContextTagIterator
 
 pub struct GlxDrawableIterator
 {
-  ptr: *mut xcb::glx::drawable_iterator_t,
+  iter: xcb::glx::drawable_iterator_t,
+}
+
+impl From<xcb::glx::drawable_iterator_t> for GlxDrawableIterator
+{
+  fn from(iter: xcb::glx::drawable_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlxDrawableIterator
@@ -515,11 +715,11 @@ impl Iterator for GlxDrawableIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::drawable_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::drawable_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -527,7 +727,15 @@ impl Iterator for GlxDrawableIterator
 
 pub struct FbconfigIterator
 {
-  ptr: *mut xcb::glx::fbconfig_iterator_t,
+  iter: xcb::glx::fbconfig_iterator_t,
+}
+
+impl From<xcb::glx::fbconfig_iterator_t> for FbconfigIterator
+{
+  fn from(iter: xcb::glx::fbconfig_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FbconfigIterator
@@ -536,11 +744,11 @@ impl Iterator for FbconfigIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::fbconfig_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::fbconfig_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -548,7 +756,15 @@ impl Iterator for FbconfigIterator
 
 pub struct Float32Iterator
 {
-  ptr: *mut xcb::glx::float32_iterator_t,
+  iter: xcb::glx::float32_iterator_t,
+}
+
+impl From<xcb::glx::float32_iterator_t> for Float32Iterator
+{
+  fn from(iter: xcb::glx::float32_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Float32Iterator
@@ -557,11 +773,11 @@ impl Iterator for Float32Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::float32_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::float32_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -569,7 +785,15 @@ impl Iterator for Float32Iterator
 
 pub struct Float64Iterator
 {
-  ptr: *mut xcb::glx::float64_iterator_t,
+  iter: xcb::glx::float64_iterator_t,
+}
+
+impl From<xcb::glx::float64_iterator_t> for Float64Iterator
+{
+  fn from(iter: xcb::glx::float64_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Float64Iterator
@@ -578,11 +802,11 @@ impl Iterator for Float64Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::float64_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::float64_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -590,7 +814,15 @@ impl Iterator for Float64Iterator
 
 pub struct PbufferIterator
 {
-  ptr: *mut xcb::glx::pbuffer_iterator_t,
+  iter: xcb::glx::pbuffer_iterator_t,
+}
+
+impl From<xcb::glx::pbuffer_iterator_t> for PbufferIterator
+{
+  fn from(iter: xcb::glx::pbuffer_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PbufferIterator
@@ -599,11 +831,11 @@ impl Iterator for PbufferIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::pbuffer_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::pbuffer_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -611,7 +843,15 @@ impl Iterator for PbufferIterator
 
 pub struct GlxPixmapIterator
 {
-  ptr: *mut xcb::glx::pixmap_iterator_t,
+  iter: xcb::glx::pixmap_iterator_t,
+}
+
+impl From<xcb::glx::pixmap_iterator_t> for GlxPixmapIterator
+{
+  fn from(iter: xcb::glx::pixmap_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlxPixmapIterator
@@ -620,11 +860,11 @@ impl Iterator for GlxPixmapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::pixmap_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::pixmap_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -632,7 +872,15 @@ impl Iterator for GlxPixmapIterator
 
 pub struct GlxWindowIterator
 {
-  ptr: *mut xcb::glx::window_iterator_t,
+  iter: xcb::glx::window_iterator_t,
+}
+
+impl From<xcb::glx::window_iterator_t> for GlxWindowIterator
+{
+  fn from(iter: xcb::glx::window_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlxWindowIterator
@@ -641,11 +889,11 @@ impl Iterator for GlxWindowIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::glx::window_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::glx::window_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -653,7 +901,15 @@ impl Iterator for GlxWindowIterator
 
 pub struct HostIterator
 {
-  ptr: *mut xcb::host_iterator_t,
+  iter: xcb::host_iterator_t,
+}
+
+impl From<xcb::host_iterator_t> for HostIterator
+{
+  fn from(iter: xcb::host_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for HostIterator
@@ -662,11 +918,11 @@ impl Iterator for HostIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::host_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::host_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -674,7 +930,15 @@ impl Iterator for HostIterator
 
 pub struct AddMasterIterator
 {
-  ptr: *mut xcb::input::add_master_iterator_t,
+  iter: xcb::input::add_master_iterator_t,
+}
+
+impl From<xcb::input::add_master_iterator_t> for AddMasterIterator
+{
+  fn from(iter: xcb::input::add_master_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AddMasterIterator
@@ -683,11 +947,11 @@ impl Iterator for AddMasterIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::add_master_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::add_master_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -695,7 +959,15 @@ impl Iterator for AddMasterIterator
 
 pub struct AttachSlaveIterator
 {
-  ptr: *mut xcb::input::attach_slave_iterator_t,
+  iter: xcb::input::attach_slave_iterator_t,
+}
+
+impl From<xcb::input::attach_slave_iterator_t> for AttachSlaveIterator
+{
+  fn from(iter: xcb::input::attach_slave_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AttachSlaveIterator
@@ -704,11 +976,11 @@ impl Iterator for AttachSlaveIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::attach_slave_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::attach_slave_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -716,7 +988,15 @@ impl Iterator for AttachSlaveIterator
 
 pub struct AxisInfoIterator
 {
-  ptr: *mut xcb::input::axis_info_iterator_t,
+  iter: xcb::input::axis_info_iterator_t,
+}
+
+impl From<xcb::input::axis_info_iterator_t> for AxisInfoIterator
+{
+  fn from(iter: xcb::input::axis_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AxisInfoIterator
@@ -725,11 +1005,11 @@ impl Iterator for AxisInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::axis_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::axis_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -737,7 +1017,15 @@ impl Iterator for AxisInfoIterator
 
 pub struct BarrierReleasePointerInfoIterator
 {
-  ptr: *mut xcb::input::barrier_release_pointer_info_iterator_t,
+  iter: xcb::input::barrier_release_pointer_info_iterator_t,
+}
+
+impl From<xcb::input::barrier_release_pointer_info_iterator_t> for BarrierReleasePointerInfoIterator
+{
+  fn from(iter: xcb::input::barrier_release_pointer_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BarrierReleasePointerInfoIterator
@@ -746,11 +1034,11 @@ impl Iterator for BarrierReleasePointerInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::barrier_release_pointer_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::barrier_release_pointer_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -758,7 +1046,15 @@ impl Iterator for BarrierReleasePointerInfoIterator
 
 pub struct BellFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::bell_feedback_ctl_iterator_t,
+  iter: xcb::input::bell_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::bell_feedback_ctl_iterator_t> for BellFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::bell_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BellFeedbackCtlIterator
@@ -767,11 +1063,11 @@ impl Iterator for BellFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::bell_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::bell_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -779,7 +1075,15 @@ impl Iterator for BellFeedbackCtlIterator
 
 pub struct BellFeedbackStateIterator
 {
-  ptr: *mut xcb::input::bell_feedback_state_iterator_t,
+  iter: xcb::input::bell_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::bell_feedback_state_iterator_t> for BellFeedbackStateIterator
+{
+  fn from(iter: xcb::input::bell_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BellFeedbackStateIterator
@@ -788,11 +1092,11 @@ impl Iterator for BellFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::bell_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::bell_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -800,7 +1104,15 @@ impl Iterator for BellFeedbackStateIterator
 
 pub struct ButtonClassIterator
 {
-  ptr: *mut xcb::input::button_class_iterator_t,
+  iter: xcb::input::button_class_iterator_t,
+}
+
+impl From<xcb::input::button_class_iterator_t> for ButtonClassIterator
+{
+  fn from(iter: xcb::input::button_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ButtonClassIterator
@@ -809,11 +1121,11 @@ impl Iterator for ButtonClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::button_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::button_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -821,7 +1133,15 @@ impl Iterator for ButtonClassIterator
 
 pub struct ButtonInfoIterator
 {
-  ptr: *mut xcb::input::button_info_iterator_t,
+  iter: xcb::input::button_info_iterator_t,
+}
+
+impl From<xcb::input::button_info_iterator_t> for ButtonInfoIterator
+{
+  fn from(iter: xcb::input::button_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ButtonInfoIterator
@@ -830,11 +1150,11 @@ impl Iterator for ButtonInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::button_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::button_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -842,7 +1162,15 @@ impl Iterator for ButtonInfoIterator
 
 pub struct ButtonStateIterator
 {
-  ptr: *mut xcb::input::button_state_iterator_t,
+  iter: xcb::input::button_state_iterator_t,
+}
+
+impl From<xcb::input::button_state_iterator_t> for ButtonStateIterator
+{
+  fn from(iter: xcb::input::button_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ButtonStateIterator
@@ -851,11 +1179,11 @@ impl Iterator for ButtonStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::button_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::button_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -863,7 +1191,15 @@ impl Iterator for ButtonStateIterator
 
 pub struct DetachSlaveIterator
 {
-  ptr: *mut xcb::input::detach_slave_iterator_t,
+  iter: xcb::input::detach_slave_iterator_t,
+}
+
+impl From<xcb::input::detach_slave_iterator_t> for DetachSlaveIterator
+{
+  fn from(iter: xcb::input::detach_slave_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DetachSlaveIterator
@@ -872,11 +1208,11 @@ impl Iterator for DetachSlaveIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::detach_slave_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::detach_slave_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -884,7 +1220,15 @@ impl Iterator for DetachSlaveIterator
 
 pub struct DeviceAbsAreaCtrlIterator
 {
-  ptr: *mut xcb::input::device_abs_area_ctrl_iterator_t,
+  iter: xcb::input::device_abs_area_ctrl_iterator_t,
+}
+
+impl From<xcb::input::device_abs_area_ctrl_iterator_t> for DeviceAbsAreaCtrlIterator
+{
+  fn from(iter: xcb::input::device_abs_area_ctrl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceAbsAreaCtrlIterator
@@ -893,11 +1237,11 @@ impl Iterator for DeviceAbsAreaCtrlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_abs_area_ctrl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_abs_area_ctrl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -905,7 +1249,15 @@ impl Iterator for DeviceAbsAreaCtrlIterator
 
 pub struct DeviceAbsAreaStateIterator
 {
-  ptr: *mut xcb::input::device_abs_area_state_iterator_t,
+  iter: xcb::input::device_abs_area_state_iterator_t,
+}
+
+impl From<xcb::input::device_abs_area_state_iterator_t> for DeviceAbsAreaStateIterator
+{
+  fn from(iter: xcb::input::device_abs_area_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceAbsAreaStateIterator
@@ -914,11 +1266,11 @@ impl Iterator for DeviceAbsAreaStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_abs_area_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_abs_area_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -926,7 +1278,15 @@ impl Iterator for DeviceAbsAreaStateIterator
 
 pub struct DeviceAbsCalibCtlIterator
 {
-  ptr: *mut xcb::input::device_abs_calib_ctl_iterator_t,
+  iter: xcb::input::device_abs_calib_ctl_iterator_t,
+}
+
+impl From<xcb::input::device_abs_calib_ctl_iterator_t> for DeviceAbsCalibCtlIterator
+{
+  fn from(iter: xcb::input::device_abs_calib_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceAbsCalibCtlIterator
@@ -935,11 +1295,11 @@ impl Iterator for DeviceAbsCalibCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_abs_calib_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_abs_calib_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -947,7 +1307,15 @@ impl Iterator for DeviceAbsCalibCtlIterator
 
 pub struct DeviceAbsCalibStateIterator
 {
-  ptr: *mut xcb::input::device_abs_calib_state_iterator_t,
+  iter: xcb::input::device_abs_calib_state_iterator_t,
+}
+
+impl From<xcb::input::device_abs_calib_state_iterator_t> for DeviceAbsCalibStateIterator
+{
+  fn from(iter: xcb::input::device_abs_calib_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceAbsCalibStateIterator
@@ -956,11 +1324,11 @@ impl Iterator for DeviceAbsCalibStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_abs_calib_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_abs_calib_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -968,7 +1336,15 @@ impl Iterator for DeviceAbsCalibStateIterator
 
 pub struct DeviceClassIterator
 {
-  ptr: *mut xcb::input::device_class_iterator_t,
+  iter: xcb::input::device_class_iterator_t,
+}
+
+impl From<xcb::input::device_class_iterator_t> for DeviceClassIterator
+{
+  fn from(iter: xcb::input::device_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceClassIterator
@@ -977,11 +1353,11 @@ impl Iterator for DeviceClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -989,7 +1365,15 @@ impl Iterator for DeviceClassIterator
 
 pub struct DeviceCoreCtrlIterator
 {
-  ptr: *mut xcb::input::device_core_ctrl_iterator_t,
+  iter: xcb::input::device_core_ctrl_iterator_t,
+}
+
+impl From<xcb::input::device_core_ctrl_iterator_t> for DeviceCoreCtrlIterator
+{
+  fn from(iter: xcb::input::device_core_ctrl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceCoreCtrlIterator
@@ -998,11 +1382,11 @@ impl Iterator for DeviceCoreCtrlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_core_ctrl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_core_ctrl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1010,7 +1394,15 @@ impl Iterator for DeviceCoreCtrlIterator
 
 pub struct DeviceCoreStateIterator
 {
-  ptr: *mut xcb::input::device_core_state_iterator_t,
+  iter: xcb::input::device_core_state_iterator_t,
+}
+
+impl From<xcb::input::device_core_state_iterator_t> for DeviceCoreStateIterator
+{
+  fn from(iter: xcb::input::device_core_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceCoreStateIterator
@@ -1019,11 +1411,11 @@ impl Iterator for DeviceCoreStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_core_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_core_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1031,7 +1423,15 @@ impl Iterator for DeviceCoreStateIterator
 
 pub struct DeviceCtlIterator
 {
-  ptr: *mut xcb::input::device_ctl_iterator_t,
+  iter: xcb::input::device_ctl_iterator_t,
+}
+
+impl From<xcb::input::device_ctl_iterator_t> for DeviceCtlIterator
+{
+  fn from(iter: xcb::input::device_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceCtlIterator
@@ -1040,11 +1440,11 @@ impl Iterator for DeviceCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1052,7 +1452,15 @@ impl Iterator for DeviceCtlIterator
 
 pub struct DeviceEnableCtrlIterator
 {
-  ptr: *mut xcb::input::device_enable_ctrl_iterator_t,
+  iter: xcb::input::device_enable_ctrl_iterator_t,
+}
+
+impl From<xcb::input::device_enable_ctrl_iterator_t> for DeviceEnableCtrlIterator
+{
+  fn from(iter: xcb::input::device_enable_ctrl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceEnableCtrlIterator
@@ -1061,11 +1469,11 @@ impl Iterator for DeviceEnableCtrlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_enable_ctrl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_enable_ctrl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1073,7 +1481,15 @@ impl Iterator for DeviceEnableCtrlIterator
 
 pub struct DeviceEnableStateIterator
 {
-  ptr: *mut xcb::input::device_enable_state_iterator_t,
+  iter: xcb::input::device_enable_state_iterator_t,
+}
+
+impl From<xcb::input::device_enable_state_iterator_t> for DeviceEnableStateIterator
+{
+  fn from(iter: xcb::input::device_enable_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceEnableStateIterator
@@ -1082,11 +1498,11 @@ impl Iterator for DeviceEnableStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_enable_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_enable_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1094,7 +1510,15 @@ impl Iterator for DeviceEnableStateIterator
 
 pub struct DeviceIdIterator
 {
-  ptr: *mut xcb::input::device_id_iterator_t,
+  iter: xcb::input::device_id_iterator_t,
+}
+
+impl From<xcb::input::device_id_iterator_t> for DeviceIdIterator
+{
+  fn from(iter: xcb::input::device_id_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceIdIterator
@@ -1103,11 +1527,11 @@ impl Iterator for DeviceIdIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_id_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_id_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1115,7 +1539,15 @@ impl Iterator for DeviceIdIterator
 
 pub struct DeviceInfoIterator
 {
-  ptr: *mut xcb::input::device_info_iterator_t,
+  iter: xcb::input::device_info_iterator_t,
+}
+
+impl From<xcb::input::device_info_iterator_t> for DeviceInfoIterator
+{
+  fn from(iter: xcb::input::device_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceInfoIterator
@@ -1124,11 +1556,11 @@ impl Iterator for DeviceInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1136,7 +1568,15 @@ impl Iterator for DeviceInfoIterator
 
 pub struct DeviceNameIterator
 {
-  ptr: *mut xcb::input::device_name_iterator_t,
+  iter: xcb::input::device_name_iterator_t,
+}
+
+impl From<xcb::input::device_name_iterator_t> for DeviceNameIterator
+{
+  fn from(iter: xcb::input::device_name_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceNameIterator
@@ -1145,11 +1585,11 @@ impl Iterator for DeviceNameIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_name_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_name_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1157,7 +1597,15 @@ impl Iterator for DeviceNameIterator
 
 pub struct DeviceResolutionCtlIterator
 {
-  ptr: *mut xcb::input::device_resolution_ctl_iterator_t,
+  iter: xcb::input::device_resolution_ctl_iterator_t,
+}
+
+impl From<xcb::input::device_resolution_ctl_iterator_t> for DeviceResolutionCtlIterator
+{
+  fn from(iter: xcb::input::device_resolution_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceResolutionCtlIterator
@@ -1166,11 +1614,11 @@ impl Iterator for DeviceResolutionCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_resolution_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_resolution_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1178,7 +1626,15 @@ impl Iterator for DeviceResolutionCtlIterator
 
 pub struct DeviceResolutionStateIterator
 {
-  ptr: *mut xcb::input::device_resolution_state_iterator_t,
+  iter: xcb::input::device_resolution_state_iterator_t,
+}
+
+impl From<xcb::input::device_resolution_state_iterator_t> for DeviceResolutionStateIterator
+{
+  fn from(iter: xcb::input::device_resolution_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceResolutionStateIterator
@@ -1187,11 +1643,11 @@ impl Iterator for DeviceResolutionStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_resolution_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_resolution_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1199,7 +1655,15 @@ impl Iterator for DeviceResolutionStateIterator
 
 pub struct DeviceStateIterator
 {
-  ptr: *mut xcb::input::device_state_iterator_t,
+  iter: xcb::input::device_state_iterator_t,
+}
+
+impl From<xcb::input::device_state_iterator_t> for DeviceStateIterator
+{
+  fn from(iter: xcb::input::device_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceStateIterator
@@ -1208,11 +1672,11 @@ impl Iterator for DeviceStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1220,7 +1684,15 @@ impl Iterator for DeviceStateIterator
 
 pub struct DeviceTimeCoordIterator
 {
-  ptr: *mut xcb::input::device_time_coord_iterator_t,
+  iter: xcb::input::device_time_coord_iterator_t,
+}
+
+impl From<xcb::input::device_time_coord_iterator_t> for DeviceTimeCoordIterator
+{
+  fn from(iter: xcb::input::device_time_coord_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceTimeCoordIterator
@@ -1229,11 +1701,11 @@ impl Iterator for DeviceTimeCoordIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::device_time_coord_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::device_time_coord_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1241,7 +1713,15 @@ impl Iterator for DeviceTimeCoordIterator
 
 pub struct EventClassIterator
 {
-  ptr: *mut xcb::input::event_class_iterator_t,
+  iter: xcb::input::event_class_iterator_t,
+}
+
+impl From<xcb::input::event_class_iterator_t> for EventClassIterator
+{
+  fn from(iter: xcb::input::event_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EventClassIterator
@@ -1250,11 +1730,11 @@ impl Iterator for EventClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::event_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::event_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1262,7 +1742,15 @@ impl Iterator for EventClassIterator
 
 pub struct EventForSendIterator
 {
-  ptr: *mut xcb::input::event_for_send_iterator_t,
+  iter: xcb::input::event_for_send_iterator_t,
+}
+
+impl From<xcb::input::event_for_send_iterator_t> for EventForSendIterator
+{
+  fn from(iter: xcb::input::event_for_send_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EventForSendIterator
@@ -1271,11 +1759,11 @@ impl Iterator for EventForSendIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::event_for_send_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::event_for_send_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1283,7 +1771,15 @@ impl Iterator for EventForSendIterator
 
 pub struct EventMaskIterator
 {
-  ptr: *mut xcb::input::event_mask_iterator_t,
+  iter: xcb::input::event_mask_iterator_t,
+}
+
+impl From<xcb::input::event_mask_iterator_t> for EventMaskIterator
+{
+  fn from(iter: xcb::input::event_mask_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EventMaskIterator
@@ -1292,11 +1788,11 @@ impl Iterator for EventMaskIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::event_mask_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::event_mask_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1304,7 +1800,15 @@ impl Iterator for EventMaskIterator
 
 pub struct EventTypeBaseIterator
 {
-  ptr: *mut xcb::input::event_type_base_iterator_t,
+  iter: xcb::input::event_type_base_iterator_t,
+}
+
+impl From<xcb::input::event_type_base_iterator_t> for EventTypeBaseIterator
+{
+  fn from(iter: xcb::input::event_type_base_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EventTypeBaseIterator
@@ -1313,11 +1817,11 @@ impl Iterator for EventTypeBaseIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::event_type_base_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::event_type_base_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1325,7 +1829,15 @@ impl Iterator for EventTypeBaseIterator
 
 pub struct FeedbackCtlIterator
 {
-  ptr: *mut xcb::input::feedback_ctl_iterator_t,
+  iter: xcb::input::feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::feedback_ctl_iterator_t> for FeedbackCtlIterator
+{
+  fn from(iter: xcb::input::feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FeedbackCtlIterator
@@ -1334,11 +1846,11 @@ impl Iterator for FeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1346,7 +1858,15 @@ impl Iterator for FeedbackCtlIterator
 
 pub struct FeedbackStateIterator
 {
-  ptr: *mut xcb::input::feedback_state_iterator_t,
+  iter: xcb::input::feedback_state_iterator_t,
+}
+
+impl From<xcb::input::feedback_state_iterator_t> for FeedbackStateIterator
+{
+  fn from(iter: xcb::input::feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FeedbackStateIterator
@@ -1355,11 +1875,11 @@ impl Iterator for FeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1367,7 +1887,15 @@ impl Iterator for FeedbackStateIterator
 
 pub struct Fp1616Iterator
 {
-  ptr: *mut xcb::input::fp1616_iterator_t,
+  iter: xcb::input::fp1616_iterator_t,
+}
+
+impl From<xcb::input::fp1616_iterator_t> for Fp1616Iterator
+{
+  fn from(iter: xcb::input::fp1616_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Fp1616Iterator
@@ -1376,11 +1904,11 @@ impl Iterator for Fp1616Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::fp1616_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::fp1616_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1388,7 +1916,15 @@ impl Iterator for Fp1616Iterator
 
 pub struct Fp3232Iterator
 {
-  ptr: *mut xcb::input::fp3232_iterator_t,
+  iter: xcb::input::fp3232_iterator_t,
+}
+
+impl From<xcb::input::fp3232_iterator_t> for Fp3232Iterator
+{
+  fn from(iter: xcb::input::fp3232_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Fp3232Iterator
@@ -1397,11 +1933,11 @@ impl Iterator for Fp3232Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::fp3232_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::fp3232_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1409,7 +1945,15 @@ impl Iterator for Fp3232Iterator
 
 pub struct GrabModifierInfoIterator
 {
-  ptr: *mut xcb::input::grab_modifier_info_iterator_t,
+  iter: xcb::input::grab_modifier_info_iterator_t,
+}
+
+impl From<xcb::input::grab_modifier_info_iterator_t> for GrabModifierInfoIterator
+{
+  fn from(iter: xcb::input::grab_modifier_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GrabModifierInfoIterator
@@ -1418,11 +1962,11 @@ impl Iterator for GrabModifierInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::grab_modifier_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::grab_modifier_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1430,7 +1974,15 @@ impl Iterator for GrabModifierInfoIterator
 
 pub struct GroupInfoIterator
 {
-  ptr: *mut xcb::input::group_info_iterator_t,
+  iter: xcb::input::group_info_iterator_t,
+}
+
+impl From<xcb::input::group_info_iterator_t> for GroupInfoIterator
+{
+  fn from(iter: xcb::input::group_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GroupInfoIterator
@@ -1439,11 +1991,11 @@ impl Iterator for GroupInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::group_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::group_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1451,7 +2003,15 @@ impl Iterator for GroupInfoIterator
 
 pub struct HierarchyChangeIterator
 {
-  ptr: *mut xcb::input::hierarchy_change_iterator_t,
+  iter: xcb::input::hierarchy_change_iterator_t,
+}
+
+impl From<xcb::input::hierarchy_change_iterator_t> for HierarchyChangeIterator
+{
+  fn from(iter: xcb::input::hierarchy_change_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for HierarchyChangeIterator
@@ -1460,11 +2020,11 @@ impl Iterator for HierarchyChangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::hierarchy_change_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::hierarchy_change_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1472,7 +2032,15 @@ impl Iterator for HierarchyChangeIterator
 
 pub struct HierarchyInfoIterator
 {
-  ptr: *mut xcb::input::hierarchy_info_iterator_t,
+  iter: xcb::input::hierarchy_info_iterator_t,
+}
+
+impl From<xcb::input::hierarchy_info_iterator_t> for HierarchyInfoIterator
+{
+  fn from(iter: xcb::input::hierarchy_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for HierarchyInfoIterator
@@ -1481,11 +2049,11 @@ impl Iterator for HierarchyInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::hierarchy_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::hierarchy_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1493,7 +2061,15 @@ impl Iterator for HierarchyInfoIterator
 
 pub struct InputClassInfoIterator
 {
-  ptr: *mut xcb::input::input_class_info_iterator_t,
+  iter: xcb::input::input_class_info_iterator_t,
+}
+
+impl From<xcb::input::input_class_info_iterator_t> for InputClassInfoIterator
+{
+  fn from(iter: xcb::input::input_class_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for InputClassInfoIterator
@@ -1502,11 +2078,11 @@ impl Iterator for InputClassInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::input_class_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::input_class_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1514,7 +2090,15 @@ impl Iterator for InputClassInfoIterator
 
 pub struct InputInfoIterator
 {
-  ptr: *mut xcb::input::input_info_iterator_t,
+  iter: xcb::input::input_info_iterator_t,
+}
+
+impl From<xcb::input::input_info_iterator_t> for InputInfoIterator
+{
+  fn from(iter: xcb::input::input_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for InputInfoIterator
@@ -1523,11 +2107,11 @@ impl Iterator for InputInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::input_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::input_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1535,7 +2119,15 @@ impl Iterator for InputInfoIterator
 
 pub struct InputStateIterator
 {
-  ptr: *mut xcb::input::input_state_iterator_t,
+  iter: xcb::input::input_state_iterator_t,
+}
+
+impl From<xcb::input::input_state_iterator_t> for InputStateIterator
+{
+  fn from(iter: xcb::input::input_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for InputStateIterator
@@ -1544,11 +2136,11 @@ impl Iterator for InputStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::input_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::input_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1556,7 +2148,15 @@ impl Iterator for InputStateIterator
 
 pub struct IntegerFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::integer_feedback_ctl_iterator_t,
+  iter: xcb::input::integer_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::integer_feedback_ctl_iterator_t> for IntegerFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::integer_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for IntegerFeedbackCtlIterator
@@ -1565,11 +2165,11 @@ impl Iterator for IntegerFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::integer_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::integer_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1577,7 +2177,15 @@ impl Iterator for IntegerFeedbackCtlIterator
 
 pub struct IntegerFeedbackStateIterator
 {
-  ptr: *mut xcb::input::integer_feedback_state_iterator_t,
+  iter: xcb::input::integer_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::integer_feedback_state_iterator_t> for IntegerFeedbackStateIterator
+{
+  fn from(iter: xcb::input::integer_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for IntegerFeedbackStateIterator
@@ -1586,11 +2194,11 @@ impl Iterator for IntegerFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::integer_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::integer_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1598,7 +2206,15 @@ impl Iterator for IntegerFeedbackStateIterator
 
 pub struct KbdFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::kbd_feedback_ctl_iterator_t,
+  iter: xcb::input::kbd_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::kbd_feedback_ctl_iterator_t> for KbdFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::kbd_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KbdFeedbackCtlIterator
@@ -1607,11 +2223,11 @@ impl Iterator for KbdFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::kbd_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::kbd_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1619,7 +2235,15 @@ impl Iterator for KbdFeedbackCtlIterator
 
 pub struct KbdFeedbackStateIterator
 {
-  ptr: *mut xcb::input::kbd_feedback_state_iterator_t,
+  iter: xcb::input::kbd_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::kbd_feedback_state_iterator_t> for KbdFeedbackStateIterator
+{
+  fn from(iter: xcb::input::kbd_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KbdFeedbackStateIterator
@@ -1628,11 +2252,11 @@ impl Iterator for KbdFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::kbd_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::kbd_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1640,7 +2264,15 @@ impl Iterator for KbdFeedbackStateIterator
 
 pub struct KeyClassIterator
 {
-  ptr: *mut xcb::input::key_class_iterator_t,
+  iter: xcb::input::key_class_iterator_t,
+}
+
+impl From<xcb::input::key_class_iterator_t> for KeyClassIterator
+{
+  fn from(iter: xcb::input::key_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyClassIterator
@@ -1649,11 +2281,11 @@ impl Iterator for KeyClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::key_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::key_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1661,7 +2293,15 @@ impl Iterator for KeyClassIterator
 
 pub struct KeyCodeIterator
 {
-  ptr: *mut xcb::input::key_code_iterator_t,
+  iter: xcb::input::key_code_iterator_t,
+}
+
+impl From<xcb::input::key_code_iterator_t> for KeyCodeIterator
+{
+  fn from(iter: xcb::input::key_code_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyCodeIterator
@@ -1670,11 +2310,11 @@ impl Iterator for KeyCodeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::key_code_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::key_code_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1682,7 +2322,15 @@ impl Iterator for KeyCodeIterator
 
 pub struct KeyInfoIterator
 {
-  ptr: *mut xcb::input::key_info_iterator_t,
+  iter: xcb::input::key_info_iterator_t,
+}
+
+impl From<xcb::input::key_info_iterator_t> for KeyInfoIterator
+{
+  fn from(iter: xcb::input::key_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyInfoIterator
@@ -1691,11 +2339,11 @@ impl Iterator for KeyInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::key_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::key_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1703,7 +2351,15 @@ impl Iterator for KeyInfoIterator
 
 pub struct KeyStateIterator
 {
-  ptr: *mut xcb::input::key_state_iterator_t,
+  iter: xcb::input::key_state_iterator_t,
+}
+
+impl From<xcb::input::key_state_iterator_t> for KeyStateIterator
+{
+  fn from(iter: xcb::input::key_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyStateIterator
@@ -1712,11 +2368,11 @@ impl Iterator for KeyStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::key_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::key_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1724,7 +2380,15 @@ impl Iterator for KeyStateIterator
 
 pub struct LedFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::led_feedback_ctl_iterator_t,
+  iter: xcb::input::led_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::led_feedback_ctl_iterator_t> for LedFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::led_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LedFeedbackCtlIterator
@@ -1733,11 +2397,11 @@ impl Iterator for LedFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::led_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::led_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1745,7 +2409,15 @@ impl Iterator for LedFeedbackCtlIterator
 
 pub struct LedFeedbackStateIterator
 {
-  ptr: *mut xcb::input::led_feedback_state_iterator_t,
+  iter: xcb::input::led_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::led_feedback_state_iterator_t> for LedFeedbackStateIterator
+{
+  fn from(iter: xcb::input::led_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LedFeedbackStateIterator
@@ -1754,11 +2426,11 @@ impl Iterator for LedFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::led_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::led_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1766,7 +2438,15 @@ impl Iterator for LedFeedbackStateIterator
 
 pub struct ModifierInfoIterator
 {
-  ptr: *mut xcb::input::modifier_info_iterator_t,
+  iter: xcb::input::modifier_info_iterator_t,
+}
+
+impl From<xcb::input::modifier_info_iterator_t> for ModifierInfoIterator
+{
+  fn from(iter: xcb::input::modifier_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ModifierInfoIterator
@@ -1775,11 +2455,11 @@ impl Iterator for ModifierInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::modifier_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::modifier_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1787,7 +2467,15 @@ impl Iterator for ModifierInfoIterator
 
 pub struct PtrFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::ptr_feedback_ctl_iterator_t,
+  iter: xcb::input::ptr_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::ptr_feedback_ctl_iterator_t> for PtrFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::ptr_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PtrFeedbackCtlIterator
@@ -1796,11 +2484,11 @@ impl Iterator for PtrFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::ptr_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::ptr_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1808,7 +2496,15 @@ impl Iterator for PtrFeedbackCtlIterator
 
 pub struct PtrFeedbackStateIterator
 {
-  ptr: *mut xcb::input::ptr_feedback_state_iterator_t,
+  iter: xcb::input::ptr_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::ptr_feedback_state_iterator_t> for PtrFeedbackStateIterator
+{
+  fn from(iter: xcb::input::ptr_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PtrFeedbackStateIterator
@@ -1817,11 +2513,11 @@ impl Iterator for PtrFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::ptr_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::ptr_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1829,7 +2525,15 @@ impl Iterator for PtrFeedbackStateIterator
 
 pub struct RemoveMasterIterator
 {
-  ptr: *mut xcb::input::remove_master_iterator_t,
+  iter: xcb::input::remove_master_iterator_t,
+}
+
+impl From<xcb::input::remove_master_iterator_t> for RemoveMasterIterator
+{
+  fn from(iter: xcb::input::remove_master_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RemoveMasterIterator
@@ -1838,11 +2542,11 @@ impl Iterator for RemoveMasterIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::remove_master_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::remove_master_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1850,7 +2554,15 @@ impl Iterator for RemoveMasterIterator
 
 pub struct ScrollClassIterator
 {
-  ptr: *mut xcb::input::scroll_class_iterator_t,
+  iter: xcb::input::scroll_class_iterator_t,
+}
+
+impl From<xcb::input::scroll_class_iterator_t> for ScrollClassIterator
+{
+  fn from(iter: xcb::input::scroll_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ScrollClassIterator
@@ -1859,11 +2571,11 @@ impl Iterator for ScrollClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::scroll_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::scroll_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1871,7 +2583,15 @@ impl Iterator for ScrollClassIterator
 
 pub struct StringFeedbackCtlIterator
 {
-  ptr: *mut xcb::input::string_feedback_ctl_iterator_t,
+  iter: xcb::input::string_feedback_ctl_iterator_t,
+}
+
+impl From<xcb::input::string_feedback_ctl_iterator_t> for StringFeedbackCtlIterator
+{
+  fn from(iter: xcb::input::string_feedback_ctl_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for StringFeedbackCtlIterator
@@ -1880,11 +2600,11 @@ impl Iterator for StringFeedbackCtlIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::string_feedback_ctl_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::string_feedback_ctl_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1892,7 +2612,15 @@ impl Iterator for StringFeedbackCtlIterator
 
 pub struct StringFeedbackStateIterator
 {
-  ptr: *mut xcb::input::string_feedback_state_iterator_t,
+  iter: xcb::input::string_feedback_state_iterator_t,
+}
+
+impl From<xcb::input::string_feedback_state_iterator_t> for StringFeedbackStateIterator
+{
+  fn from(iter: xcb::input::string_feedback_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for StringFeedbackStateIterator
@@ -1901,11 +2629,11 @@ impl Iterator for StringFeedbackStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::string_feedback_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::string_feedback_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1913,7 +2641,15 @@ impl Iterator for StringFeedbackStateIterator
 
 pub struct TouchClassIterator
 {
-  ptr: *mut xcb::input::touch_class_iterator_t,
+  iter: xcb::input::touch_class_iterator_t,
+}
+
+impl From<xcb::input::touch_class_iterator_t> for TouchClassIterator
+{
+  fn from(iter: xcb::input::touch_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TouchClassIterator
@@ -1922,11 +2658,11 @@ impl Iterator for TouchClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::touch_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::touch_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1934,7 +2670,15 @@ impl Iterator for TouchClassIterator
 
 pub struct ValuatorClassIterator
 {
-  ptr: *mut xcb::input::valuator_class_iterator_t,
+  iter: xcb::input::valuator_class_iterator_t,
+}
+
+impl From<xcb::input::valuator_class_iterator_t> for ValuatorClassIterator
+{
+  fn from(iter: xcb::input::valuator_class_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ValuatorClassIterator
@@ -1943,11 +2687,11 @@ impl Iterator for ValuatorClassIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::valuator_class_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::valuator_class_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1955,7 +2699,15 @@ impl Iterator for ValuatorClassIterator
 
 pub struct ValuatorInfoIterator
 {
-  ptr: *mut xcb::input::valuator_info_iterator_t,
+  iter: xcb::input::valuator_info_iterator_t,
+}
+
+impl From<xcb::input::valuator_info_iterator_t> for ValuatorInfoIterator
+{
+  fn from(iter: xcb::input::valuator_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ValuatorInfoIterator
@@ -1964,11 +2716,11 @@ impl Iterator for ValuatorInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::valuator_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::valuator_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1976,7 +2728,15 @@ impl Iterator for ValuatorInfoIterator
 
 pub struct ValuatorStateIterator
 {
-  ptr: *mut xcb::input::valuator_state_iterator_t,
+  iter: xcb::input::valuator_state_iterator_t,
+}
+
+impl From<xcb::input::valuator_state_iterator_t> for ValuatorStateIterator
+{
+  fn from(iter: xcb::input::valuator_state_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ValuatorStateIterator
@@ -1985,11 +2745,11 @@ impl Iterator for ValuatorStateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::valuator_state_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::valuator_state_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -1997,7 +2757,15 @@ impl Iterator for ValuatorStateIterator
 
 pub struct XiDeviceInfoIterator
 {
-  ptr: *mut xcb::input::xi_device_info_iterator_t,
+  iter: xcb::input::xi_device_info_iterator_t,
+}
+
+impl From<xcb::input::xi_device_info_iterator_t> for XiDeviceInfoIterator
+{
+  fn from(iter: xcb::input::xi_device_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XiDeviceInfoIterator
@@ -2006,11 +2774,11 @@ impl Iterator for XiDeviceInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::input::xi_device_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::input::xi_device_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2018,7 +2786,15 @@ impl Iterator for XiDeviceInfoIterator
 
 pub struct Keycode32Iterator
 {
-  ptr: *mut xcb::keycode32_iterator_t,
+  iter: xcb::keycode32_iterator_t,
+}
+
+impl From<xcb::keycode32_iterator_t> for Keycode32Iterator
+{
+  fn from(iter: xcb::keycode32_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Keycode32Iterator
@@ -2027,11 +2803,11 @@ impl Iterator for Keycode32Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::keycode32_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::keycode32_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2039,7 +2815,15 @@ impl Iterator for Keycode32Iterator
 
 pub struct KeycodeIterator
 {
-  ptr: *mut xcb::keycode_iterator_t,
+  iter: xcb::keycode_iterator_t,
+}
+
+impl From<xcb::keycode_iterator_t> for KeycodeIterator
+{
+  fn from(iter: xcb::keycode_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeycodeIterator
@@ -2048,11 +2832,11 @@ impl Iterator for KeycodeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::keycode_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::keycode_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2060,7 +2844,15 @@ impl Iterator for KeycodeIterator
 
 pub struct KeysymIterator
 {
-  ptr: *mut xcb::keysym_iterator_t,
+  iter: xcb::keysym_iterator_t,
+}
+
+impl From<xcb::keysym_iterator_t> for KeysymIterator
+{
+  fn from(iter: xcb::keysym_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeysymIterator
@@ -2069,11 +2861,11 @@ impl Iterator for KeysymIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::keysym_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::keysym_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2081,7 +2873,15 @@ impl Iterator for KeysymIterator
 
 pub struct PixmapIterator
 {
-  ptr: *mut xcb::pixmap_iterator_t,
+  iter: xcb::pixmap_iterator_t,
+}
+
+impl From<xcb::pixmap_iterator_t> for PixmapIterator
+{
+  fn from(iter: xcb::pixmap_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PixmapIterator
@@ -2090,11 +2890,11 @@ impl Iterator for PixmapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::pixmap_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::pixmap_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2102,7 +2902,15 @@ impl Iterator for PixmapIterator
 
 pub struct PointIterator
 {
-  ptr: *mut xcb::point_iterator_t,
+  iter: xcb::point_iterator_t,
+}
+
+impl From<xcb::point_iterator_t> for PointIterator
+{
+  fn from(iter: xcb::point_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PointIterator
@@ -2111,11 +2919,11 @@ impl Iterator for PointIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::point_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::point_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2123,7 +2931,15 @@ impl Iterator for PointIterator
 
 pub struct PresentEventIterator
 {
-  ptr: *mut xcb::present::event_iterator_t,
+  iter: xcb::present::event_iterator_t,
+}
+
+impl From<xcb::present::event_iterator_t> for PresentEventIterator
+{
+  fn from(iter: xcb::present::event_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PresentEventIterator
@@ -2132,11 +2948,11 @@ impl Iterator for PresentEventIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::present::event_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::present::event_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2144,7 +2960,15 @@ impl Iterator for PresentEventIterator
 
 pub struct NotifyIterator
 {
-  ptr: *mut xcb::present::notify_iterator_t,
+  iter: xcb::present::notify_iterator_t,
+}
+
+impl From<xcb::present::notify_iterator_t> for NotifyIterator
+{
+  fn from(iter: xcb::present::notify_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for NotifyIterator
@@ -2153,11 +2977,11 @@ impl Iterator for NotifyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::present::notify_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::present::notify_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2165,7 +2989,15 @@ impl Iterator for NotifyIterator
 
 pub struct CrtcChangeIterator
 {
-  ptr: *mut xcb::randr::crtc_change_iterator_t,
+  iter: xcb::randr::crtc_change_iterator_t,
+}
+
+impl From<xcb::randr::crtc_change_iterator_t> for CrtcChangeIterator
+{
+  fn from(iter: xcb::randr::crtc_change_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CrtcChangeIterator
@@ -2174,11 +3006,11 @@ impl Iterator for CrtcChangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::crtc_change_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::crtc_change_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2186,7 +3018,15 @@ impl Iterator for CrtcChangeIterator
 
 pub struct CrtcIterator
 {
-  ptr: *mut xcb::randr::crtc_iterator_t,
+  iter: xcb::randr::crtc_iterator_t,
+}
+
+impl From<xcb::randr::crtc_iterator_t> for CrtcIterator
+{
+  fn from(iter: xcb::randr::crtc_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CrtcIterator
@@ -2195,11 +3035,11 @@ impl Iterator for CrtcIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::crtc_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::crtc_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2207,7 +3047,15 @@ impl Iterator for CrtcIterator
 
 pub struct LeaseIterator
 {
-  ptr: *mut xcb::randr::lease_iterator_t,
+  iter: xcb::randr::lease_iterator_t,
+}
+
+impl From<xcb::randr::lease_iterator_t> for LeaseIterator
+{
+  fn from(iter: xcb::randr::lease_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LeaseIterator
@@ -2216,11 +3064,11 @@ impl Iterator for LeaseIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::lease_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::lease_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2228,7 +3076,15 @@ impl Iterator for LeaseIterator
 
 pub struct LeaseNotifyIterator
 {
-  ptr: *mut xcb::randr::lease_notify_iterator_t,
+  iter: xcb::randr::lease_notify_iterator_t,
+}
+
+impl From<xcb::randr::lease_notify_iterator_t> for LeaseNotifyIterator
+{
+  fn from(iter: xcb::randr::lease_notify_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LeaseNotifyIterator
@@ -2237,11 +3093,11 @@ impl Iterator for LeaseNotifyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::lease_notify_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::lease_notify_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2249,7 +3105,15 @@ impl Iterator for LeaseNotifyIterator
 
 pub struct ModeInfoIterator
 {
-  ptr: *mut xcb::randr::mode_info_iterator_t,
+  iter: xcb::randr::mode_info_iterator_t,
+}
+
+impl From<xcb::randr::mode_info_iterator_t> for ModeInfoIterator
+{
+  fn from(iter: xcb::randr::mode_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ModeInfoIterator
@@ -2258,11 +3122,11 @@ impl Iterator for ModeInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::mode_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::mode_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2270,7 +3134,15 @@ impl Iterator for ModeInfoIterator
 
 pub struct ModeIterator
 {
-  ptr: *mut xcb::randr::mode_iterator_t,
+  iter: xcb::randr::mode_iterator_t,
+}
+
+impl From<xcb::randr::mode_iterator_t> for ModeIterator
+{
+  fn from(iter: xcb::randr::mode_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ModeIterator
@@ -2279,11 +3151,11 @@ impl Iterator for ModeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::mode_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::mode_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2291,7 +3163,15 @@ impl Iterator for ModeIterator
 
 pub struct MonitorInfoIterator
 {
-  ptr: *mut xcb::randr::monitor_info_iterator_t,
+  iter: xcb::randr::monitor_info_iterator_t,
+}
+
+impl From<xcb::randr::monitor_info_iterator_t> for MonitorInfoIterator
+{
+  fn from(iter: xcb::randr::monitor_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for MonitorInfoIterator
@@ -2300,11 +3180,11 @@ impl Iterator for MonitorInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::monitor_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::monitor_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2312,7 +3192,15 @@ impl Iterator for MonitorInfoIterator
 
 pub struct NotifyDataIterator
 {
-  ptr: *mut xcb::randr::notify_data_iterator_t,
+  iter: xcb::randr::notify_data_iterator_t,
+}
+
+impl From<xcb::randr::notify_data_iterator_t> for NotifyDataIterator
+{
+  fn from(iter: xcb::randr::notify_data_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for NotifyDataIterator
@@ -2321,11 +3209,11 @@ impl Iterator for NotifyDataIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::notify_data_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::notify_data_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2333,7 +3221,15 @@ impl Iterator for NotifyDataIterator
 
 pub struct OutputChangeIterator
 {
-  ptr: *mut xcb::randr::output_change_iterator_t,
+  iter: xcb::randr::output_change_iterator_t,
+}
+
+impl From<xcb::randr::output_change_iterator_t> for OutputChangeIterator
+{
+  fn from(iter: xcb::randr::output_change_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OutputChangeIterator
@@ -2342,11 +3238,11 @@ impl Iterator for OutputChangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::output_change_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::output_change_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2354,7 +3250,15 @@ impl Iterator for OutputChangeIterator
 
 pub struct OutputIterator
 {
-  ptr: *mut xcb::randr::output_iterator_t,
+  iter: xcb::randr::output_iterator_t,
+}
+
+impl From<xcb::randr::output_iterator_t> for OutputIterator
+{
+  fn from(iter: xcb::randr::output_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OutputIterator
@@ -2363,11 +3267,11 @@ impl Iterator for OutputIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::output_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::output_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2375,7 +3279,15 @@ impl Iterator for OutputIterator
 
 pub struct OutputPropertyIterator
 {
-  ptr: *mut xcb::randr::output_property_iterator_t,
+  iter: xcb::randr::output_property_iterator_t,
+}
+
+impl From<xcb::randr::output_property_iterator_t> for OutputPropertyIterator
+{
+  fn from(iter: xcb::randr::output_property_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OutputPropertyIterator
@@ -2384,11 +3296,11 @@ impl Iterator for OutputPropertyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::output_property_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::output_property_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2396,7 +3308,15 @@ impl Iterator for OutputPropertyIterator
 
 pub struct ProviderChangeIterator
 {
-  ptr: *mut xcb::randr::provider_change_iterator_t,
+  iter: xcb::randr::provider_change_iterator_t,
+}
+
+impl From<xcb::randr::provider_change_iterator_t> for ProviderChangeIterator
+{
+  fn from(iter: xcb::randr::provider_change_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ProviderChangeIterator
@@ -2405,11 +3325,11 @@ impl Iterator for ProviderChangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::provider_change_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::provider_change_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2417,7 +3337,15 @@ impl Iterator for ProviderChangeIterator
 
 pub struct ProviderIterator
 {
-  ptr: *mut xcb::randr::provider_iterator_t,
+  iter: xcb::randr::provider_iterator_t,
+}
+
+impl From<xcb::randr::provider_iterator_t> for ProviderIterator
+{
+  fn from(iter: xcb::randr::provider_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ProviderIterator
@@ -2426,11 +3354,11 @@ impl Iterator for ProviderIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::provider_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::provider_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2438,7 +3366,15 @@ impl Iterator for ProviderIterator
 
 pub struct ProviderPropertyIterator
 {
-  ptr: *mut xcb::randr::provider_property_iterator_t,
+  iter: xcb::randr::provider_property_iterator_t,
+}
+
+impl From<xcb::randr::provider_property_iterator_t> for ProviderPropertyIterator
+{
+  fn from(iter: xcb::randr::provider_property_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ProviderPropertyIterator
@@ -2447,11 +3383,11 @@ impl Iterator for ProviderPropertyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::provider_property_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::provider_property_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2459,7 +3395,15 @@ impl Iterator for ProviderPropertyIterator
 
 pub struct RefreshRatesIterator
 {
-  ptr: *mut xcb::randr::refresh_rates_iterator_t,
+  iter: xcb::randr::refresh_rates_iterator_t,
+}
+
+impl From<xcb::randr::refresh_rates_iterator_t> for RefreshRatesIterator
+{
+  fn from(iter: xcb::randr::refresh_rates_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RefreshRatesIterator
@@ -2468,11 +3412,11 @@ impl Iterator for RefreshRatesIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::refresh_rates_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::refresh_rates_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2480,7 +3424,15 @@ impl Iterator for RefreshRatesIterator
 
 pub struct ResourceChangeIterator
 {
-  ptr: *mut xcb::randr::resource_change_iterator_t,
+  iter: xcb::randr::resource_change_iterator_t,
+}
+
+impl From<xcb::randr::resource_change_iterator_t> for ResourceChangeIterator
+{
+  fn from(iter: xcb::randr::resource_change_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ResourceChangeIterator
@@ -2489,11 +3441,11 @@ impl Iterator for ResourceChangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::resource_change_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::resource_change_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2501,7 +3453,15 @@ impl Iterator for ResourceChangeIterator
 
 pub struct ScreenSizeIterator
 {
-  ptr: *mut xcb::randr::screen_size_iterator_t,
+  iter: xcb::randr::screen_size_iterator_t,
+}
+
+impl From<xcb::randr::screen_size_iterator_t> for ScreenSizeIterator
+{
+  fn from(iter: xcb::randr::screen_size_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ScreenSizeIterator
@@ -2510,11 +3470,11 @@ impl Iterator for ScreenSizeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::randr::screen_size_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::randr::screen_size_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2522,7 +3482,15 @@ impl Iterator for ScreenSizeIterator
 
 pub struct ClientInfoIterator
 {
-  ptr: *mut xcb::record::client_info_iterator_t,
+  iter: xcb::record::client_info_iterator_t,
+}
+
+impl From<xcb::record::client_info_iterator_t> for ClientInfoIterator
+{
+  fn from(iter: xcb::record::client_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientInfoIterator
@@ -2531,11 +3499,11 @@ impl Iterator for ClientInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::client_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::client_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2543,7 +3511,15 @@ impl Iterator for ClientInfoIterator
 
 pub struct ClientSpecIterator
 {
-  ptr: *mut xcb::record::client_spec_iterator_t,
+  iter: xcb::record::client_spec_iterator_t,
+}
+
+impl From<xcb::record::client_spec_iterator_t> for ClientSpecIterator
+{
+  fn from(iter: xcb::record::client_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientSpecIterator
@@ -2552,11 +3528,11 @@ impl Iterator for ClientSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::client_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::client_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2564,7 +3540,15 @@ impl Iterator for ClientSpecIterator
 
 pub struct RecordContextIterator
 {
-  ptr: *mut xcb::record::context_iterator_t,
+  iter: xcb::record::context_iterator_t,
+}
+
+impl From<xcb::record::context_iterator_t> for RecordContextIterator
+{
+  fn from(iter: xcb::record::context_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RecordContextIterator
@@ -2573,11 +3557,11 @@ impl Iterator for RecordContextIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::context_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::context_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2585,7 +3569,15 @@ impl Iterator for RecordContextIterator
 
 pub struct ElementHeaderIterator
 {
-  ptr: *mut xcb::record::element_header_iterator_t,
+  iter: xcb::record::element_header_iterator_t,
+}
+
+impl From<xcb::record::element_header_iterator_t> for ElementHeaderIterator
+{
+  fn from(iter: xcb::record::element_header_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ElementHeaderIterator
@@ -2594,11 +3586,11 @@ impl Iterator for ElementHeaderIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::element_header_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::element_header_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2606,7 +3598,15 @@ impl Iterator for ElementHeaderIterator
 
 pub struct ExtRangeIterator
 {
-  ptr: *mut xcb::record::ext_range_iterator_t,
+  iter: xcb::record::ext_range_iterator_t,
+}
+
+impl From<xcb::record::ext_range_iterator_t> for ExtRangeIterator
+{
+  fn from(iter: xcb::record::ext_range_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ExtRangeIterator
@@ -2615,11 +3615,11 @@ impl Iterator for ExtRangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::ext_range_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::ext_range_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2627,7 +3627,15 @@ impl Iterator for ExtRangeIterator
 
 pub struct Range16Iterator
 {
-  ptr: *mut xcb::record::range_16_iterator_t,
+  iter: xcb::record::range_16_iterator_t,
+}
+
+impl From<xcb::record::range_16_iterator_t> for Range16Iterator
+{
+  fn from(iter: xcb::record::range_16_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Range16Iterator
@@ -2636,11 +3644,11 @@ impl Iterator for Range16Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::range_16_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::range_16_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2648,7 +3656,15 @@ impl Iterator for Range16Iterator
 
 pub struct Range8Iterator
 {
-  ptr: *mut xcb::record::range_8_iterator_t,
+  iter: xcb::record::range_8_iterator_t,
+}
+
+impl From<xcb::record::range_8_iterator_t> for Range8Iterator
+{
+  fn from(iter: xcb::record::range_8_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Range8Iterator
@@ -2657,11 +3673,11 @@ impl Iterator for Range8Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::range_8_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::range_8_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2669,7 +3685,15 @@ impl Iterator for Range8Iterator
 
 pub struct RangeIterator
 {
-  ptr: *mut xcb::record::range_iterator_t,
+  iter: xcb::record::range_iterator_t,
+}
+
+impl From<xcb::record::range_iterator_t> for RangeIterator
+{
+  fn from(iter: xcb::record::range_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RangeIterator
@@ -2678,11 +3702,11 @@ impl Iterator for RangeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::record::range_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::record::range_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2690,7 +3714,15 @@ impl Iterator for RangeIterator
 
 pub struct RectangleIterator
 {
-  ptr: *mut xcb::rectangle_iterator_t,
+  iter: xcb::rectangle_iterator_t,
+}
+
+impl From<xcb::rectangle_iterator_t> for RectangleIterator
+{
+  fn from(iter: xcb::rectangle_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RectangleIterator
@@ -2699,11 +3731,11 @@ impl Iterator for RectangleIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::rectangle_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::rectangle_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2711,7 +3743,15 @@ impl Iterator for RectangleIterator
 
 pub struct AnimcursoreltIterator
 {
-  ptr: *mut xcb::render::animcursorelt_iterator_t,
+  iter: xcb::render::animcursorelt_iterator_t,
+}
+
+impl From<xcb::render::animcursorelt_iterator_t> for AnimcursoreltIterator
+{
+  fn from(iter: xcb::render::animcursorelt_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AnimcursoreltIterator
@@ -2720,11 +3760,11 @@ impl Iterator for AnimcursoreltIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::animcursorelt_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::animcursorelt_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2732,7 +3772,15 @@ impl Iterator for AnimcursoreltIterator
 
 pub struct ColorIterator
 {
-  ptr: *mut xcb::render::color_iterator_t,
+  iter: xcb::render::color_iterator_t,
+}
+
+impl From<xcb::render::color_iterator_t> for ColorIterator
+{
+  fn from(iter: xcb::render::color_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ColorIterator
@@ -2741,11 +3789,11 @@ impl Iterator for ColorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::color_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::color_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2753,7 +3801,15 @@ impl Iterator for ColorIterator
 
 pub struct DirectformatIterator
 {
-  ptr: *mut xcb::render::directformat_iterator_t,
+  iter: xcb::render::directformat_iterator_t,
+}
+
+impl From<xcb::render::directformat_iterator_t> for DirectformatIterator
+{
+  fn from(iter: xcb::render::directformat_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DirectformatIterator
@@ -2762,11 +3818,11 @@ impl Iterator for DirectformatIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::directformat_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::directformat_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2774,7 +3830,15 @@ impl Iterator for DirectformatIterator
 
 pub struct FixedIterator
 {
-  ptr: *mut xcb::render::fixed_iterator_t,
+  iter: xcb::render::fixed_iterator_t,
+}
+
+impl From<xcb::render::fixed_iterator_t> for FixedIterator
+{
+  fn from(iter: xcb::render::fixed_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FixedIterator
@@ -2783,11 +3847,11 @@ impl Iterator for FixedIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::fixed_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::fixed_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2795,7 +3859,15 @@ impl Iterator for FixedIterator
 
 pub struct GlyphIterator
 {
-  ptr: *mut xcb::render::glyph_iterator_t,
+  iter: xcb::render::glyph_iterator_t,
+}
+
+impl From<xcb::render::glyph_iterator_t> for GlyphIterator
+{
+  fn from(iter: xcb::render::glyph_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlyphIterator
@@ -2804,11 +3876,11 @@ impl Iterator for GlyphIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::glyph_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::glyph_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2816,7 +3888,15 @@ impl Iterator for GlyphIterator
 
 pub struct GlyphinfoIterator
 {
-  ptr: *mut xcb::render::glyphinfo_iterator_t,
+  iter: xcb::render::glyphinfo_iterator_t,
+}
+
+impl From<xcb::render::glyphinfo_iterator_t> for GlyphinfoIterator
+{
+  fn from(iter: xcb::render::glyphinfo_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlyphinfoIterator
@@ -2825,11 +3905,11 @@ impl Iterator for GlyphinfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::glyphinfo_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::glyphinfo_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2837,7 +3917,15 @@ impl Iterator for GlyphinfoIterator
 
 pub struct GlyphsetIterator
 {
-  ptr: *mut xcb::render::glyphset_iterator_t,
+  iter: xcb::render::glyphset_iterator_t,
+}
+
+impl From<xcb::render::glyphset_iterator_t> for GlyphsetIterator
+{
+  fn from(iter: xcb::render::glyphset_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for GlyphsetIterator
@@ -2846,11 +3934,11 @@ impl Iterator for GlyphsetIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::glyphset_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::glyphset_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2858,7 +3946,15 @@ impl Iterator for GlyphsetIterator
 
 pub struct IndexvalueIterator
 {
-  ptr: *mut xcb::render::indexvalue_iterator_t,
+  iter: xcb::render::indexvalue_iterator_t,
+}
+
+impl From<xcb::render::indexvalue_iterator_t> for IndexvalueIterator
+{
+  fn from(iter: xcb::render::indexvalue_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for IndexvalueIterator
@@ -2867,11 +3963,11 @@ impl Iterator for IndexvalueIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::indexvalue_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::indexvalue_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2879,7 +3975,15 @@ impl Iterator for IndexvalueIterator
 
 pub struct LinefixIterator
 {
-  ptr: *mut xcb::render::linefix_iterator_t,
+  iter: xcb::render::linefix_iterator_t,
+}
+
+impl From<xcb::render::linefix_iterator_t> for LinefixIterator
+{
+  fn from(iter: xcb::render::linefix_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LinefixIterator
@@ -2888,11 +3992,11 @@ impl Iterator for LinefixIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::linefix_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::linefix_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2900,7 +4004,15 @@ impl Iterator for LinefixIterator
 
 pub struct PictdepthIterator
 {
-  ptr: *mut xcb::render::pictdepth_iterator_t,
+  iter: xcb::render::pictdepth_iterator_t,
+}
+
+impl From<xcb::render::pictdepth_iterator_t> for PictdepthIterator
+{
+  fn from(iter: xcb::render::pictdepth_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictdepthIterator
@@ -2909,11 +4021,11 @@ impl Iterator for PictdepthIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pictdepth_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pictdepth_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2921,7 +4033,15 @@ impl Iterator for PictdepthIterator
 
 pub struct PictformatIterator
 {
-  ptr: *mut xcb::render::pictformat_iterator_t,
+  iter: xcb::render::pictformat_iterator_t,
+}
+
+impl From<xcb::render::pictformat_iterator_t> for PictformatIterator
+{
+  fn from(iter: xcb::render::pictformat_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictformatIterator
@@ -2930,11 +4050,11 @@ impl Iterator for PictformatIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pictformat_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pictformat_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2942,7 +4062,15 @@ impl Iterator for PictformatIterator
 
 pub struct PictforminfoIterator
 {
-  ptr: *mut xcb::render::pictforminfo_iterator_t,
+  iter: xcb::render::pictforminfo_iterator_t,
+}
+
+impl From<xcb::render::pictforminfo_iterator_t> for PictforminfoIterator
+{
+  fn from(iter: xcb::render::pictforminfo_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictforminfoIterator
@@ -2951,11 +4079,11 @@ impl Iterator for PictforminfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pictforminfo_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pictforminfo_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2963,7 +4091,15 @@ impl Iterator for PictforminfoIterator
 
 pub struct PictscreenIterator
 {
-  ptr: *mut xcb::render::pictscreen_iterator_t,
+  iter: xcb::render::pictscreen_iterator_t,
+}
+
+impl From<xcb::render::pictscreen_iterator_t> for PictscreenIterator
+{
+  fn from(iter: xcb::render::pictscreen_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictscreenIterator
@@ -2972,11 +4108,11 @@ impl Iterator for PictscreenIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pictscreen_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pictscreen_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -2984,7 +4120,15 @@ impl Iterator for PictscreenIterator
 
 pub struct PictureIterator
 {
-  ptr: *mut xcb::render::picture_iterator_t,
+  iter: xcb::render::picture_iterator_t,
+}
+
+impl From<xcb::render::picture_iterator_t> for PictureIterator
+{
+  fn from(iter: xcb::render::picture_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictureIterator
@@ -2993,11 +4137,11 @@ impl Iterator for PictureIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::picture_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::picture_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3005,7 +4149,15 @@ impl Iterator for PictureIterator
 
 pub struct PictvisualIterator
 {
-  ptr: *mut xcb::render::pictvisual_iterator_t,
+  iter: xcb::render::pictvisual_iterator_t,
+}
+
+impl From<xcb::render::pictvisual_iterator_t> for PictvisualIterator
+{
+  fn from(iter: xcb::render::pictvisual_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PictvisualIterator
@@ -3014,11 +4166,11 @@ impl Iterator for PictvisualIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pictvisual_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pictvisual_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3026,7 +4178,15 @@ impl Iterator for PictvisualIterator
 
 pub struct PointfixIterator
 {
-  ptr: *mut xcb::render::pointfix_iterator_t,
+  iter: xcb::render::pointfix_iterator_t,
+}
+
+impl From<xcb::render::pointfix_iterator_t> for PointfixIterator
+{
+  fn from(iter: xcb::render::pointfix_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PointfixIterator
@@ -3035,11 +4195,11 @@ impl Iterator for PointfixIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::pointfix_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::pointfix_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3047,7 +4207,15 @@ impl Iterator for PointfixIterator
 
 pub struct SpanfixIterator
 {
-  ptr: *mut xcb::render::spanfix_iterator_t,
+  iter: xcb::render::spanfix_iterator_t,
+}
+
+impl From<xcb::render::spanfix_iterator_t> for SpanfixIterator
+{
+  fn from(iter: xcb::render::spanfix_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SpanfixIterator
@@ -3056,11 +4224,11 @@ impl Iterator for SpanfixIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::spanfix_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::spanfix_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3068,7 +4236,15 @@ impl Iterator for SpanfixIterator
 
 pub struct TransformIterator
 {
-  ptr: *mut xcb::render::transform_iterator_t,
+  iter: xcb::render::transform_iterator_t,
+}
+
+impl From<xcb::render::transform_iterator_t> for TransformIterator
+{
+  fn from(iter: xcb::render::transform_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TransformIterator
@@ -3077,11 +4253,11 @@ impl Iterator for TransformIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::transform_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::transform_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3089,7 +4265,15 @@ impl Iterator for TransformIterator
 
 pub struct TrapIterator
 {
-  ptr: *mut xcb::render::trap_iterator_t,
+  iter: xcb::render::trap_iterator_t,
+}
+
+impl From<xcb::render::trap_iterator_t> for TrapIterator
+{
+  fn from(iter: xcb::render::trap_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TrapIterator
@@ -3098,11 +4282,11 @@ impl Iterator for TrapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::trap_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::trap_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3110,7 +4294,15 @@ impl Iterator for TrapIterator
 
 pub struct TrapezoidIterator
 {
-  ptr: *mut xcb::render::trapezoid_iterator_t,
+  iter: xcb::render::trapezoid_iterator_t,
+}
+
+impl From<xcb::render::trapezoid_iterator_t> for TrapezoidIterator
+{
+  fn from(iter: xcb::render::trapezoid_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TrapezoidIterator
@@ -3119,11 +4311,11 @@ impl Iterator for TrapezoidIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::trapezoid_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::trapezoid_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3131,7 +4323,15 @@ impl Iterator for TrapezoidIterator
 
 pub struct TriangleIterator
 {
-  ptr: *mut xcb::render::triangle_iterator_t,
+  iter: xcb::render::triangle_iterator_t,
+}
+
+impl From<xcb::render::triangle_iterator_t> for TriangleIterator
+{
+  fn from(iter: xcb::render::triangle_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TriangleIterator
@@ -3140,11 +4340,11 @@ impl Iterator for TriangleIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::render::triangle_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::render::triangle_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3152,7 +4352,15 @@ impl Iterator for TriangleIterator
 
 pub struct ClientIdSpecIterator
 {
-  ptr: *mut xcb::res::client_id_spec_iterator_t,
+  iter: xcb::res::client_id_spec_iterator_t,
+}
+
+impl From<xcb::res::client_id_spec_iterator_t> for ClientIdSpecIterator
+{
+  fn from(iter: xcb::res::client_id_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientIdSpecIterator
@@ -3161,11 +4369,11 @@ impl Iterator for ClientIdSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::client_id_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::client_id_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3173,7 +4381,15 @@ impl Iterator for ClientIdSpecIterator
 
 pub struct ClientIdValueIterator
 {
-  ptr: *mut xcb::res::client_id_value_iterator_t,
+  iter: xcb::res::client_id_value_iterator_t,
+}
+
+impl From<xcb::res::client_id_value_iterator_t> for ClientIdValueIterator
+{
+  fn from(iter: xcb::res::client_id_value_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientIdValueIterator
@@ -3182,11 +4398,11 @@ impl Iterator for ClientIdValueIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::client_id_value_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::client_id_value_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3194,7 +4410,15 @@ impl Iterator for ClientIdValueIterator
 
 pub struct ClientIterator
 {
-  ptr: *mut xcb::res::client_iterator_t,
+  iter: xcb::res::client_iterator_t,
+}
+
+impl From<xcb::res::client_iterator_t> for ClientIterator
+{
+  fn from(iter: xcb::res::client_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ClientIterator
@@ -3203,11 +4427,11 @@ impl Iterator for ClientIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::client_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::client_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3215,7 +4439,15 @@ impl Iterator for ClientIterator
 
 pub struct ResourceIdSpecIterator
 {
-  ptr: *mut xcb::res::resource_id_spec_iterator_t,
+  iter: xcb::res::resource_id_spec_iterator_t,
+}
+
+impl From<xcb::res::resource_id_spec_iterator_t> for ResourceIdSpecIterator
+{
+  fn from(iter: xcb::res::resource_id_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ResourceIdSpecIterator
@@ -3224,11 +4456,11 @@ impl Iterator for ResourceIdSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::resource_id_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::resource_id_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3236,7 +4468,15 @@ impl Iterator for ResourceIdSpecIterator
 
 pub struct ResourceSizeSpecIterator
 {
-  ptr: *mut xcb::res::resource_size_spec_iterator_t,
+  iter: xcb::res::resource_size_spec_iterator_t,
+}
+
+impl From<xcb::res::resource_size_spec_iterator_t> for ResourceSizeSpecIterator
+{
+  fn from(iter: xcb::res::resource_size_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ResourceSizeSpecIterator
@@ -3245,11 +4485,11 @@ impl Iterator for ResourceSizeSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::resource_size_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::resource_size_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3257,7 +4497,15 @@ impl Iterator for ResourceSizeSpecIterator
 
 pub struct ResourceSizeValueIterator
 {
-  ptr: *mut xcb::res::resource_size_value_iterator_t,
+  iter: xcb::res::resource_size_value_iterator_t,
+}
+
+impl From<xcb::res::resource_size_value_iterator_t> for ResourceSizeValueIterator
+{
+  fn from(iter: xcb::res::resource_size_value_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ResourceSizeValueIterator
@@ -3266,11 +4514,11 @@ impl Iterator for ResourceSizeValueIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::resource_size_value_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::resource_size_value_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3278,7 +4526,15 @@ impl Iterator for ResourceSizeValueIterator
 
 pub struct TypeIterator
 {
-  ptr: *mut xcb::res::type_iterator_t,
+  iter: xcb::res::type_iterator_t,
+}
+
+impl From<xcb::res::type_iterator_t> for TypeIterator
+{
+  fn from(iter: xcb::res::type_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TypeIterator
@@ -3287,11 +4543,11 @@ impl Iterator for TypeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::res::type_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::res::type_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3299,7 +4555,15 @@ impl Iterator for TypeIterator
 
 pub struct RgbIterator
 {
-  ptr: *mut xcb::rgb_iterator_t,
+  iter: xcb::rgb_iterator_t,
+}
+
+impl From<xcb::rgb_iterator_t> for RgbIterator
+{
+  fn from(iter: xcb::rgb_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RgbIterator
@@ -3308,11 +4572,11 @@ impl Iterator for RgbIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::rgb_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::rgb_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3320,7 +4584,15 @@ impl Iterator for RgbIterator
 
 pub struct ScreenIterator
 {
-  ptr: *mut xcb::screen_iterator_t,
+  iter: xcb::screen_iterator_t,
+}
+
+impl From<xcb::screen_iterator_t> for ScreenIterator
+{
+  fn from(iter: xcb::screen_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ScreenIterator
@@ -3329,11 +4601,11 @@ impl Iterator for ScreenIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::screen_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::screen_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3341,7 +4613,15 @@ impl Iterator for ScreenIterator
 
 pub struct SegmentIterator
 {
-  ptr: *mut xcb::segment_iterator_t,
+  iter: xcb::segment_iterator_t,
+}
+
+impl From<xcb::segment_iterator_t> for SegmentIterator
+{
+  fn from(iter: xcb::segment_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SegmentIterator
@@ -3350,11 +4630,11 @@ impl Iterator for SegmentIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::segment_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::segment_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3362,7 +4642,15 @@ impl Iterator for SegmentIterator
 
 pub struct ListItemIterator
 {
-  ptr: *mut xcb::selinux::list_item_iterator_t,
+  iter: xcb::selinux::list_item_iterator_t,
+}
+
+impl From<xcb::selinux::list_item_iterator_t> for ListItemIterator
+{
+  fn from(iter: xcb::selinux::list_item_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ListItemIterator
@@ -3371,11 +4659,11 @@ impl Iterator for ListItemIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::selinux::list_item_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::selinux::list_item_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3383,7 +4671,15 @@ impl Iterator for ListItemIterator
 
 pub struct SetupAuthenticateIterator
 {
-  ptr: *mut xcb::setup_authenticate_iterator_t,
+  iter: xcb::setup_authenticate_iterator_t,
+}
+
+impl From<xcb::setup_authenticate_iterator_t> for SetupAuthenticateIterator
+{
+  fn from(iter: xcb::setup_authenticate_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetupAuthenticateIterator
@@ -3392,11 +4688,11 @@ impl Iterator for SetupAuthenticateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::setup_authenticate_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::setup_authenticate_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3404,7 +4700,15 @@ impl Iterator for SetupAuthenticateIterator
 
 pub struct SetupFailedIterator
 {
-  ptr: *mut xcb::setup_failed_iterator_t,
+  iter: xcb::setup_failed_iterator_t,
+}
+
+impl From<xcb::setup_failed_iterator_t> for SetupFailedIterator
+{
+  fn from(iter: xcb::setup_failed_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetupFailedIterator
@@ -3413,11 +4717,11 @@ impl Iterator for SetupFailedIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::setup_failed_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::setup_failed_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3425,7 +4729,15 @@ impl Iterator for SetupFailedIterator
 
 pub struct SetupIterator
 {
-  ptr: *mut xcb::setup_iterator_t,
+  iter: xcb::setup_iterator_t,
+}
+
+impl From<xcb::setup_iterator_t> for SetupIterator
+{
+  fn from(iter: xcb::setup_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetupIterator
@@ -3434,11 +4746,11 @@ impl Iterator for SetupIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::setup_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::setup_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3446,7 +4758,15 @@ impl Iterator for SetupIterator
 
 pub struct SetupRequestIterator
 {
-  ptr: *mut xcb::setup_request_iterator_t,
+  iter: xcb::setup_request_iterator_t,
+}
+
+impl From<xcb::setup_request_iterator_t> for SetupRequestIterator
+{
+  fn from(iter: xcb::setup_request_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetupRequestIterator
@@ -3455,11 +4775,11 @@ impl Iterator for SetupRequestIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::setup_request_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::setup_request_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3467,7 +4787,15 @@ impl Iterator for SetupRequestIterator
 
 pub struct KindIterator
 {
-  ptr: *mut xcb::shape::kind_iterator_t,
+  iter: xcb::shape::kind_iterator_t,
+}
+
+impl From<xcb::shape::kind_iterator_t> for KindIterator
+{
+  fn from(iter: xcb::shape::kind_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KindIterator
@@ -3476,11 +4804,11 @@ impl Iterator for KindIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::shape::kind_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::shape::kind_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3488,7 +4816,15 @@ impl Iterator for KindIterator
 
 pub struct OpIterator
 {
-  ptr: *mut xcb::shape::op_iterator_t,
+  iter: xcb::shape::op_iterator_t,
+}
+
+impl From<xcb::shape::op_iterator_t> for OpIterator
+{
+  fn from(iter: xcb::shape::op_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OpIterator
@@ -3497,11 +4833,11 @@ impl Iterator for OpIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::shape::op_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::shape::op_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3509,7 +4845,15 @@ impl Iterator for OpIterator
 
 pub struct SegIterator
 {
-  ptr: *mut xcb::shm::seg_iterator_t,
+  iter: xcb::shm::seg_iterator_t,
+}
+
+impl From<xcb::shm::seg_iterator_t> for SegIterator
+{
+  fn from(iter: xcb::shm::seg_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SegIterator
@@ -3518,11 +4862,11 @@ impl Iterator for SegIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::shm::seg_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::shm::seg_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3530,7 +4874,15 @@ impl Iterator for SegIterator
 
 pub struct StrIterator
 {
-  ptr: *mut xcb::str_iterator_t,
+  iter: xcb::str_iterator_t,
+}
+
+impl From<xcb::str_iterator_t> for StrIterator
+{
+  fn from(iter: xcb::str_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for StrIterator
@@ -3539,11 +4891,11 @@ impl Iterator for StrIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::str_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::str_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3551,7 +4903,15 @@ impl Iterator for StrIterator
 
 pub struct AlarmIterator
 {
-  ptr: *mut xcb::sync::alarm_iterator_t,
+  iter: xcb::sync::alarm_iterator_t,
+}
+
+impl From<xcb::sync::alarm_iterator_t> for AlarmIterator
+{
+  fn from(iter: xcb::sync::alarm_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AlarmIterator
@@ -3560,11 +4920,11 @@ impl Iterator for AlarmIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::alarm_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::alarm_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3572,7 +4932,15 @@ impl Iterator for AlarmIterator
 
 pub struct CounterIterator
 {
-  ptr: *mut xcb::sync::counter_iterator_t,
+  iter: xcb::sync::counter_iterator_t,
+}
+
+impl From<xcb::sync::counter_iterator_t> for CounterIterator
+{
+  fn from(iter: xcb::sync::counter_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CounterIterator
@@ -3581,11 +4949,11 @@ impl Iterator for CounterIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::counter_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::counter_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3593,7 +4961,15 @@ impl Iterator for CounterIterator
 
 pub struct FenceIterator
 {
-  ptr: *mut xcb::sync::fence_iterator_t,
+  iter: xcb::sync::fence_iterator_t,
+}
+
+impl From<xcb::sync::fence_iterator_t> for FenceIterator
+{
+  fn from(iter: xcb::sync::fence_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for FenceIterator
@@ -3602,11 +4978,11 @@ impl Iterator for FenceIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::fence_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::fence_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3614,7 +4990,15 @@ impl Iterator for FenceIterator
 
 pub struct Int64Iterator
 {
-  ptr: *mut xcb::sync::int64_iterator_t,
+  iter: xcb::sync::int64_iterator_t,
+}
+
+impl From<xcb::sync::int64_iterator_t> for Int64Iterator
+{
+  fn from(iter: xcb::sync::int64_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for Int64Iterator
@@ -3623,11 +5007,11 @@ impl Iterator for Int64Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::int64_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::int64_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3635,7 +5019,15 @@ impl Iterator for Int64Iterator
 
 pub struct SystemcounterIterator
 {
-  ptr: *mut xcb::sync::systemcounter_iterator_t,
+  iter: xcb::sync::systemcounter_iterator_t,
+}
+
+impl From<xcb::sync::systemcounter_iterator_t> for SystemcounterIterator
+{
+  fn from(iter: xcb::sync::systemcounter_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SystemcounterIterator
@@ -3644,11 +5036,11 @@ impl Iterator for SystemcounterIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::systemcounter_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::systemcounter_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3656,7 +5048,15 @@ impl Iterator for SystemcounterIterator
 
 pub struct TriggerIterator
 {
-  ptr: *mut xcb::sync::trigger_iterator_t,
+  iter: xcb::sync::trigger_iterator_t,
+}
+
+impl From<xcb::sync::trigger_iterator_t> for TriggerIterator
+{
+  fn from(iter: xcb::sync::trigger_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TriggerIterator
@@ -3665,11 +5065,11 @@ impl Iterator for TriggerIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::trigger_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::trigger_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3677,7 +5077,15 @@ impl Iterator for TriggerIterator
 
 pub struct WaitconditionIterator
 {
-  ptr: *mut xcb::sync::waitcondition_iterator_t,
+  iter: xcb::sync::waitcondition_iterator_t,
+}
+
+impl From<xcb::sync::waitcondition_iterator_t> for WaitconditionIterator
+{
+  fn from(iter: xcb::sync::waitcondition_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for WaitconditionIterator
@@ -3686,11 +5094,11 @@ impl Iterator for WaitconditionIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::sync::waitcondition_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::sync::waitcondition_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3698,7 +5106,15 @@ impl Iterator for WaitconditionIterator
 
 pub struct TimecoordIterator
 {
-  ptr: *mut xcb::timecoord_iterator_t,
+  iter: xcb::timecoord_iterator_t,
+}
+
+impl From<xcb::timecoord_iterator_t> for TimecoordIterator
+{
+  fn from(iter: xcb::timecoord_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TimecoordIterator
@@ -3707,11 +5123,11 @@ impl Iterator for TimecoordIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::timecoord_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::timecoord_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3719,7 +5135,15 @@ impl Iterator for TimecoordIterator
 
 pub struct TimestampIterator
 {
-  ptr: *mut xcb::timestamp_iterator_t,
+  iter: xcb::timestamp_iterator_t,
+}
+
+impl From<xcb::timestamp_iterator_t> for TimestampIterator
+{
+  fn from(iter: xcb::timestamp_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for TimestampIterator
@@ -3728,11 +5152,11 @@ impl Iterator for TimestampIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::timestamp_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::timestamp_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3740,7 +5164,15 @@ impl Iterator for TimestampIterator
 
 pub struct VisualidIterator
 {
-  ptr: *mut xcb::visualid_iterator_t,
+  iter: xcb::visualid_iterator_t,
+}
+
+impl From<xcb::visualid_iterator_t> for VisualidIterator
+{
+  fn from(iter: xcb::visualid_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for VisualidIterator
@@ -3749,11 +5181,11 @@ impl Iterator for VisualidIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::visualid_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::visualid_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3761,7 +5193,15 @@ impl Iterator for VisualidIterator
 
 pub struct VisualtypeIterator
 {
-  ptr: *mut xcb::visualtype_iterator_t,
+  iter: xcb::visualtype_iterator_t,
+}
+
+impl From<xcb::visualtype_iterator_t> for VisualtypeIterator
+{
+  fn from(iter: xcb::visualtype_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for VisualtypeIterator
@@ -3770,11 +5210,11 @@ impl Iterator for VisualtypeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::visualtype_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::visualtype_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3782,7 +5222,15 @@ impl Iterator for VisualtypeIterator
 
 pub struct WindowIterator
 {
-  ptr: *mut xcb::window_iterator_t,
+  iter: xcb::window_iterator_t,
+}
+
+impl From<xcb::window_iterator_t> for WindowIterator
+{
+  fn from(iter: xcb::window_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for WindowIterator
@@ -3791,11 +5239,11 @@ impl Iterator for WindowIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::window_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::window_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3803,7 +5251,15 @@ impl Iterator for WindowIterator
 
 pub struct PcontextIterator
 {
-  ptr: *mut xcb::xprint::pcontext_iterator_t,
+  iter: xcb::xprint::pcontext_iterator_t,
+}
+
+impl From<xcb::xprint::pcontext_iterator_t> for PcontextIterator
+{
+  fn from(iter: xcb::xprint::pcontext_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PcontextIterator
@@ -3812,11 +5268,11 @@ impl Iterator for PcontextIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xprint::pcontext_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xprint::pcontext_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3824,7 +5280,15 @@ impl Iterator for PcontextIterator
 
 pub struct PrinterIterator
 {
-  ptr: *mut xcb::xprint::printer_iterator_t,
+  iter: xcb::xprint::printer_iterator_t,
+}
+
+impl From<xcb::xprint::printer_iterator_t> for PrinterIterator
+{
+  fn from(iter: xcb::xprint::printer_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PrinterIterator
@@ -3833,11 +5297,11 @@ impl Iterator for PrinterIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xprint::printer_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xprint::printer_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3845,7 +5309,15 @@ impl Iterator for PrinterIterator
 
 pub struct XprintString8Iterator
 {
-  ptr: *mut xcb::xprint::string8_iterator_t,
+  iter: xcb::xprint::string8_iterator_t,
+}
+
+impl From<xcb::xprint::string8_iterator_t> for XprintString8Iterator
+{
+  fn from(iter: xcb::xprint::string8_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XprintString8Iterator
@@ -3854,11 +5326,11 @@ impl Iterator for XprintString8Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xprint::string8_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xprint::string8_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3866,7 +5338,15 @@ impl Iterator for XprintString8Iterator
 
 pub struct XevieEventIterator
 {
-  ptr: *mut xcb::xevie::event_iterator_t,
+  iter: xcb::xevie::event_iterator_t,
+}
+
+impl From<xcb::xevie::event_iterator_t> for XevieEventIterator
+{
+  fn from(iter: xcb::xevie::event_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XevieEventIterator
@@ -3875,11 +5355,11 @@ impl Iterator for XevieEventIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xevie::event_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xevie::event_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3887,7 +5367,15 @@ impl Iterator for XevieEventIterator
 
 pub struct DrmClipRectIterator
 {
-  ptr: *mut xcb::xf86dri::drm_clip_rect_iterator_t,
+  iter: xcb::xf86dri::drm_clip_rect_iterator_t,
+}
+
+impl From<xcb::xf86dri::drm_clip_rect_iterator_t> for DrmClipRectIterator
+{
+  fn from(iter: xcb::xf86dri::drm_clip_rect_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DrmClipRectIterator
@@ -3896,11 +5384,11 @@ impl Iterator for DrmClipRectIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xf86dri::drm_clip_rect_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xf86dri::drm_clip_rect_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3908,7 +5396,15 @@ impl Iterator for DrmClipRectIterator
 
 pub struct BarrierIterator
 {
-  ptr: *mut xcb::xfixes::barrier_iterator_t,
+  iter: xcb::xfixes::barrier_iterator_t,
+}
+
+impl From<xcb::xfixes::barrier_iterator_t> for BarrierIterator
+{
+  fn from(iter: xcb::xfixes::barrier_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BarrierIterator
@@ -3917,11 +5413,11 @@ impl Iterator for BarrierIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xfixes::barrier_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xfixes::barrier_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3929,7 +5425,15 @@ impl Iterator for BarrierIterator
 
 pub struct RegionIterator
 {
-  ptr: *mut xcb::xfixes::region_iterator_t,
+  iter: xcb::xfixes::region_iterator_t,
+}
+
+impl From<xcb::xfixes::region_iterator_t> for RegionIterator
+{
+  fn from(iter: xcb::xfixes::region_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RegionIterator
@@ -3938,11 +5442,11 @@ impl Iterator for RegionIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xfixes::region_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xfixes::region_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3950,7 +5454,15 @@ impl Iterator for RegionIterator
 
 pub struct ScreenInfoIterator
 {
-  ptr: *mut xcb::xinerama::screen_info_iterator_t,
+  iter: xcb::xinerama::screen_info_iterator_t,
+}
+
+impl From<xcb::xinerama::screen_info_iterator_t> for ScreenInfoIterator
+{
+  fn from(iter: xcb::xinerama::screen_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ScreenInfoIterator
@@ -3959,11 +5471,11 @@ impl Iterator for ScreenInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xinerama::screen_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xinerama::screen_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3971,7 +5483,15 @@ impl Iterator for ScreenInfoIterator
 
 pub struct ActionIterator
 {
-  ptr: *mut xcb::xkb::action_iterator_t,
+  iter: xcb::xkb::action_iterator_t,
+}
+
+impl From<xcb::xkb::action_iterator_t> for ActionIterator
+{
+  fn from(iter: xcb::xkb::action_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ActionIterator
@@ -3980,11 +5500,11 @@ impl Iterator for ActionIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::action_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::action_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -3992,7 +5512,15 @@ impl Iterator for ActionIterator
 
 pub struct BehaviorIterator
 {
-  ptr: *mut xcb::xkb::behavior_iterator_t,
+  iter: xcb::xkb::behavior_iterator_t,
+}
+
+impl From<xcb::xkb::behavior_iterator_t> for BehaviorIterator
+{
+  fn from(iter: xcb::xkb::behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BehaviorIterator
@@ -4001,11 +5529,11 @@ impl Iterator for BehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4013,7 +5541,15 @@ impl Iterator for BehaviorIterator
 
 pub struct BellClassSpecIterator
 {
-  ptr: *mut xcb::xkb::bell_class_spec_iterator_t,
+  iter: xcb::xkb::bell_class_spec_iterator_t,
+}
+
+impl From<xcb::xkb::bell_class_spec_iterator_t> for BellClassSpecIterator
+{
+  fn from(iter: xcb::xkb::bell_class_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for BellClassSpecIterator
@@ -4022,11 +5558,11 @@ impl Iterator for BellClassSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::bell_class_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::bell_class_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4034,7 +5570,15 @@ impl Iterator for BellClassSpecIterator
 
 pub struct CommonBehaviorIterator
 {
-  ptr: *mut xcb::xkb::common_behavior_iterator_t,
+  iter: xcb::xkb::common_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::common_behavior_iterator_t> for CommonBehaviorIterator
+{
+  fn from(iter: xcb::xkb::common_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CommonBehaviorIterator
@@ -4043,11 +5587,11 @@ impl Iterator for CommonBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::common_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::common_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4055,7 +5599,15 @@ impl Iterator for CommonBehaviorIterator
 
 pub struct CountedString16Iterator
 {
-  ptr: *mut xcb::xkb::counted_string_16_iterator_t,
+  iter: xcb::xkb::counted_string_16_iterator_t,
+}
+
+impl From<xcb::xkb::counted_string_16_iterator_t> for CountedString16Iterator
+{
+  fn from(iter: xcb::xkb::counted_string_16_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for CountedString16Iterator
@@ -4064,11 +5616,11 @@ impl Iterator for CountedString16Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::counted_string_16_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::counted_string_16_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4076,7 +5628,15 @@ impl Iterator for CountedString16Iterator
 
 pub struct DefaultBehaviorIterator
 {
-  ptr: *mut xcb::xkb::default_behavior_iterator_t,
+  iter: xcb::xkb::default_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::default_behavior_iterator_t> for DefaultBehaviorIterator
+{
+  fn from(iter: xcb::xkb::default_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DefaultBehaviorIterator
@@ -4085,11 +5645,11 @@ impl Iterator for DefaultBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::default_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::default_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4097,7 +5657,15 @@ impl Iterator for DefaultBehaviorIterator
 
 pub struct DeviceLedInfoIterator
 {
-  ptr: *mut xcb::xkb::device_led_info_iterator_t,
+  iter: xcb::xkb::device_led_info_iterator_t,
+}
+
+impl From<xcb::xkb::device_led_info_iterator_t> for DeviceLedInfoIterator
+{
+  fn from(iter: xcb::xkb::device_led_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceLedInfoIterator
@@ -4106,11 +5674,11 @@ impl Iterator for DeviceLedInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::device_led_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::device_led_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4118,7 +5686,15 @@ impl Iterator for DeviceLedInfoIterator
 
 pub struct DeviceSpecIterator
 {
-  ptr: *mut xcb::xkb::device_spec_iterator_t,
+  iter: xcb::xkb::device_spec_iterator_t,
+}
+
+impl From<xcb::xkb::device_spec_iterator_t> for DeviceSpecIterator
+{
+  fn from(iter: xcb::xkb::device_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for DeviceSpecIterator
@@ -4127,11 +5703,11 @@ impl Iterator for DeviceSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::device_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::device_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4139,7 +5715,15 @@ impl Iterator for DeviceSpecIterator
 
 pub struct IdSpecIterator
 {
-  ptr: *mut xcb::xkb::id_spec_iterator_t,
+  iter: xcb::xkb::id_spec_iterator_t,
+}
+
+impl From<xcb::xkb::id_spec_iterator_t> for IdSpecIterator
+{
+  fn from(iter: xcb::xkb::id_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for IdSpecIterator
@@ -4148,11 +5732,11 @@ impl Iterator for IdSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::id_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::id_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4160,7 +5744,15 @@ impl Iterator for IdSpecIterator
 
 pub struct IndicatorMapIterator
 {
-  ptr: *mut xcb::xkb::indicator_map_iterator_t,
+  iter: xcb::xkb::indicator_map_iterator_t,
+}
+
+impl From<xcb::xkb::indicator_map_iterator_t> for IndicatorMapIterator
+{
+  fn from(iter: xcb::xkb::indicator_map_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for IndicatorMapIterator
@@ -4169,11 +5761,11 @@ impl Iterator for IndicatorMapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::indicator_map_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::indicator_map_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4181,7 +5773,15 @@ impl Iterator for IndicatorMapIterator
 
 pub struct KeyAliasIterator
 {
-  ptr: *mut xcb::xkb::key_alias_iterator_t,
+  iter: xcb::xkb::key_alias_iterator_t,
+}
+
+impl From<xcb::xkb::key_alias_iterator_t> for KeyAliasIterator
+{
+  fn from(iter: xcb::xkb::key_alias_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyAliasIterator
@@ -4190,11 +5790,11 @@ impl Iterator for KeyAliasIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_alias_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_alias_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4202,7 +5802,15 @@ impl Iterator for KeyAliasIterator
 
 pub struct KeyIterator
 {
-  ptr: *mut xcb::xkb::key_iterator_t,
+  iter: xcb::xkb::key_iterator_t,
+}
+
+impl From<xcb::xkb::key_iterator_t> for KeyIterator
+{
+  fn from(iter: xcb::xkb::key_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyIterator
@@ -4211,11 +5819,11 @@ impl Iterator for KeyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4223,7 +5831,15 @@ impl Iterator for KeyIterator
 
 pub struct KeyModMapIterator
 {
-  ptr: *mut xcb::xkb::key_mod_map_iterator_t,
+  iter: xcb::xkb::key_mod_map_iterator_t,
+}
+
+impl From<xcb::xkb::key_mod_map_iterator_t> for KeyModMapIterator
+{
+  fn from(iter: xcb::xkb::key_mod_map_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyModMapIterator
@@ -4232,11 +5848,11 @@ impl Iterator for KeyModMapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_mod_map_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_mod_map_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4244,7 +5860,15 @@ impl Iterator for KeyModMapIterator
 
 pub struct KeyNameIterator
 {
-  ptr: *mut xcb::xkb::key_name_iterator_t,
+  iter: xcb::xkb::key_name_iterator_t,
+}
+
+impl From<xcb::xkb::key_name_iterator_t> for KeyNameIterator
+{
+  fn from(iter: xcb::xkb::key_name_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyNameIterator
@@ -4253,11 +5877,11 @@ impl Iterator for KeyNameIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_name_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_name_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4265,7 +5889,15 @@ impl Iterator for KeyNameIterator
 
 pub struct KeySymMapIterator
 {
-  ptr: *mut xcb::xkb::key_sym_map_iterator_t,
+  iter: xcb::xkb::key_sym_map_iterator_t,
+}
+
+impl From<xcb::xkb::key_sym_map_iterator_t> for KeySymMapIterator
+{
+  fn from(iter: xcb::xkb::key_sym_map_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeySymMapIterator
@@ -4274,11 +5906,11 @@ impl Iterator for KeySymMapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_sym_map_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_sym_map_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4286,7 +5918,15 @@ impl Iterator for KeySymMapIterator
 
 pub struct KeyTypeIterator
 {
-  ptr: *mut xcb::xkb::key_type_iterator_t,
+  iter: xcb::xkb::key_type_iterator_t,
+}
+
+impl From<xcb::xkb::key_type_iterator_t> for KeyTypeIterator
+{
+  fn from(iter: xcb::xkb::key_type_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyTypeIterator
@@ -4295,11 +5935,11 @@ impl Iterator for KeyTypeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_type_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_type_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4307,7 +5947,15 @@ impl Iterator for KeyTypeIterator
 
 pub struct KeyVModMapIterator
 {
-  ptr: *mut xcb::xkb::key_v_mod_map_iterator_t,
+  iter: xcb::xkb::key_v_mod_map_iterator_t,
+}
+
+impl From<xcb::xkb::key_v_mod_map_iterator_t> for KeyVModMapIterator
+{
+  fn from(iter: xcb::xkb::key_v_mod_map_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KeyVModMapIterator
@@ -4316,11 +5964,11 @@ impl Iterator for KeyVModMapIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::key_v_mod_map_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::key_v_mod_map_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4328,7 +5976,15 @@ impl Iterator for KeyVModMapIterator
 
 pub struct KtMapEntryIterator
 {
-  ptr: *mut xcb::xkb::kt_map_entry_iterator_t,
+  iter: xcb::xkb::kt_map_entry_iterator_t,
+}
+
+impl From<xcb::xkb::kt_map_entry_iterator_t> for KtMapEntryIterator
+{
+  fn from(iter: xcb::xkb::kt_map_entry_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KtMapEntryIterator
@@ -4337,11 +5993,11 @@ impl Iterator for KtMapEntryIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::kt_map_entry_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::kt_map_entry_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4349,7 +6005,15 @@ impl Iterator for KtMapEntryIterator
 
 pub struct KtSetMapEntryIterator
 {
-  ptr: *mut xcb::xkb::kt_set_map_entry_iterator_t,
+  iter: xcb::xkb::kt_set_map_entry_iterator_t,
+}
+
+impl From<xcb::xkb::kt_set_map_entry_iterator_t> for KtSetMapEntryIterator
+{
+  fn from(iter: xcb::xkb::kt_set_map_entry_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for KtSetMapEntryIterator
@@ -4358,11 +6022,11 @@ impl Iterator for KtSetMapEntryIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::kt_set_map_entry_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::kt_set_map_entry_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4370,7 +6034,15 @@ impl Iterator for KtSetMapEntryIterator
 
 pub struct LedClassSpecIterator
 {
-  ptr: *mut xcb::xkb::led_class_spec_iterator_t,
+  iter: xcb::xkb::led_class_spec_iterator_t,
+}
+
+impl From<xcb::xkb::led_class_spec_iterator_t> for LedClassSpecIterator
+{
+  fn from(iter: xcb::xkb::led_class_spec_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LedClassSpecIterator
@@ -4379,11 +6051,11 @@ impl Iterator for LedClassSpecIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::led_class_spec_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::led_class_spec_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4391,7 +6063,15 @@ impl Iterator for LedClassSpecIterator
 
 pub struct ListingIterator
 {
-  ptr: *mut xcb::xkb::listing_iterator_t,
+  iter: xcb::xkb::listing_iterator_t,
+}
+
+impl From<xcb::xkb::listing_iterator_t> for ListingIterator
+{
+  fn from(iter: xcb::xkb::listing_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ListingIterator
@@ -4400,11 +6080,11 @@ impl Iterator for ListingIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::listing_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::listing_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4412,7 +6092,15 @@ impl Iterator for ListingIterator
 
 pub struct LockBehaviorIterator
 {
-  ptr: *mut xcb::xkb::lock_behavior_iterator_t,
+  iter: xcb::xkb::lock_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::lock_behavior_iterator_t> for LockBehaviorIterator
+{
+  fn from(iter: xcb::xkb::lock_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for LockBehaviorIterator
@@ -4421,11 +6109,11 @@ impl Iterator for LockBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::lock_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::lock_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4433,7 +6121,15 @@ impl Iterator for LockBehaviorIterator
 
 pub struct ModDefIterator
 {
-  ptr: *mut xcb::xkb::mod_def_iterator_t,
+  iter: xcb::xkb::mod_def_iterator_t,
+}
+
+impl From<xcb::xkb::mod_def_iterator_t> for ModDefIterator
+{
+  fn from(iter: xcb::xkb::mod_def_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ModDefIterator
@@ -4442,11 +6138,11 @@ impl Iterator for ModDefIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::mod_def_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::mod_def_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4454,7 +6150,15 @@ impl Iterator for ModDefIterator
 
 pub struct OutlineIterator
 {
-  ptr: *mut xcb::xkb::outline_iterator_t,
+  iter: xcb::xkb::outline_iterator_t,
+}
+
+impl From<xcb::xkb::outline_iterator_t> for OutlineIterator
+{
+  fn from(iter: xcb::xkb::outline_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OutlineIterator
@@ -4463,11 +6167,11 @@ impl Iterator for OutlineIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::outline_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::outline_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4475,7 +6179,15 @@ impl Iterator for OutlineIterator
 
 pub struct OverlayBehaviorIterator
 {
-  ptr: *mut xcb::xkb::overlay_behavior_iterator_t,
+  iter: xcb::xkb::overlay_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::overlay_behavior_iterator_t> for OverlayBehaviorIterator
+{
+  fn from(iter: xcb::xkb::overlay_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OverlayBehaviorIterator
@@ -4484,11 +6196,11 @@ impl Iterator for OverlayBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::overlay_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::overlay_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4496,7 +6208,15 @@ impl Iterator for OverlayBehaviorIterator
 
 pub struct OverlayIterator
 {
-  ptr: *mut xcb::xkb::overlay_iterator_t,
+  iter: xcb::xkb::overlay_iterator_t,
+}
+
+impl From<xcb::xkb::overlay_iterator_t> for OverlayIterator
+{
+  fn from(iter: xcb::xkb::overlay_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OverlayIterator
@@ -4505,11 +6225,11 @@ impl Iterator for OverlayIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::overlay_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::overlay_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4517,7 +6237,15 @@ impl Iterator for OverlayIterator
 
 pub struct OverlayKeyIterator
 {
-  ptr: *mut xcb::xkb::overlay_key_iterator_t,
+  iter: xcb::xkb::overlay_key_iterator_t,
+}
+
+impl From<xcb::xkb::overlay_key_iterator_t> for OverlayKeyIterator
+{
+  fn from(iter: xcb::xkb::overlay_key_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OverlayKeyIterator
@@ -4526,11 +6254,11 @@ impl Iterator for OverlayKeyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::overlay_key_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::overlay_key_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4538,7 +6266,15 @@ impl Iterator for OverlayKeyIterator
 
 pub struct OverlayRowIterator
 {
-  ptr: *mut xcb::xkb::overlay_row_iterator_t,
+  iter: xcb::xkb::overlay_row_iterator_t,
+}
+
+impl From<xcb::xkb::overlay_row_iterator_t> for OverlayRowIterator
+{
+  fn from(iter: xcb::xkb::overlay_row_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for OverlayRowIterator
@@ -4547,11 +6283,11 @@ impl Iterator for OverlayRowIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::overlay_row_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::overlay_row_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4559,7 +6295,15 @@ impl Iterator for OverlayRowIterator
 
 pub struct PermamentLockBehaviorIterator
 {
-  ptr: *mut xcb::xkb::permament_lock_behavior_iterator_t,
+  iter: xcb::xkb::permament_lock_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::permament_lock_behavior_iterator_t> for PermamentLockBehaviorIterator
+{
+  fn from(iter: xcb::xkb::permament_lock_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PermamentLockBehaviorIterator
@@ -4568,11 +6312,11 @@ impl Iterator for PermamentLockBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::permament_lock_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::permament_lock_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4580,7 +6324,15 @@ impl Iterator for PermamentLockBehaviorIterator
 
 pub struct PermamentOverlayBehaviorIterator
 {
-  ptr: *mut xcb::xkb::permament_overlay_behavior_iterator_t,
+  iter: xcb::xkb::permament_overlay_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::permament_overlay_behavior_iterator_t> for PermamentOverlayBehaviorIterator
+{
+  fn from(iter: xcb::xkb::permament_overlay_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PermamentOverlayBehaviorIterator
@@ -4589,11 +6341,11 @@ impl Iterator for PermamentOverlayBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::permament_overlay_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::permament_overlay_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4601,7 +6353,16 @@ impl Iterator for PermamentOverlayBehaviorIterator
 
 pub struct PermamentRadioGroupBehaviorIterator
 {
-  ptr: *mut xcb::xkb::permament_radio_group_behavior_iterator_t,
+  iter: xcb::xkb::permament_radio_group_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::permament_radio_group_behavior_iterator_t>
+  for PermamentRadioGroupBehaviorIterator
+{
+  fn from(iter: xcb::xkb::permament_radio_group_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PermamentRadioGroupBehaviorIterator
@@ -4610,11 +6371,11 @@ impl Iterator for PermamentRadioGroupBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::permament_radio_group_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::permament_radio_group_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4622,7 +6383,15 @@ impl Iterator for PermamentRadioGroupBehaviorIterator
 
 pub struct RadioGroupBehaviorIterator
 {
-  ptr: *mut xcb::xkb::radio_group_behavior_iterator_t,
+  iter: xcb::xkb::radio_group_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::radio_group_behavior_iterator_t> for RadioGroupBehaviorIterator
+{
+  fn from(iter: xcb::xkb::radio_group_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RadioGroupBehaviorIterator
@@ -4631,11 +6400,11 @@ impl Iterator for RadioGroupBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::radio_group_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::radio_group_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4643,7 +6412,15 @@ impl Iterator for RadioGroupBehaviorIterator
 
 pub struct RowIterator
 {
-  ptr: *mut xcb::xkb::row_iterator_t,
+  iter: xcb::xkb::row_iterator_t,
+}
+
+impl From<xcb::xkb::row_iterator_t> for RowIterator
+{
+  fn from(iter: xcb::xkb::row_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RowIterator
@@ -4652,11 +6429,11 @@ impl Iterator for RowIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::row_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::row_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4664,7 +6441,15 @@ impl Iterator for RowIterator
 
 pub struct SaActionMessageIterator
 {
-  ptr: *mut xcb::xkb::sa_action_message_iterator_t,
+  iter: xcb::xkb::sa_action_message_iterator_t,
+}
+
+impl From<xcb::xkb::sa_action_message_iterator_t> for SaActionMessageIterator
+{
+  fn from(iter: xcb::xkb::sa_action_message_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaActionMessageIterator
@@ -4673,11 +6458,11 @@ impl Iterator for SaActionMessageIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_action_message_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_action_message_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4685,7 +6470,15 @@ impl Iterator for SaActionMessageIterator
 
 pub struct SaDeviceBtnIterator
 {
-  ptr: *mut xcb::xkb::sa_device_btn_iterator_t,
+  iter: xcb::xkb::sa_device_btn_iterator_t,
+}
+
+impl From<xcb::xkb::sa_device_btn_iterator_t> for SaDeviceBtnIterator
+{
+  fn from(iter: xcb::xkb::sa_device_btn_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaDeviceBtnIterator
@@ -4694,11 +6487,11 @@ impl Iterator for SaDeviceBtnIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_device_btn_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_device_btn_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4706,7 +6499,15 @@ impl Iterator for SaDeviceBtnIterator
 
 pub struct SaDeviceValuatorIterator
 {
-  ptr: *mut xcb::xkb::sa_device_valuator_iterator_t,
+  iter: xcb::xkb::sa_device_valuator_iterator_t,
+}
+
+impl From<xcb::xkb::sa_device_valuator_iterator_t> for SaDeviceValuatorIterator
+{
+  fn from(iter: xcb::xkb::sa_device_valuator_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaDeviceValuatorIterator
@@ -4715,11 +6516,11 @@ impl Iterator for SaDeviceValuatorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_device_valuator_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_device_valuator_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4727,7 +6528,15 @@ impl Iterator for SaDeviceValuatorIterator
 
 pub struct SaIsoLockIterator
 {
-  ptr: *mut xcb::xkb::sa_iso_lock_iterator_t,
+  iter: xcb::xkb::sa_iso_lock_iterator_t,
+}
+
+impl From<xcb::xkb::sa_iso_lock_iterator_t> for SaIsoLockIterator
+{
+  fn from(iter: xcb::xkb::sa_iso_lock_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaIsoLockIterator
@@ -4736,11 +6545,11 @@ impl Iterator for SaIsoLockIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_iso_lock_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_iso_lock_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4748,7 +6557,15 @@ impl Iterator for SaIsoLockIterator
 
 pub struct SaLatchGroupIterator
 {
-  ptr: *mut xcb::xkb::sa_latch_group_iterator_t,
+  iter: xcb::xkb::sa_latch_group_iterator_t,
+}
+
+impl From<xcb::xkb::sa_latch_group_iterator_t> for SaLatchGroupIterator
+{
+  fn from(iter: xcb::xkb::sa_latch_group_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLatchGroupIterator
@@ -4757,11 +6574,11 @@ impl Iterator for SaLatchGroupIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_latch_group_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_latch_group_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4769,7 +6586,15 @@ impl Iterator for SaLatchGroupIterator
 
 pub struct SaLatchModsIterator
 {
-  ptr: *mut xcb::xkb::sa_latch_mods_iterator_t,
+  iter: xcb::xkb::sa_latch_mods_iterator_t,
+}
+
+impl From<xcb::xkb::sa_latch_mods_iterator_t> for SaLatchModsIterator
+{
+  fn from(iter: xcb::xkb::sa_latch_mods_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLatchModsIterator
@@ -4778,11 +6603,11 @@ impl Iterator for SaLatchModsIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_latch_mods_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_latch_mods_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4790,7 +6615,15 @@ impl Iterator for SaLatchModsIterator
 
 pub struct SaLockControlsIterator
 {
-  ptr: *mut xcb::xkb::sa_lock_controls_iterator_t,
+  iter: xcb::xkb::sa_lock_controls_iterator_t,
+}
+
+impl From<xcb::xkb::sa_lock_controls_iterator_t> for SaLockControlsIterator
+{
+  fn from(iter: xcb::xkb::sa_lock_controls_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLockControlsIterator
@@ -4799,11 +6632,11 @@ impl Iterator for SaLockControlsIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_lock_controls_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_lock_controls_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4811,7 +6644,15 @@ impl Iterator for SaLockControlsIterator
 
 pub struct SaLockDeviceBtnIterator
 {
-  ptr: *mut xcb::xkb::sa_lock_device_btn_iterator_t,
+  iter: xcb::xkb::sa_lock_device_btn_iterator_t,
+}
+
+impl From<xcb::xkb::sa_lock_device_btn_iterator_t> for SaLockDeviceBtnIterator
+{
+  fn from(iter: xcb::xkb::sa_lock_device_btn_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLockDeviceBtnIterator
@@ -4820,11 +6661,11 @@ impl Iterator for SaLockDeviceBtnIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_lock_device_btn_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_lock_device_btn_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4832,7 +6673,15 @@ impl Iterator for SaLockDeviceBtnIterator
 
 pub struct SaLockGroupIterator
 {
-  ptr: *mut xcb::xkb::sa_lock_group_iterator_t,
+  iter: xcb::xkb::sa_lock_group_iterator_t,
+}
+
+impl From<xcb::xkb::sa_lock_group_iterator_t> for SaLockGroupIterator
+{
+  fn from(iter: xcb::xkb::sa_lock_group_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLockGroupIterator
@@ -4841,11 +6690,11 @@ impl Iterator for SaLockGroupIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_lock_group_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_lock_group_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4853,7 +6702,15 @@ impl Iterator for SaLockGroupIterator
 
 pub struct SaLockModsIterator
 {
-  ptr: *mut xcb::xkb::sa_lock_mods_iterator_t,
+  iter: xcb::xkb::sa_lock_mods_iterator_t,
+}
+
+impl From<xcb::xkb::sa_lock_mods_iterator_t> for SaLockModsIterator
+{
+  fn from(iter: xcb::xkb::sa_lock_mods_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLockModsIterator
@@ -4862,11 +6719,11 @@ impl Iterator for SaLockModsIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_lock_mods_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_lock_mods_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4874,7 +6731,15 @@ impl Iterator for SaLockModsIterator
 
 pub struct SaLockPtrBtnIterator
 {
-  ptr: *mut xcb::xkb::sa_lock_ptr_btn_iterator_t,
+  iter: xcb::xkb::sa_lock_ptr_btn_iterator_t,
+}
+
+impl From<xcb::xkb::sa_lock_ptr_btn_iterator_t> for SaLockPtrBtnIterator
+{
+  fn from(iter: xcb::xkb::sa_lock_ptr_btn_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaLockPtrBtnIterator
@@ -4883,11 +6748,11 @@ impl Iterator for SaLockPtrBtnIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_lock_ptr_btn_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_lock_ptr_btn_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4895,7 +6760,15 @@ impl Iterator for SaLockPtrBtnIterator
 
 pub struct SaMovePtrIterator
 {
-  ptr: *mut xcb::xkb::sa_move_ptr_iterator_t,
+  iter: xcb::xkb::sa_move_ptr_iterator_t,
+}
+
+impl From<xcb::xkb::sa_move_ptr_iterator_t> for SaMovePtrIterator
+{
+  fn from(iter: xcb::xkb::sa_move_ptr_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaMovePtrIterator
@@ -4904,11 +6777,11 @@ impl Iterator for SaMovePtrIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_move_ptr_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_move_ptr_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4916,7 +6789,15 @@ impl Iterator for SaMovePtrIterator
 
 pub struct SaNoActionIterator
 {
-  ptr: *mut xcb::xkb::sa_no_action_iterator_t,
+  iter: xcb::xkb::sa_no_action_iterator_t,
+}
+
+impl From<xcb::xkb::sa_no_action_iterator_t> for SaNoActionIterator
+{
+  fn from(iter: xcb::xkb::sa_no_action_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaNoActionIterator
@@ -4925,11 +6806,11 @@ impl Iterator for SaNoActionIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_no_action_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_no_action_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4937,7 +6818,15 @@ impl Iterator for SaNoActionIterator
 
 pub struct SaPtrBtnIterator
 {
-  ptr: *mut xcb::xkb::sa_ptr_btn_iterator_t,
+  iter: xcb::xkb::sa_ptr_btn_iterator_t,
+}
+
+impl From<xcb::xkb::sa_ptr_btn_iterator_t> for SaPtrBtnIterator
+{
+  fn from(iter: xcb::xkb::sa_ptr_btn_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaPtrBtnIterator
@@ -4946,11 +6835,11 @@ impl Iterator for SaPtrBtnIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_ptr_btn_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_ptr_btn_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4958,7 +6847,15 @@ impl Iterator for SaPtrBtnIterator
 
 pub struct SaRedirectKeyIterator
 {
-  ptr: *mut xcb::xkb::sa_redirect_key_iterator_t,
+  iter: xcb::xkb::sa_redirect_key_iterator_t,
+}
+
+impl From<xcb::xkb::sa_redirect_key_iterator_t> for SaRedirectKeyIterator
+{
+  fn from(iter: xcb::xkb::sa_redirect_key_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaRedirectKeyIterator
@@ -4967,11 +6864,11 @@ impl Iterator for SaRedirectKeyIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_redirect_key_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_redirect_key_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -4979,7 +6876,15 @@ impl Iterator for SaRedirectKeyIterator
 
 pub struct SaSetControlsIterator
 {
-  ptr: *mut xcb::xkb::sa_set_controls_iterator_t,
+  iter: xcb::xkb::sa_set_controls_iterator_t,
+}
+
+impl From<xcb::xkb::sa_set_controls_iterator_t> for SaSetControlsIterator
+{
+  fn from(iter: xcb::xkb::sa_set_controls_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaSetControlsIterator
@@ -4988,11 +6893,11 @@ impl Iterator for SaSetControlsIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_set_controls_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_set_controls_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5000,7 +6905,15 @@ impl Iterator for SaSetControlsIterator
 
 pub struct SaSetGroupIterator
 {
-  ptr: *mut xcb::xkb::sa_set_group_iterator_t,
+  iter: xcb::xkb::sa_set_group_iterator_t,
+}
+
+impl From<xcb::xkb::sa_set_group_iterator_t> for SaSetGroupIterator
+{
+  fn from(iter: xcb::xkb::sa_set_group_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaSetGroupIterator
@@ -5009,11 +6922,11 @@ impl Iterator for SaSetGroupIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_set_group_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_set_group_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5021,7 +6934,15 @@ impl Iterator for SaSetGroupIterator
 
 pub struct SaSetModsIterator
 {
-  ptr: *mut xcb::xkb::sa_set_mods_iterator_t,
+  iter: xcb::xkb::sa_set_mods_iterator_t,
+}
+
+impl From<xcb::xkb::sa_set_mods_iterator_t> for SaSetModsIterator
+{
+  fn from(iter: xcb::xkb::sa_set_mods_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaSetModsIterator
@@ -5030,11 +6951,11 @@ impl Iterator for SaSetModsIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_set_mods_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_set_mods_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5042,7 +6963,15 @@ impl Iterator for SaSetModsIterator
 
 pub struct SaSetPtrDfltIterator
 {
-  ptr: *mut xcb::xkb::sa_set_ptr_dflt_iterator_t,
+  iter: xcb::xkb::sa_set_ptr_dflt_iterator_t,
+}
+
+impl From<xcb::xkb::sa_set_ptr_dflt_iterator_t> for SaSetPtrDfltIterator
+{
+  fn from(iter: xcb::xkb::sa_set_ptr_dflt_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaSetPtrDfltIterator
@@ -5051,11 +6980,11 @@ impl Iterator for SaSetPtrDfltIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_set_ptr_dflt_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_set_ptr_dflt_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5063,7 +6992,15 @@ impl Iterator for SaSetPtrDfltIterator
 
 pub struct SaSwitchScreenIterator
 {
-  ptr: *mut xcb::xkb::sa_switch_screen_iterator_t,
+  iter: xcb::xkb::sa_switch_screen_iterator_t,
+}
+
+impl From<xcb::xkb::sa_switch_screen_iterator_t> for SaSwitchScreenIterator
+{
+  fn from(iter: xcb::xkb::sa_switch_screen_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaSwitchScreenIterator
@@ -5072,11 +7009,11 @@ impl Iterator for SaSwitchScreenIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_switch_screen_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_switch_screen_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5084,7 +7021,15 @@ impl Iterator for SaSwitchScreenIterator
 
 pub struct SaTerminateIterator
 {
-  ptr: *mut xcb::xkb::sa_terminate_iterator_t,
+  iter: xcb::xkb::sa_terminate_iterator_t,
+}
+
+impl From<xcb::xkb::sa_terminate_iterator_t> for SaTerminateIterator
+{
+  fn from(iter: xcb::xkb::sa_terminate_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SaTerminateIterator
@@ -5093,11 +7038,11 @@ impl Iterator for SaTerminateIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sa_terminate_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sa_terminate_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5105,7 +7050,15 @@ impl Iterator for SaTerminateIterator
 
 pub struct SetBehaviorIterator
 {
-  ptr: *mut xcb::xkb::set_behavior_iterator_t,
+  iter: xcb::xkb::set_behavior_iterator_t,
+}
+
+impl From<xcb::xkb::set_behavior_iterator_t> for SetBehaviorIterator
+{
+  fn from(iter: xcb::xkb::set_behavior_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetBehaviorIterator
@@ -5114,11 +7067,11 @@ impl Iterator for SetBehaviorIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::set_behavior_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::set_behavior_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5126,7 +7079,15 @@ impl Iterator for SetBehaviorIterator
 
 pub struct SetExplicitIterator
 {
-  ptr: *mut xcb::xkb::set_explicit_iterator_t,
+  iter: xcb::xkb::set_explicit_iterator_t,
+}
+
+impl From<xcb::xkb::set_explicit_iterator_t> for SetExplicitIterator
+{
+  fn from(iter: xcb::xkb::set_explicit_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetExplicitIterator
@@ -5135,11 +7096,11 @@ impl Iterator for SetExplicitIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::set_explicit_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::set_explicit_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5147,7 +7108,15 @@ impl Iterator for SetExplicitIterator
 
 pub struct SetKeyTypeIterator
 {
-  ptr: *mut xcb::xkb::set_key_type_iterator_t,
+  iter: xcb::xkb::set_key_type_iterator_t,
+}
+
+impl From<xcb::xkb::set_key_type_iterator_t> for SetKeyTypeIterator
+{
+  fn from(iter: xcb::xkb::set_key_type_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SetKeyTypeIterator
@@ -5156,11 +7125,11 @@ impl Iterator for SetKeyTypeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::set_key_type_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::set_key_type_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5168,7 +7137,15 @@ impl Iterator for SetKeyTypeIterator
 
 pub struct ShapeIterator
 {
-  ptr: *mut xcb::xkb::shape_iterator_t,
+  iter: xcb::xkb::shape_iterator_t,
+}
+
+impl From<xcb::xkb::shape_iterator_t> for ShapeIterator
+{
+  fn from(iter: xcb::xkb::shape_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ShapeIterator
@@ -5177,11 +7154,11 @@ impl Iterator for ShapeIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::shape_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::shape_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5189,7 +7166,15 @@ impl Iterator for ShapeIterator
 
 pub struct SiActionIterator
 {
-  ptr: *mut xcb::xkb::si_action_iterator_t,
+  iter: xcb::xkb::si_action_iterator_t,
+}
+
+impl From<xcb::xkb::si_action_iterator_t> for SiActionIterator
+{
+  fn from(iter: xcb::xkb::si_action_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SiActionIterator
@@ -5198,11 +7183,11 @@ impl Iterator for SiActionIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::si_action_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::si_action_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5210,7 +7195,15 @@ impl Iterator for SiActionIterator
 
 pub struct XkbString8Iterator
 {
-  ptr: *mut xcb::xkb::string8_iterator_t,
+  iter: xcb::xkb::string8_iterator_t,
+}
+
+impl From<xcb::xkb::string8_iterator_t> for XkbString8Iterator
+{
+  fn from(iter: xcb::xkb::string8_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XkbString8Iterator
@@ -5219,11 +7212,11 @@ impl Iterator for XkbString8Iterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::string8_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::string8_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5231,7 +7224,15 @@ impl Iterator for XkbString8Iterator
 
 pub struct SymInterpretIterator
 {
-  ptr: *mut xcb::xkb::sym_interpret_iterator_t,
+  iter: xcb::xkb::sym_interpret_iterator_t,
+}
+
+impl From<xcb::xkb::sym_interpret_iterator_t> for SymInterpretIterator
+{
+  fn from(iter: xcb::xkb::sym_interpret_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SymInterpretIterator
@@ -5240,11 +7241,11 @@ impl Iterator for SymInterpretIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xkb::sym_interpret_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xkb::sym_interpret_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5252,7 +7253,15 @@ impl Iterator for SymInterpretIterator
 
 pub struct AdaptorInfoIterator
 {
-  ptr: *mut xcb::xv::adaptor_info_iterator_t,
+  iter: xcb::xv::adaptor_info_iterator_t,
+}
+
+impl From<xcb::xv::adaptor_info_iterator_t> for AdaptorInfoIterator
+{
+  fn from(iter: xcb::xv::adaptor_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AdaptorInfoIterator
@@ -5261,11 +7270,11 @@ impl Iterator for AdaptorInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::adaptor_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::adaptor_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5273,7 +7282,15 @@ impl Iterator for AdaptorInfoIterator
 
 pub struct AttributeInfoIterator
 {
-  ptr: *mut xcb::xv::attribute_info_iterator_t,
+  iter: xcb::xv::attribute_info_iterator_t,
+}
+
+impl From<xcb::xv::attribute_info_iterator_t> for AttributeInfoIterator
+{
+  fn from(iter: xcb::xv::attribute_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for AttributeInfoIterator
@@ -5282,11 +7299,11 @@ impl Iterator for AttributeInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::attribute_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::attribute_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5294,7 +7311,15 @@ impl Iterator for AttributeInfoIterator
 
 pub struct EncodingInfoIterator
 {
-  ptr: *mut xcb::xv::encoding_info_iterator_t,
+  iter: xcb::xv::encoding_info_iterator_t,
+}
+
+impl From<xcb::xv::encoding_info_iterator_t> for EncodingInfoIterator
+{
+  fn from(iter: xcb::xv::encoding_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EncodingInfoIterator
@@ -5303,11 +7328,11 @@ impl Iterator for EncodingInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::encoding_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::encoding_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5315,7 +7340,15 @@ impl Iterator for EncodingInfoIterator
 
 pub struct EncodingIterator
 {
-  ptr: *mut xcb::xv::encoding_iterator_t,
+  iter: xcb::xv::encoding_iterator_t,
+}
+
+impl From<xcb::xv::encoding_iterator_t> for EncodingIterator
+{
+  fn from(iter: xcb::xv::encoding_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for EncodingIterator
@@ -5324,11 +7357,11 @@ impl Iterator for EncodingIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::encoding_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::encoding_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5336,7 +7369,15 @@ impl Iterator for EncodingIterator
 
 pub struct XvFormatIterator
 {
-  ptr: *mut xcb::xv::format_iterator_t,
+  iter: xcb::xv::format_iterator_t,
+}
+
+impl From<xcb::xv::format_iterator_t> for XvFormatIterator
+{
+  fn from(iter: xcb::xv::format_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XvFormatIterator
@@ -5345,11 +7386,11 @@ impl Iterator for XvFormatIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::format_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::format_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5357,7 +7398,15 @@ impl Iterator for XvFormatIterator
 
 pub struct ImageFormatInfoIterator
 {
-  ptr: *mut xcb::xv::image_format_info_iterator_t,
+  iter: xcb::xv::image_format_info_iterator_t,
+}
+
+impl From<xcb::xv::image_format_info_iterator_t> for ImageFormatInfoIterator
+{
+  fn from(iter: xcb::xv::image_format_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ImageFormatInfoIterator
@@ -5366,11 +7415,11 @@ impl Iterator for ImageFormatInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::image_format_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::image_format_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5378,7 +7427,15 @@ impl Iterator for ImageFormatInfoIterator
 
 pub struct ImageIterator
 {
-  ptr: *mut xcb::xv::image_iterator_t,
+  iter: xcb::xv::image_iterator_t,
+}
+
+impl From<xcb::xv::image_iterator_t> for ImageIterator
+{
+  fn from(iter: xcb::xv::image_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for ImageIterator
@@ -5387,11 +7444,11 @@ impl Iterator for ImageIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::image_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::image_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5399,7 +7456,15 @@ impl Iterator for ImageIterator
 
 pub struct PortIterator
 {
-  ptr: *mut xcb::xv::port_iterator_t,
+  iter: xcb::xv::port_iterator_t,
+}
+
+impl From<xcb::xv::port_iterator_t> for PortIterator
+{
+  fn from(iter: xcb::xv::port_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for PortIterator
@@ -5408,11 +7473,11 @@ impl Iterator for PortIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::port_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::port_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5420,7 +7485,15 @@ impl Iterator for PortIterator
 
 pub struct RationalIterator
 {
-  ptr: *mut xcb::xv::rational_iterator_t,
+  iter: xcb::xv::rational_iterator_t,
+}
+
+impl From<xcb::xv::rational_iterator_t> for RationalIterator
+{
+  fn from(iter: xcb::xv::rational_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for RationalIterator
@@ -5429,11 +7502,11 @@ impl Iterator for RationalIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xv::rational_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xv::rational_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5441,7 +7514,15 @@ impl Iterator for RationalIterator
 
 pub struct XvmcContextIterator
 {
-  ptr: *mut xcb::xvmc::context_iterator_t,
+  iter: xcb::xvmc::context_iterator_t,
+}
+
+impl From<xcb::xvmc::context_iterator_t> for XvmcContextIterator
+{
+  fn from(iter: xcb::xvmc::context_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for XvmcContextIterator
@@ -5450,11 +7531,11 @@ impl Iterator for XvmcContextIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xvmc::context_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xvmc::context_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5462,7 +7543,15 @@ impl Iterator for XvmcContextIterator
 
 pub struct SubpictureIterator
 {
-  ptr: *mut xcb::xvmc::subpicture_iterator_t,
+  iter: xcb::xvmc::subpicture_iterator_t,
+}
+
+impl From<xcb::xvmc::subpicture_iterator_t> for SubpictureIterator
+{
+  fn from(iter: xcb::xvmc::subpicture_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SubpictureIterator
@@ -5471,11 +7560,11 @@ impl Iterator for SubpictureIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xvmc::subpicture_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xvmc::subpicture_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5483,7 +7572,15 @@ impl Iterator for SubpictureIterator
 
 pub struct SurfaceInfoIterator
 {
-  ptr: *mut xcb::xvmc::surface_info_iterator_t,
+  iter: xcb::xvmc::surface_info_iterator_t,
+}
+
+impl From<xcb::xvmc::surface_info_iterator_t> for SurfaceInfoIterator
+{
+  fn from(iter: xcb::xvmc::surface_info_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SurfaceInfoIterator
@@ -5492,11 +7589,11 @@ impl Iterator for SurfaceInfoIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xvmc::surface_info_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xvmc::surface_info_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
@@ -5504,7 +7601,15 @@ impl Iterator for SurfaceInfoIterator
 
 pub struct SurfaceIterator
 {
-  ptr: *mut xcb::xvmc::surface_iterator_t,
+  iter: xcb::xvmc::surface_iterator_t,
+}
+
+impl From<xcb::xvmc::surface_iterator_t> for SurfaceIterator
+{
+  fn from(iter: xcb::xvmc::surface_iterator_t) -> Self
+  {
+    Self { iter }
+  }
 }
 
 impl Iterator for SurfaceIterator
@@ -5513,11 +7618,11 @@ impl Iterator for SurfaceIterator
 
   fn next(&mut self) -> Option<Self::Item>
   {
-    if unsafe { *self.ptr }.rem == 0 {
+    if self.iter.rem == 0 {
       None
     } else {
-      let data = unsafe { *self.ptr }.data;
-      unsafe { xcb::xvmc::surface_next(self.ptr) };
+      let data = self.iter.data;
+      unsafe { xcb::xvmc::surface_next(&mut self.iter) };
       Some(unsafe { *data })
     }
   }
