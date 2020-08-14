@@ -1,0 +1,15 @@
+pub use crate::ffi::xrm::{
+  xcb_xrm_database_combine as database_combine,
+  xcb_xrm_database_free as database_free,
+  xcb_xrm_database_from_default as database_from_default,
+  xcb_xrm_database_from_file as database_from_file,
+  xcb_xrm_database_from_resource_manager as database_from_resource_manager,
+  xcb_xrm_database_from_string as database_from_string,
+  xcb_xrm_database_put_resource as database_put_resource,
+  xcb_xrm_database_put_resource_line as database_put_resource_line,
+  xcb_xrm_database_t as database_t,
+  xcb_xrm_database_to_string as database_to_string,
+  xcb_xrm_resource_get_bool as resource_get_bool,
+  xcb_xrm_resource_get_long as resource_get_long,
+  xcb_xrm_resource_get_string as resource_get_string,
+};
