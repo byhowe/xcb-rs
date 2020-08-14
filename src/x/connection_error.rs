@@ -1,13 +1,4 @@
-use crate::ffi::core::{
-  xcb_connection_has_error,
-  xcb_connection_t,
-  XCB_CONN_CLOSED_EXT_NOTSUPPORTED,
-  XCB_CONN_CLOSED_INVALID_SCREEN,
-  XCB_CONN_CLOSED_MEM_INSUFFICIENT,
-  XCB_CONN_CLOSED_PARSE_ERR,
-  XCB_CONN_CLOSED_REQ_LEN_EXCEED,
-  XCB_CONN_ERROR,
-};
+use crate::xcb;
 
 pub enum ConnectionError
 {
@@ -22,16 +13,16 @@ pub enum ConnectionError
 impl ConnectionError
 {
   #[inline(always)]
-  pub fn has_error(c: *mut xcb_connection_t) -> Option<Self>
+  pub fn has_error(c: *mut xcb::connection_t) -> Option<Self>
   {
-    match unsafe { xcb_connection_has_error(c) } {
+    match unsafe { xcb::connection_has_error(c) } {
       0 => None,
-      XCB_CONN_ERROR => Some(Self::Error),
-      XCB_CONN_CLOSED_EXT_NOTSUPPORTED => Some(Self::ClosedExtNotsupported),
-      XCB_CONN_CLOSED_MEM_INSUFFICIENT => Some(Self::ClosedMemInsufficient),
-      XCB_CONN_CLOSED_REQ_LEN_EXCEED => Some(Self::ClosedReqLenExceed),
-      XCB_CONN_CLOSED_PARSE_ERR => Some(Self::ClosedParseErr),
-      XCB_CONN_CLOSED_INVALID_SCREEN => Some(Self::ClosedInvalidScreen),
+      xcb::CONN_ERROR => Some(Self::Error),
+      xcb::CONN_CLOSED_EXT_NOTSUPPORTED => Some(Self::ClosedExtNotsupported),
+      xcb::CONN_CLOSED_MEM_INSUFFICIENT => Some(Self::ClosedMemInsufficient),
+      xcb::CONN_CLOSED_REQ_LEN_EXCEED => Some(Self::ClosedReqLenExceed),
+      xcb::CONN_CLOSED_PARSE_ERR => Some(Self::ClosedParseErr),
+      xcb::CONN_CLOSED_INVALID_SCREEN => Some(Self::ClosedInvalidScreen),
       _ => Some(Self::Error),
     }
   }
