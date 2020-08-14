@@ -5,7 +5,7 @@ use std::ffi::CString;
 pub struct X
 {
   c: *mut xcb::connection_t,
-  default_screen: i32,
+  pub default_screen: i32,
 }
 
 impl X
