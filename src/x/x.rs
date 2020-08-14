@@ -1,4 +1,4 @@
-use super::ConnectionError;
+use super::{ConnectionError, Setup};
 use crate::xcb;
 use std::ffi::CString;
 
@@ -44,6 +44,12 @@ impl X
   pub fn generate_id(&self) -> u32
   {
     unsafe { xcb::generate_id(self.c) }
+  }
+
+  #[inline(always)]
+  pub fn get_setup(&self) -> Setup
+  {
+    Setup::from(unsafe { xcb::get_setup(self.c) })
   }
 }
 
