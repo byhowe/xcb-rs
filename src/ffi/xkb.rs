@@ -3191,7 +3191,7 @@ pub struct xcb_xkb_extension_device_notify_event_t
   pub pad1: [u8; 2usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xkb")]
 extern "C" {
   pub static mut xcb_xkb_id: xcb_extension_t;
 

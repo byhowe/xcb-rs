@@ -286,7 +286,7 @@ pub struct xcb_shape_get_rectangles_reply_t
   pub pad0: [u8; 20usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-shape")]
 extern "C" {
   pub static mut xcb_shape_id: xcb_extension_t;
 

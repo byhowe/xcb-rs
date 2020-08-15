@@ -163,7 +163,7 @@ pub struct xcb_composite_release_overlay_window_request_t
   pub window: xcb_window_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-composite")]
 extern "C" {
   pub static mut xcb_composite_id: xcb_extension_t;
 

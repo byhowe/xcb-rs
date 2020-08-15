@@ -8,7 +8,7 @@ pub struct xcb_xrm_database_t
   _unused: [u8; 0],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xrm")]
 extern "C" {
   pub fn xcb_xrm_database_from_default(conn: *mut xcb_connection_t) -> *mut xcb_xrm_database_t;
 

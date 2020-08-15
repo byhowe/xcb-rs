@@ -794,7 +794,7 @@ pub unsafe extern "C" fn xcb_ewmh_get_wm_user_time_window_reply(
   xcb_ewmh_get_cardinal_reply(ewmh, cookie, xtime, e)
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-ewmh")]
 extern "C" {
   pub fn xcb_ewmh_init_atoms(
     c: *mut xcb_connection_t,

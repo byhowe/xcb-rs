@@ -226,7 +226,7 @@ pub struct xcb_shm_create_segment_reply_t
   pub pad0: [u8; 24usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-shm")]
 extern "C" {
   pub static mut xcb_shm_id: xcb_extension_t;
 

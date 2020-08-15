@@ -2914,7 +2914,7 @@ pub struct xcb_glx_get_query_objectuiv_arb_reply_t
   pub pad2: [u8; 12usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-glx")]
 extern "C" {
   pub static mut xcb_glx_id: xcb_extension_t;
 

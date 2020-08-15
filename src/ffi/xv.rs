@@ -808,7 +808,7 @@ pub struct xcb_xv_shm_put_image_request_t
   pub pad0: [u8; 3usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xv")]
 extern "C" {
   pub static mut xcb_xv_id: xcb_extension_t;
 

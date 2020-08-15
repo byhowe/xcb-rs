@@ -351,7 +351,7 @@ pub struct xcb_xf86dri_auth_connection_reply_t
   pub authenticated: u32,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xf86dri")]
 extern "C" {
   pub static mut xcb_xf86dri_id: xcb_extension_t;
 

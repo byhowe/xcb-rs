@@ -8,7 +8,7 @@ pub struct xcb_cursor_context_t
   _unused: [u8; 0],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-cursor")]
 extern "C" {
   pub fn xcb_cursor_context_new(
     conn: *mut xcb_connection_t,

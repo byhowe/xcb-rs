@@ -327,7 +327,7 @@ pub struct xcb_record_free_context_request_t
   pub context: xcb_record_context_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-record")]
 extern "C" {
   pub static mut xcb_record_id: xcb_extension_t;
 

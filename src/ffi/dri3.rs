@@ -265,7 +265,7 @@ pub struct xcb_dri3_buffers_from_pixmap_reply_t
   pub pad1: [u8; 6usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-dri3")]
 extern "C" {
   pub static mut xcb_dri3_id: xcb_extension_t;
 

@@ -130,7 +130,7 @@ pub struct xcb_icccm_get_wm_protocols_reply_t
   pub _reply: *mut xcb_get_property_reply_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-icccm")]
 extern "C" {
   pub fn xcb_icccm_get_text_property(
     c: *mut xcb_connection_t,

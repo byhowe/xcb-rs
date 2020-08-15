@@ -105,7 +105,7 @@ pub struct xcb_test_grab_control_request_t
   pub pad0: [u8; 3usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xtest")]
 extern "C" {
   pub static mut xcb_test_id: xcb_extension_t;
 

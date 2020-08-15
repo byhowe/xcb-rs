@@ -48,7 +48,7 @@ pub struct xcb_render_util_composite_text_stream_t
   _unused: [u8; 0],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-render-util")]
 extern "C" {
   pub fn xcb_render_util_find_visual_format(
     formats: *const xcb_render_query_pict_formats_reply_t,

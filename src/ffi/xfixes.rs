@@ -693,7 +693,7 @@ pub struct xcb_xfixes_delete_pointer_barrier_request_t
   pub barrier: xcb_xfixes_barrier_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xfixes")]
 extern "C" {
   pub static mut xcb_xfixes_id: xcb_extension_t;
 

@@ -315,7 +315,7 @@ pub struct xcb_res_query_resource_bytes_reply_t
   pub pad1: [u8; 20usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-res")]
 extern "C" {
   pub static mut xcb_res_id: xcb_extension_t;
 

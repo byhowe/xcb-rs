@@ -514,7 +514,7 @@ pub struct xcb_dri2_invalidate_buffers_event_t
   pub drawable: xcb_drawable_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-dri2")]
 extern "C" {
   pub static mut xcb_dri2_id: xcb_extension_t;
 

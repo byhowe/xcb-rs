@@ -16,7 +16,7 @@ pub struct _XCBKeySymbols
 
 pub type xcb_key_symbols_t = _XCBKeySymbols;
 
-#[link(name = "xcb")]
+#[link(name = "xcb-keysyms")]
 extern "C" {
   pub fn xcb_key_symbols_alloc(c: *mut xcb_connection_t) -> *mut xcb_key_symbols_t;
 

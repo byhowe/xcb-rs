@@ -582,7 +582,7 @@ pub struct xcb_sync_alarm_notify_event_t
   pub pad0: [u8; 3usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-sync")]
 extern "C" {
   pub static mut xcb_sync_id: xcb_extension_t;
 

@@ -1656,7 +1656,7 @@ pub struct xcb_randr_notify_event_t
   pub u: xcb_randr_notify_data_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-randr")]
 extern "C" {
   pub static mut xcb_randr_id: xcb_extension_t;
 

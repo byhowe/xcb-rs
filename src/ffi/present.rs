@@ -333,7 +333,7 @@ pub struct xcb_present_redirect_notify_event_t
   pub remainder: u64,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-present")]
 extern "C" {
   pub static mut xcb_present_id: xcb_extension_t;
 

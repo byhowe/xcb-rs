@@ -140,7 +140,7 @@ pub struct xcb_damage_notify_event_t
   pub geometry: xcb_rectangle_t,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-damage")]
 extern "C" {
   pub static mut xcb_damage_id: xcb_extension_t;
 

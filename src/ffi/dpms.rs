@@ -179,7 +179,7 @@ pub struct xcb_dpms_info_reply_t
   pub pad1: [u8; 21usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-dpms")]
 extern "C" {
   pub static mut xcb_dpms_id: xcb_extension_t;
 

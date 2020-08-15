@@ -4247,7 +4247,7 @@ pub struct xcb_input_class_error_t
   pub sequence: u16,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xinput")]
 extern "C" {
   pub static mut xcb_input_id: xcb_extension_t;
 

@@ -202,7 +202,7 @@ pub struct xcb_xinerama_query_screens_reply_t
   pub pad1: [u8; 20usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xinerama")]
 extern "C" {
   pub static mut xcb_xinerama_id: xcb_extension_t;
 

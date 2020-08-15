@@ -201,7 +201,7 @@ pub struct xcb_screensaver_notify_event_t
   pub pad0: [u8; 14usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-screensaver")]
 extern "C" {
   pub static mut xcb_screensaver_id: xcb_extension_t;
 

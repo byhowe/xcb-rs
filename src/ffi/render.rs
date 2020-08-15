@@ -1113,7 +1113,7 @@ pub struct xcb_render_create_conical_gradient_request_t
   pub num_stops: u32,
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-render")]
 extern "C" {
   pub static mut xcb_render_id: xcb_extension_t;
 

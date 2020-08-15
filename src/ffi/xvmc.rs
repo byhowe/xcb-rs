@@ -295,7 +295,7 @@ pub struct xcb_xvmc_list_subpicture_types_reply_t
   pub pad1: [u8; 20usize],
 }
 
-#[link(name = "xcb")]
+#[link(name = "xcb-xvmc")]
 extern "C" {
   pub static mut xcb_xvmc_id: xcb_extension_t;
 
