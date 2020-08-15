@@ -51,6 +51,18 @@ impl X
   {
     Setup::from(unsafe { xcb::get_setup(self.c) })
   }
+
+  pub fn grab<F>(
+    &self,
+    callback: F,
+  ) where
+    F: FnOnce(),
+  {
+    unsafe { xcb::grab_server(self.c) };
+    callback();
+    unsafe { xcb::ungrab_server(self.c) };
+    self.flush();
+  }
 }
 
 impl Drop for X
